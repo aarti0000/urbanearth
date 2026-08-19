@@ -1,50 +1,26 @@
-
-import Announcement from "./components/AnnouncementBar";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Providers from "./components/Providers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "HomeHaven",
-  description: "Beautiful and timeless home decor",
-};
+import AnnouncementBar from "@/components/AnnouncementBar";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { CartProvider } from "@/components/CartContext";
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en">
       <body>
-        <Providers>
-          <Announcement />
-
+        <CartProvider>
+          <AnnouncementBar />
           <Header />
 
-          <main className="min-h-full flex flex-col">
-            {children}
-          </main>
+          {children}
 
           <Footer />
-        </Providers>
+        </CartProvider>
       </body>
-    </html>
+    </html> 
   );
 }

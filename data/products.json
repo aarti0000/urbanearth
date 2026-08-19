@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Ceramic Nordic Vase",
+    "category": "Vases",
+    "price": 5550,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Minimal Table Lamp",
+    "category": "Lighting",
+    "price": 7820,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Abstract Wall Art",
+    "category": "Wall Decor",
+    "price": 5000,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Stoneware Vase",
+    "category": "Vases",
+    "price": 4800,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Warm Glow Lamp",
+    "category": "Lighting",
+    "price": 7500,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Modern Canvas Art",
+    "category": "Wall Decor",
+    "price": 6200,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Matte Beige Vase",
+    "category": "Vases",
+    "price": 4250,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Nordic Floor Lamp",
+    "category": "Lighting",
+    "price": 9500,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 9,
+    "name": "Minimalist Wall Print",
+    "category": "Wall Decor",
+    "price": 3800,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Modern Clay Vase",
+    "category": "Vases",
+    "price": 3950,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Elegant Pendant Light",
+    "category": "Lighting",
+    "price": 8900,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Neutral Botanical Art",
+    "category": "Wall Decor",
+    "price": 4500,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 13,
+    "name": "Sculptural White Vase",
+    "category": "Vases",
+    "price": 6200,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 14,
+    "name": "Modern Bedside Lamp",
+    "category": "Lighting",
+    "price": 6750,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 15,
+    "name": "Abstract Beige Canvas",
+    "category": "Wall Decor",
+    "price": 5750,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 16,
+    "name": "Decorative Ceramic Bowl",
+    "category": "Decor",
+    "price": 3200,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 17,
+    "name": "Wooden Decorative Tray",
+    "category": "Decor",
+    "price": 3600,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 18,
+    "name": "Minimal Candle Holder",
+    "category": "Decor",
+    "price": 2750,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 19,
+    "name": "Marble Accent Lamp",
+    "category": "Lighting",
+    "price": 7200,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 20,
+    "name": "Ceramic Decorative Planter",
+    "category": "Decor",
+    "price": 4350,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80"
+  }
+]
