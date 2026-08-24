@@ -2,6 +2,7 @@
 
 import { useCart } from "@/components/CartContext";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CartPage() {
   const {
@@ -69,9 +70,11 @@ export default function CartPage() {
 
                 {/* Image */}
 
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
+                  width={128}
+                  height={128}
                   className="h-32 w-32 rounded-xl object-cover"
                 />
 

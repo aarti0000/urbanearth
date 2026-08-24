@@ -12,7 +12,7 @@ export default function NotFound() {
         </h1>
 
         <p className="mt-4 text-stone-500">
-          Sorry, we couldn't find what you're looking for.
+          Sorry, we couldn&apos;t find what you&apos;re looking for.
         </p>
 
         <Link

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #202733; font-family: Arial, Helvetica, sans-serif; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
 @keyframes marquee {
   0% {
     transform: translateX(0);

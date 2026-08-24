@@ -158,5 +158,133 @@
     "price": 4350,
     "rating": 5,
     "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 21,
+    "name": "Natural Oak Laminate",
+    "category": "Laminate Flooring",
+    "price": 4850,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 22,
+    "name": "Herringbone Oak Parquet",
+    "category": "Parquet",
+    "price": 7250,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 23,
+    "name": "Stone Grey SPC Flooring",
+    "category": "SPC Flooring",
+    "price": 5650,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 24,
+    "name": "Handwoven Heritage Rug",
+    "category": "Rugs",
+    "price": 12500,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 25,
+    "name": "Soft Loop Pile Carpet",
+    "category": "Carpets",
+    "price": 3950,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 26,
+    "name": "Warm Walnut Laminate",
+    "category": "Laminate Flooring",
+    "price": 5250,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 27,
+    "name": "Premium Entrance Doormat",
+    "category": "Doormats",
+    "price": 1850,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 28,
+    "name": "Landscape Artificial Grass",
+    "category": "Artificial Grass",
+    "price": 2750,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 29,
+    "name": "Smoked Oak Engineered Flooring",
+    "category": "Engineered Flooring",
+    "price": 7950,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 30,
+    "name": "Sandstone Luxury Vinyl",
+    "category": "Vinyl Flooring",
+    "price": 4450,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 31,
+    "name": "Chevron Natural Parquet",
+    "category": "Parquet",
+    "price": 8350,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 32,
+    "name": "Ivory Textured Carpet",
+    "category": "Carpets",
+    "price": 4150,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 33,
+    "name": "Natural Jute Area Rug",
+    "category": "Rugs",
+    "price": 9850,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 34,
+    "name": "White Ash Laminate",
+    "category": "Laminate Flooring",
+    "price": 4950,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 35,
+    "name": "Comfort Bedroom Carpet",
+    "category": "Carpets",
+    "price": 4650,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 36,
+    "name": "Concrete Grey SPC Plank",
+    "category": "SPC Flooring",
+    "price": 5950,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=85"
   }
 ]

@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LoginForm() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -60,10 +61,12 @@ export default function LoginForm() {
           ref={imageRef}
           className="relative min-h-[300px] md:min-h-[650px] overflow-hidden opacity-100"
         >
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
             alt="Home interior"
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
 
           {/* Image overlay */}
@@ -180,7 +183,7 @@ export default function LoginForm() {
 
             {/* Register */}
             <p className="text-center text-sm text-[#81766d]">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link
                 href="/register"
                 className="font-medium text-[#2f2a26] hover:text-[#8b7355] transition"

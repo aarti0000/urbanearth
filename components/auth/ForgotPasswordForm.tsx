@@ -48,7 +48,7 @@ export default function ForgotPasswordForm() {
           </h1>
 
           <p className="mt-4 text-sm leading-6 text-[#81766d]">
-            Enter the email address associated with your account and we'll
+            Enter the email address associated with your account and we&apos;ll
             send you instructions to reset your password.
           </p>
 

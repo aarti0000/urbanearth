@@ -1,5 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Star } from "lucide-react";
 
 type Product = {
   id: number;
@@ -11,57 +12,46 @@ type Product = {
   description?: string;
 };
 
-type ProductCardProps = {
-  product: Product;
-};
+type ProductCardProps = { product: Product };
 
 export default function ProductCard2({ product }: ProductCardProps) {
   return (
-    <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-
-      {/* Product image */}
-      <Link href={`/product/${product.id}`}>
-        <div className="relative h-72 w-full overflow-hidden bg-stone-100">
-
+    <article className="group min-w-0 overflow-hidden rounded-lg border border-[#dfe5ec] bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[#ff8a3d] hover:shadow-[0_12px_28px_rgba(6,63,130,0.10)]">
+      <Link href={`/product/${product.id}`} className="block">
+        <div className="relative aspect-[4/4.6] w-full overflow-hidden bg-[#f1f3f4]">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-
-          {/* Category badge */}
-          <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-stone-700 backdrop-blur-sm">
+          <span className="absolute left-2 top-2 rounded bg-white/95 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.14em] text-[#063f82] shadow-sm backdrop-blur-sm sm:left-3 sm:top-3">
             {product.category}
-          </div>
+          </span>
         </div>
 
-        {/* Product information */}
-        <div className="p-5">
+        <div className="p-3 sm:p-4">
+          <div className="mb-1.5 flex items-center gap-1 text-[10px] text-[#6f7f91] sm:text-[11px]">
+            <Star size={11} className="fill-[#ff6600] text-[#ff6600]" />
+            <span className="font-semibold text-[#36485b]">{product.rating}.0</span>
+            <span>rating</span>
+          </div>
 
-          <h2 className="font-serif text-xl text-stone-900 transition-colors duration-300 group-hover:text-stone-600">
+          <h2 className="line-clamp-1 text-sm font-semibold tracking-[-0.015em] text-[#202020] transition-colors duration-300 group-hover:text-[#063f82] sm:text-[15px]">
             {product.name}
           </h2>
 
-          {/* Rating */}
-          <div className="mt-2 flex items-center gap-2">
-            <span className="text-sm tracking-wide text-amber-500">
-              {"★".repeat(product.rating)}
-            </span>
-
-            <span className="text-xs text-stone-400">
-              ({product.rating})
+          <div className="mt-3 flex items-center justify-between gap-2 border-t border-[#edf0f3] pt-3">
+            <p className="text-xs font-bold tracking-[-0.01em] text-[#063f82] sm:text-sm">
+              Rs. {product.price.toLocaleString()}
+            </p>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff2e9] text-[#ff6600] transition-colors group-hover:bg-[#ff6600] group-hover:text-white sm:h-8 sm:w-8">
+              <ArrowUpRight size={15} strokeWidth={1.8} />
             </span>
           </div>
-
-          {/* Price */}
-          <p className="mt-3 text-lg font-semibold text-stone-900">
-            Rs. {product.price.toLocaleString()}
-          </p>
-
         </div>
       </Link>
-    </div>
+    </article>
   );
 }

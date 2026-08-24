@@ -1,21 +1,8 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import FeaturedProducts from "@/components/FeaturedProducts";
-import Footer from "@/components/Footer";
+import HomeStorySections from "@/components/HomeStorySections";
 
 export default function HomePage() {
-  return (
-    <>
-    
-
-      <main>
-        <Hero />
-        <Categories />
-        <FeaturedProducts />
-      </main>
-
-    
-    </>
-  );
+  return <main className="bg-white"><Hero /><Categories /><FeaturedProducts /><HomeStorySections /></main>;
 }

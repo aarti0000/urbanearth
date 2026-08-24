@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactInfo() {
   const contactDetails = [
@@ -41,10 +42,12 @@ export default function ContactInfo() {
               className="group relative h-[360px] overflow-hidden rounded-2xl"
             >
               {/* Background Image */}
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Overlay */}

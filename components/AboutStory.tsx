@@ -1,14 +1,18 @@
+import Image from "next/image";
+
 export default function AboutStory() {
   return (
     <section className="bg-white px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
         {/* Image */}
-        <div className="overflow-hidden rounded-2xl">
-          <img
+        <div className="relative h-[500px] overflow-hidden rounded-2xl">
+          <Image
             src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80"
             alt="Beautiful home interior"
-            className="h-[500px] w-full object-cover"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
 
@@ -35,7 +39,7 @@ export default function AboutStory() {
           </p>
 
           <p className="mt-4 text-base leading-8 text-stone-600">
-            Our goal isn't to fill your home with more things. It's to help
+            Our goal isn&apos;t to fill your home with more things. It&apos;s to help
             you find pieces that make your space feel truly yours.
           </p>
         </div>

@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function RegisterForm() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,10 +57,12 @@ export default function RegisterForm() {
           ref={imageRef}
           className="relative min-h-[300px] md:min-h-[700px] overflow-hidden"
         >
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
             alt="Beautiful home interior"
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
 
           <div className="absolute inset-0 bg-black/25" />

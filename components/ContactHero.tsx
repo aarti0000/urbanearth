@@ -8,7 +8,7 @@ export default function ContactHero() {
         </p>
 
         <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-tight text-stone-900 sm:text-6xl lg:text-7xl">
-          We'd love to hear from you.
+          We&apos;d love to hear from you.
         </h1>
 
         <p className="mt-7 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">

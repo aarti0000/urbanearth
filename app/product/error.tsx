@@ -15,7 +15,7 @@ export default function ErrorPage({
         </h1>
 
         <p className="mt-4 text-stone-500">
-          We couldn't load this page.
+          We couldn&apos;t load this page.
         </p>
 
         <button

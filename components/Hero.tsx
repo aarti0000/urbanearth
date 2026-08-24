@@ -1,159 +1,21 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      tl.from(".hero-label", {
-        opacity: 0,
-        y: 20,
-        duration: 0.7,
-        ease: "power3.out",
-      })
-        .from(
-          ".hero-title",
-          {
-            opacity: 0,
-            y: 50,
-            duration: 0.9,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".hero-description",
-          {
-            opacity: 0,
-            y: 30,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.5"
-        )
-        .from(
-          ".hero-button",
-          {
-            opacity: 0,
-            y: 25,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".hero-trust",
-          {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".hero-image",
-          {
-            opacity: 0,
-            x: 80,
-            duration: 1.1,
-            ease: "power3.out",
-          },
-          "-=0.8"
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative overflow-hidden bg-[#f8f5ef]"
-    >
-      {/* Decorative background */}
-      <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-stone-200/40 blur-3xl" />
-
-      <div className="relative mx-auto grid min-h-[calc(100vh-120px)] max-w-7xl items-center gap-12 px-6 py-16 sm:px-10 lg:grid-cols-2 lg:px-8 lg:py-20">
-
-        {/* LEFT CONTENT */}
-        <div className="max-w-xl">
-
-          {/* Label */}
-          <div className="hero-label inline-flex items-center gap-3">
-            <span className="h-px w-10 bg-stone-400" />
-
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-stone-500">
-              HomeHaven
-            </p>
+    <section className="relative isolate overflow-hidden bg-[#17140f] text-white">
+      <Image src="/images/Screenshot 2026-08-24 110128.png" alt="Modern bedroom with premium wood flooring" fill priority sizes="100vw" className="object-cover object-center" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/5" />
+      <div className="relative mx-auto flex min-h-[390px] max-w-[1440px] items-center px-5 py-12 sm:min-h-[440px] sm:px-8 lg:min-h-[470px] lg:px-10">
+        <div className="max-w-[620px]">
+          <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#ff6600] sm:text-xs">Best flooring in Nepal</p>
+          <h1 className="max-w-[580px] text-[42px] font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[58px]">Transform Your Space with <span className="text-[#ff6600]">Beautiful Flooring</span></h1>
+          <p className="mt-5 max-w-[530px] text-sm leading-6 text-white/82 sm:text-[15px]">Premium carpets, laminate, parquet, SPC flooring, rugs and more. Quality you can trust, beauty that lasts.</p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/products" className="inline-flex min-h-12 items-center gap-2 rounded bg-[#ff6600] px-6 text-xs font-bold uppercase text-white transition hover:bg-[#e65c00]">Shop now <ArrowRight size={16} /></Link>
+            <Link href="#categories" className="inline-flex min-h-12 items-center rounded border border-white/60 px-6 text-xs font-bold uppercase text-white transition hover:bg-white hover:text-[#062f64]">Explore categories</Link>
           </div>
-
-          {/* Heading */}
-          <h1 className="hero-title mt-6 font-serif text-5xl leading-[1.05] text-stone-900 sm:text-6xl lg:text-7xl">
-            Make your space
-            <br />
-            <span className="italic text-stone-600">
-              feel like home.
-            </span>
-          </h1>
-
-          {/* Description */}
-          <p className="hero-description mt-7 max-w-lg text-base leading-8 text-stone-600 sm:text-lg">
-            Thoughtfully selected home decor pieces designed
-            to make your everyday spaces beautiful, warm and personal.
-          </p>
-
-          {/* Button */}
-          <div className="hero-button mt-9">
-            <Link
-              href="/products"
-              className="group inline-flex items-center gap-3 rounded-full bg-stone-900 px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-stone-800 hover:shadow-xl"
-            >
-              Shop Collection
-
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
-          </div>
-
-          {/* Trust */}
-          <div className="hero-trust mt-10 flex items-center gap-6 text-xs text-stone-500">
-            <span>✦ Carefully Curated</span>
-            <span>✦ Timeless Design</span>
-          </div>
-        </div>
-
-        {/* IMAGE */}
-        <div className="hero-image relative">
-
-          <div className="relative h-[500px] overflow-hidden rounded-[2rem] sm:h-[600px]">
-            <img
-              src="/images/dimages.jpg"
-              alt="Beautiful home interior"
-              className="h-full w-full object-cover transition-transform duration-[1200ms] hover:scale-105"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-          </div>
-
-          {/* Floating card */}
-          <div className="absolute -bottom-5 left-5 rounded-2xl bg-white/90 px-5 py-4 shadow-xl backdrop-blur-md sm:left-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-stone-400">
-              Curated for you
-            </p>
-
-            <p className="mt-1 font-serif text-lg text-stone-900">
-              Beautiful living
-            </p>
-          </div>
-
         </div>
       </div>
     </section>

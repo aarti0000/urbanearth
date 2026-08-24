@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import CategoryFilter from "@/components/CategoryFilter";
@@ -8,13 +8,9 @@ import ProductGrid from "@/components/ProductGrid";
 
 function ProductsContent() {
   const searchParams = useSearchParams();
-  const [category, setCategory] = useState("All");
-
-  useEffect(() => {
-    const categoryFromUrl = searchParams.get("category");
-
-    setCategory(categoryFromUrl || "All");
-  }, [searchParams]);
+  const [category, setCategory] = useState(
+    () => searchParams.get("category") || "All"
+  );
 
   return (
     <>

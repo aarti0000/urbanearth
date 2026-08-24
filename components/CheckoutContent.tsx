@@ -2,6 +2,7 @@
 
 import { useCart } from "@/components/CartContext";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   Check,
@@ -124,7 +125,7 @@ export default function CheckoutContent() {
                   </h2>
 
                   <p className="text-xs text-stone-500">
-                    We'll use this to contact you about your order.
+                    We&apos;ll use this to contact you about your order.
                   </p>
                 </div>
               </div>
@@ -295,10 +296,12 @@ export default function CheckoutContent() {
                     className="flex gap-4"
                   >
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-stone-100">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.name}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="80px"
+                        className="object-cover"
                       />
 
                       <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-stone-900 px-1 text-[10px] text-white">

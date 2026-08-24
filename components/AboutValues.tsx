@@ -1,4 +1,5 @@
 import { Heart, Sparkles, Home } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutValues() {
   const values = [
@@ -60,10 +61,12 @@ export default function AboutValues() {
                 className="group relative h-[420px] overflow-hidden rounded-2xl"
               >
                 {/* Background Image */}
-                <img
+                <Image
                   src={value.image}
                   alt={value.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Dark Overlay */}
