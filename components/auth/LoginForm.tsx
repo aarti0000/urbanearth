@@ -1,14 +1,27 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
+
+import {
+  Eye,
+  EyeOff,
+  LockKeyhole,
+  Mail,
+  PackageCheck,
+  ShieldCheck,
+  Truck,
+  Wrench,
+} from "lucide-react";
 
 export default function LoginForm() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -17,7 +30,7 @@ export default function LoginForm() {
       tl.fromTo(
         imageRef.current,
         {
-          x: -60,
+          x: -50,
           opacity: 0,
         },
         {
@@ -36,11 +49,11 @@ export default function LoginForm() {
         {
           x: 0,
           opacity: 1,
-          duration: 0.7,
+          duration: 0.75,
           ease: "power3.out",
           clearProps: "transform",
         },
-        "-=0.4"
+        "-=0.45"
       );
     }, containerRef);
 
@@ -52,149 +65,949 @@ export default function LoginForm() {
   return (
     <main
       ref={containerRef}
-      className="min-h-[calc(100vh-110px)] bg-[#faf7f2] flex items-center justify-center px-5 py-10 md:px-10"
+      className="bg-[#fafafa]"
     >
-      <div className="w-full max-w-6xl grid md:grid-cols-2 overflow-hidden rounded-2xl shadow-sm">
+      {/* =====================================================
+          LOGIN SECTION
+      ====================================================== */}
 
-        {/* LEFT IMAGE */}
+      <section
+        className="
+          relative
+          overflow-hidden
+          bg-gradient-to-r
+          from-[#faf7f2]
+          via-white
+          to-white
+        "
+      >
         <div
-          ref={imageRef}
-          className="relative min-h-[300px] md:min-h-[650px] overflow-hidden opacity-100"
+          className="
+            mx-auto
+            grid
+            min-h-[650px]
+            max-w-[1440px]
+            lg:grid-cols-[0.95fr_1.05fr]
+          "
         >
-          <Image
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
-            alt="Home interior"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
+          {/* =================================================
+              LEFT SIDE
+          ================================================== */}
 
-          {/* Image overlay */}
-          <div className="absolute inset-0 bg-black/20" />
+          <div
+            ref={imageRef}
+            className="
+              relative
+              min-h-[500px]
+              overflow-hidden
+              opacity-100
 
-          {/* Text */}
-          <div className="absolute bottom-10 left-8 md:left-12 text-white max-w-md z-10">
-            <p className="text-xs uppercase tracking-[0.3em] mb-3">
-              Make your space
-            </p>
+              sm:min-h-[560px]
 
-            <h1 className="text-4xl md:text-5xl font-serif leading-tight">
-              Feel like home.
-            </h1>
+              lg:min-h-[700px]
+            "
+          >
+            {/* Background image */}
 
-            <p className="mt-4 text-sm md:text-base text-white/90 leading-6">
-              Thoughtfully selected pieces for spaces that feel warm,
-              beautiful, and uniquely yours.
-            </p>
-          </div>
-        </div>
+           <Image
+  src="/images/login-room.jpg"
+  alt="Urban Earth modern interior"
+  fill
+  sizes="(max-width: 1023px) 100vw, 50vw"
+  className="object-cover object-center"
+/>
 
-        {/* RIGHT LOGIN */}
-        <div
-          ref={contentRef}
-          className="bg-white flex items-center justify-center px-7 py-12 md:px-14 opacity-100"
-        >
-          <div className="w-full max-w-md">
+            {/* Gradient overlay */}
 
-            {/* Brand */}
-            <div className="mb-10">
-              <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#8b7355]">
-                HomeHaven
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-r
+                from-[#faf7f2]
+                via-[#faf7f2]/90
+                to-[#faf7f2]/15
+
+                lg:via-[#faf7f2]/80
+              "
+            />
+
+            {/* Bottom soft gradient */}
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-t
+                from-[#faf7f2]/80
+                via-transparent
+                to-transparent
+              "
+            />
+
+            {/* Left Content */}
+
+            <div
+              className="
+                relative
+                z-10
+                flex
+                min-h-[500px]
+                max-w-[600px]
+                flex-col
+                justify-center
+                px-6
+                py-16
+
+                sm:min-h-[560px]
+                sm:px-10
+
+                md:px-14
+
+                lg:min-h-[700px]
+                lg:px-16
+
+                xl:px-20
+              "
+            >
+              <p
+                className="
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  text-[#ff6600]
+
+                  sm:text-sm
+                "
+              >
+                Welcome Back
               </p>
 
-              <h2 className="mt-4 text-3xl md:text-4xl font-serif text-[#2f2a26]">
-                Welcome back
-              </h2>
+              <h1
+                className="
+                  mt-5
+                  max-w-[520px]
+                  text-[38px]
+                  font-bold
+                  leading-[1.08]
+                  tracking-[-0.03em]
+                  text-[#171717]
 
-              <p className="mt-3 text-sm text-[#81766d]">
-                Sign in to continue to your account.
+                  sm:text-[48px]
+
+                  lg:text-[54px]
+                "
+              >
+                Login to Your{" "}
+                <span className="text-[#ff6600]">
+                  Urban Earth
+                </span>{" "}
+                Account
+              </h1>
+
+              <div
+                className="
+                  mt-6
+                  h-[2px]
+                  w-14
+                  bg-[#ff6600]
+                "
+              />
+
+              <p
+                className="
+                  mt-7
+                  max-w-[470px]
+                  text-sm
+                  leading-7
+                  text-[#494949]
+
+                  sm:text-[15px]
+                "
+              >
+                Login to access your profile, track orders,
+                save addresses and enjoy a faster checkout
+                experience.
               </p>
-            </div>
 
-            {/* FORM */}
-            <form className="space-y-5">
+              {/* Benefits */}
 
-              {/* Email */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-[#403832] mb-2"
-                >
-                  Email address
-                </label>
+              <div
+                className="
+                  mt-10
+                  grid
+                  max-w-[440px]
+                  gap-6
 
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] placeholder:text-[#aaa19a] outline-none transition focus:border-[#8b7355] focus:bg-white"
+                  sm:mt-12
+                "
+              >
+                <LoginBenefit
+                  icon={
+                    <ShieldCheck
+                      size={23}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Secure & Safe"
+                  description="Your information is always protected."
+                />
+
+                <LoginBenefit
+                  icon={
+                    <PackageCheck
+                      size={23}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Track Your Orders"
+                  description="View your order history and current status."
+                />
+
+                <LoginBenefit
+                  icon={
+                    <LockKeyhole
+                      size={22}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Faster Checkout"
+                  description="Save your details for a smoother experience."
                 />
               </div>
+            </div>
+          </div>
 
-              {/* Password */}
+          {/* =================================================
+              RIGHT LOGIN FORM
+          ================================================== */}
+
+          <div
+            ref={contentRef}
+            className="
+              flex
+              items-center
+              justify-center
+              bg-[#fafafa]
+              px-4
+              py-12
+              opacity-100
+
+              sm:px-8
+              sm:py-16
+
+              lg:bg-white
+              lg:px-12
+
+              xl:px-20
+            "
+          >
+            <div
+              className="
+                w-full
+                max-w-[540px]
+                rounded-2xl
+                border
+                border-[#e8e8e8]
+                bg-white
+                p-6
+                shadow-[0_15px_50px_rgba(0,0,0,0.06)]
+
+                sm:p-8
+
+                md:p-10
+              "
+            >
+              {/* Heading */}
+
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label
-                    htmlFor="password"
-                    className="text-sm font-medium text-[#403832]"
+                <h2
+                  className="
+                    text-2xl
+                    font-bold
+                    tracking-[-0.02em]
+                    text-[#171717]
+
+                    sm:text-[28px]
+                  "
+                >
+                  Login
+                </h2>
+
+                <p
+                  className="
+                    mt-2
+                    text-sm
+                    text-[#666]
+                  "
+                >
+                  Don&apos;t have an account?{" "}
+                  <Link
+                    href="/register"
+                    className="
+                      font-semibold
+                      text-[#ff6600]
+                      transition-colors
+                      hover:text-[#e55c00]
+                    "
                   >
-                    Password
+                    Create Account
+                  </Link>
+                </p>
+              </div>
+
+              {/* =================================================
+                  FORM
+              ================================================== */}
+
+              <form
+                className="mt-8 space-y-5"
+                onSubmit={(event) => {
+                  event.preventDefault();
+
+                  /*
+                   * Connect this with your login API
+                   * later.
+                   */
+                }}
+              >
+                {/* Email */}
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="
+                      mb-2
+                      block
+                      text-sm
+                      font-semibold
+                      text-[#252525]
+                    "
+                  >
+                    Email Address
                   </label>
 
-                  <Link
-                    href="/forgotpassword"
-                    className="text-xs text-[#8b7355] hover:text-[#2f2a26] transition"
-                  >
-                    Forgot password?
-                  </Link>
+                  <div className="relative">
+                    <Mail
+                      size={19}
+                      strokeWidth={1.7}
+                      className="
+                        absolute
+                        left-4
+                        top-1/2
+                        -translate-y-1/2
+                        text-[#8b8b8b]
+                      "
+                    />
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      placeholder="Enter your email"
+                      className="
+                        h-13
+                        w-full
+                        rounded-lg
+                        border
+                        border-[#dedede]
+                        bg-white
+                        pl-12
+                        pr-4
+                        text-sm
+                        text-[#222]
+                        outline-none
+                        transition-all
+
+                        placeholder:text-[#aaa]
+
+                        focus:border-[#063f82]
+                        focus:ring-2
+                        focus:ring-[#063f82]/10
+                      "
+                    />
+                  </div>
                 </div>
 
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  placeholder="Enter your password"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] placeholder:text-[#aaa19a] outline-none transition focus:border-[#8b7355] focus:bg-white"
-                />
+                {/* Password */}
+
+                <div>
+                  <div
+                    className="
+                      mb-2
+                      flex
+                      items-center
+                      justify-between
+                      gap-3
+                    "
+                  >
+                    <label
+                      htmlFor="password"
+                      className="
+                        text-sm
+                        font-semibold
+                        text-[#252525]
+                      "
+                    >
+                      Password
+                    </label>
+
+                    <Link
+                      href="/forgotpassword"
+                      className="
+                        text-xs
+                        font-medium
+                        text-[#ff6600]
+                        transition-colors
+
+                        hover:text-[#e55c00]
+
+                        sm:text-[13px]
+                      "
+                    >
+                      Forgot Password?
+                    </Link>
+                  </div>
+
+                  <div className="relative">
+                    <LockKeyhole
+                      size={19}
+                      strokeWidth={1.7}
+                      className="
+                        absolute
+                        left-4
+                        top-1/2
+                        -translate-y-1/2
+                        text-[#8b8b8b]
+                      "
+                    />
+
+                    <input
+                      id="password"
+                      name="password"
+                      type={
+                        showPassword
+                          ? "text"
+                          : "password"
+                      }
+                      required
+                      autoComplete="current-password"
+                      placeholder="Enter your password"
+                      className="
+                        h-13
+                        w-full
+                        rounded-lg
+                        border
+                        border-[#dedede]
+                        bg-white
+                        pl-12
+                        pr-12
+                        text-sm
+                        text-[#222]
+                        outline-none
+                        transition-all
+
+                        placeholder:text-[#aaa]
+
+                        focus:border-[#063f82]
+                        focus:ring-2
+                        focus:ring-[#063f82]/10
+                      "
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setShowPassword(
+                          (previous) => !previous
+                        )
+                      }
+                      aria-label={
+                        showPassword
+                          ? "Hide password"
+                          : "Show password"
+                      }
+                      className="
+                        absolute
+                        right-4
+                        top-1/2
+                        -translate-y-1/2
+                        text-[#888]
+                        transition-colors
+
+                        hover:text-[#063f82]
+                      "
+                    >
+                      {showPassword ? (
+                        <EyeOff
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      ) : (
+                        <Eye
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Remember Me */}
+
+                <label
+                  className="
+                    flex
+                    cursor-pointer
+                    items-center
+                    gap-2.5
+                    text-sm
+                    text-[#444]
+                  "
+                >
+                  <input
+                    type="checkbox"
+                    name="remember"
+                    className="
+                      h-4
+                      w-4
+                      cursor-pointer
+                      accent-[#ff6600]
+                    "
+                  />
+
+                  Remember me
+                </label>
+
+                {/* Login Button */}
+
+                <button
+                  type="submit"
+                  className="
+                    flex
+                    h-13
+                    w-full
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-[#ff6600]
+                    px-6
+                    text-sm
+                    font-bold
+                    text-white
+                    transition-all
+                    duration-200
+
+                    hover:-translate-y-0.5
+                    hover:bg-[#e85d00]
+                    hover:shadow-lg
+
+                    active:translate-y-0
+                  "
+                >
+                  Login
+                </button>
+              </form>
+
+              {/* =================================================
+                  SOCIAL DIVIDER
+              ================================================== */}
+
+              <div
+                className="
+                  my-7
+                  flex
+                  items-center
+                  gap-4
+                "
+              >
+                <div className="h-px flex-1 bg-[#e5e5e5]" />
+
+                <span
+                  className="
+                    whitespace-nowrap
+                    text-xs
+                    text-[#999]
+                  "
+                >
+                  or continue with
+                </span>
+
+                <div className="h-px flex-1 bg-[#e5e5e5]" />
               </div>
 
-              {/* Sign in */}
+              {/* =================================================
+                  GOOGLE
+              ================================================== */}
+
               <button
-                type="submit"
-                className="w-full rounded-lg bg-[#2f2a26] py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-[#8b7355] hover:-translate-y-0.5"
+                type="button"
+                className="
+                  flex
+                  h-12
+                  w-full
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-lg
+                  border
+                  border-[#dedede]
+                  bg-white
+                  text-sm
+                  font-semibold
+                  text-[#333]
+                  transition-all
+
+                  hover:border-[#bfbfbf]
+                  hover:bg-[#fafafa]
+                "
               >
-                Sign in
+                <GoogleIcon />
+
+                Continue with Google
               </button>
-            </form>
 
-            {/* Divider */}
-            <div className="flex items-center gap-4 my-8">
-              <div className="h-px flex-1 bg-[#e5dfd8]" />
+              {/* =================================================
+                  FACEBOOK
+              ================================================== */}
 
-              <span className="text-xs text-[#a39a92]">
-                OR
-              </span>
+              <button
+                type="button"
+                className="
+                  mt-3
+                  flex
+                  h-12
+                  w-full
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-lg
+                  border
+                  border-[#dedede]
+                  bg-white
+                  text-sm
+                  font-semibold
+                  text-[#333]
+                  transition-all
 
-              <div className="h-px flex-1 bg-[#e5dfd8]" />
-            </div>
-
-            {/* Register */}
-            <p className="text-center text-sm text-[#81766d]">
-              Don&apos;t have an account?{" "}
-              <Link
-                href="/register"
-                className="font-medium text-[#2f2a26] hover:text-[#8b7355] transition"
+                  hover:border-[#bfbfbf]
+                  hover:bg-[#fafafa]
+                "
               >
-                Create an account
-              </Link>
-            </p>
+                <FacebookIcon />
 
+                Continue with Facebook
+              </button>
+
+              {/* Terms */}
+
+              <p
+                className="
+                  mt-7
+                  text-center
+                  text-[11px]
+                  leading-5
+                  text-[#777]
+
+                  sm:text-xs
+                "
+              >
+                By logging in, you agree to our{" "}
+                <Link
+                  href="/terms"
+                  className="
+                    font-medium
+                    text-[#ff6600]
+                    hover:underline
+                  "
+                >
+                  Terms &amp; Conditions
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/privacy"
+                  className="
+                    font-medium
+                    text-[#ff6600]
+                    hover:underline
+                  "
+                >
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* =====================================================
+          BENEFITS STRIP
+      ====================================================== */}
+
+      <section
+        className="
+          border-y
+          border-[#e8e8e8]
+          bg-[#faf8f5]
+        "
+      >
+        <div
+          className="
+            mx-auto
+            grid
+            max-w-[1440px]
+            grid-cols-2
+            gap-y-6
+            px-4
+            py-7
+
+            sm:px-6
+
+            lg:grid-cols-4
+            lg:gap-0
+            lg:px-8
+          "
+        >
+          <StoreBenefit
+            icon={
+              <Truck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="FREE DELIVERY"
+            description="Across Nepal"
+          />
+
+          <StoreBenefit
+            icon={
+              <Wrench
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="EXPERT INSTALLATION"
+            description="Professional & Reliable"
+          />
+
+          <StoreBenefit
+            icon={
+              <ShieldCheck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="PREMIUM QUALITY"
+            description="Built to Last"
+          />
+
+          <StoreBenefit
+            icon={
+              <PackageCheck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="CUSTOMER SATISFACTION"
+            description="Our Top Priority"
+          />
+        </div>
+      </section>
     </main>
+  );
+}
+
+/* =========================================================
+   LOGIN BENEFIT
+========================================================= */
+
+function LoginBenefit({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div
+      className="
+        flex
+        items-center
+        gap-4
+      "
+    >
+      <div
+        className="
+          flex
+          h-12
+          w-12
+          shrink-0
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-[#ff6600]
+          shadow-[0_5px_20px_rgba(0,0,0,0.08)]
+        "
+      >
+        {icon}
+      </div>
+
+      <div>
+        <p
+          className="
+            text-sm
+            font-bold
+            text-[#222]
+          "
+        >
+          {title}
+        </p>
+
+        <p
+          className="
+            mt-1
+            max-w-[260px]
+            text-xs
+            leading-5
+            text-[#666]
+          "
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   STORE BENEFIT
+========================================================= */
+
+function StoreBenefit({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div
+      className="
+        flex
+        items-center
+        justify-center
+        gap-3
+        px-3
+
+        lg:border-r
+        lg:border-[#dedede]
+
+        lg:last:border-r-0
+      "
+    >
+      <div
+        className="
+          shrink-0
+          text-[#063f82]
+        "
+      >
+        {icon}
+      </div>
+
+      <div>
+        <p
+          className="
+            text-[11px]
+            font-bold
+            text-[#222]
+
+            sm:text-xs
+          "
+        >
+          {title}
+        </p>
+
+        <p
+          className="
+            mt-0.5
+            text-[11px]
+            text-[#555]
+
+            sm:text-xs
+          "
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   GOOGLE ICON
+========================================================= */
+
+function GoogleIcon() {
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        fill="#4285F4"
+        d="M21.6 12.227c0-.709-.064-1.391-.182-2.045H12v3.868h5.382a4.6 4.6 0 0 1-1.995 3.018v2.509h3.232c1.891-1.741 2.981-4.305 2.981-7.35Z"
+      />
+
+      <path
+        fill="#34A853"
+        d="M12 22c2.7 0 4.964-.895 6.619-2.423l-3.232-2.509c-.895.6-2.041.955-3.387.955-2.605 0-4.81-1.759-5.6-4.123H3.059v2.591A9.998 9.998 0 0 0 12 22Z"
+      />
+
+      <path
+        fill="#FBBC05"
+        d="M6.4 13.9A6.012 6.012 0 0 1 6.086 12c0-.659.114-1.3.314-1.9V7.509H3.059A9.998 9.998 0 0 0 2 12c0 1.614.386 3.141 1.059 4.491L6.4 13.9Z"
+      />
+
+      <path
+        fill="#EA4335"
+        d="M12 5.977c1.468 0 2.786.505 3.823 1.495l2.868-2.868C16.959 2.99 14.695 2 12 2a9.998 9.998 0 0 0-8.941 5.509L6.4 10.1c.79-2.364 2.995-4.123 5.6-4.123Z"
+      />
+    </svg>
+  );
+}
+
+/* =========================================================
+   FACEBOOK ICON
+========================================================= */
+
+function FacebookIcon() {
+  return (
+    <div
+      className="
+        flex
+        h-[19px]
+        w-[19px]
+        items-center
+        justify-center
+        rounded-full
+        bg-[#1877F2]
+        text-[14px]
+        font-bold
+        text-white
+      "
+    >
+      f
+    </div>
   );
 }

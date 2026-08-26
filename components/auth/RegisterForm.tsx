@@ -1,14 +1,39 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import Link from "next/link";
-import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Eye,
+  EyeOff,
+  LockKeyhole,
+  Mail,
+  PackageCheck,
+  Phone,
+  ShieldCheck,
+  Tag,
+  Truck,
+  UserRound,
+  Wrench,
+} from "lucide-react";
+
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+
+import gsap from "gsap";
 
 export default function RegisterForm() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const [showPassword, setShowPassword] =
+    useState(false);
+
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState(false);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -17,7 +42,7 @@ export default function RegisterForm() {
       tl.fromTo(
         imageRef.current,
         {
-          x: -60,
+          x: -50,
           opacity: 0,
         },
         {
@@ -25,6 +50,7 @@ export default function RegisterForm() {
           opacity: 1,
           duration: 0.8,
           ease: "power3.out",
+          clearProps: "transform",
         }
       ).fromTo(
         contentRef.current,
@@ -35,173 +61,1224 @@ export default function RegisterForm() {
         {
           x: 0,
           opacity: 1,
-          duration: 0.7,
+          duration: 0.75,
           ease: "power3.out",
+          clearProps: "transform",
         },
-        "-=0.4"
+        "-=0.45"
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
     <main
       ref={containerRef}
-      className="min-h-screen bg-[#faf7f2] flex items-center justify-center px-5 py-10 md:px-10"
+      className="bg-[#fafafa]"
     >
-      <div className="w-full max-w-6xl grid md:grid-cols-2 overflow-hidden rounded-2xl bg-white">
+      {/* =========================================
+          REGISTER SECTION
+      ========================================== */}
 
-        {/* LEFT IMAGE */}
+      <section
+        className="
+          relative
+          overflow-hidden
+          bg-gradient-to-r
+          from-[#faf7f2]
+          via-white
+          to-white
+        "
+      >
         <div
-          ref={imageRef}
-          className="relative min-h-[300px] md:min-h-[700px] overflow-hidden"
+          className="
+            mx-auto
+            grid
+            min-h-[720px]
+            max-w-[1440px]
+
+            lg:grid-cols-[0.95fr_1.05fr]
+          "
         >
-          <Image
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
-            alt="Beautiful home interior"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
+          {/* =====================================
+              LEFT SIDE
+          ====================================== */}
 
-          <div className="absolute inset-0 bg-black/25" />
+          <div
+            ref={imageRef}
+            className="
+              relative
+              min-h-[520px]
+              overflow-hidden
+              opacity-100
 
-          <div className="absolute bottom-10 left-8 md:left-12 text-white max-w-md z-10">
-            <p className="text-xs uppercase tracking-[0.3em] mb-3">
-              Join HomeHaven
-            </p>
+              sm:min-h-[600px]
 
-            <h1 className="text-4xl md:text-5xl font-serif leading-tight">
-              Create your space.
-            </h1>
+              lg:min-h-[820px]
+            "
+          >
+            {/* Image */}
 
-            <p className="mt-4 text-sm md:text-base text-white/90 leading-6">
-              Discover thoughtfully selected furniture and décor designed to
-              make every corner feel like home.
-            </p>
-          </div>
-        </div>
+            <Image
+              src="/images/login-room.jpg"
+              alt="Urban Earth modern interior"
+              fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
 
-        {/* REGISTER FORM */}
-        <div
-          ref={contentRef}
-          className="flex items-center justify-center px-7 py-12 md:px-14"
-        >
-          <div className="w-full max-w-md">
+            {/* Left gradient */}
 
-            <div className="mb-8">
-              <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#8b7355]">
-                HomeHaven
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-r
+                from-[#faf7f2]
+                via-[#faf7f2]/90
+                to-[#faf7f2]/15
+
+                lg:via-[#faf7f2]/80
+              "
+            />
+
+            {/* Bottom gradient */}
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-t
+                from-[#faf7f2]/85
+                via-transparent
+                to-transparent
+              "
+            />
+
+            {/* Content */}
+
+            <div
+              className="
+                relative
+                z-10
+                flex
+                min-h-[520px]
+                max-w-[600px]
+                flex-col
+                justify-center
+                px-6
+                py-14
+
+                sm:min-h-[600px]
+                sm:px-10
+
+                md:px-14
+
+                lg:min-h-[820px]
+                lg:px-16
+
+                xl:px-20
+              "
+            >
+              {/* Small Title */}
+
+              <p
+                className="
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  text-[#ff6600]
+
+                  sm:text-sm
+                "
+              >
+                Create Your Account
               </p>
 
-              <h2 className="mt-4 text-3xl md:text-4xl font-serif text-[#2f2a26]">
-                Create account
-              </h2>
+              {/* Main Heading */}
 
-              <p className="mt-3 text-sm text-[#81766d]">
-                Create your account and start exploring HomeHaven.
+              <h1
+                className="
+                  mt-5
+                  max-w-[520px]
+                  text-[38px]
+                  font-bold
+                  leading-[1.08]
+                  tracking-[-0.03em]
+                  text-[#171717]
+
+                  sm:text-[48px]
+
+                  lg:text-[54px]
+                "
+              >
+                Join{" "}
+                <span className="text-[#ff6600]">
+                  Urban Earth
+                </span>{" "}
+                and make your space beautiful.
+              </h1>
+
+              {/* Orange underline */}
+
+              <div
+                className="
+                  mt-6
+                  h-[2px]
+                  w-14
+                  bg-[#ff6600]
+                "
+              />
+
+              <p
+                className="
+                  mt-7
+                  max-w-[470px]
+                  text-sm
+                  leading-7
+                  text-[#494949]
+
+                  sm:text-[15px]
+                "
+              >
+                Create an account to get started.
+                Enjoy faster checkout, order tracking
+                and a more personalized shopping
+                experience.
               </p>
+
+              {/* Benefits */}
+
+              <div
+                className="
+                  mt-10
+                  grid
+                  max-w-[450px]
+                  gap-6
+
+                  sm:mt-12
+                "
+              >
+                <RegisterBenefit
+                  icon={
+                    <Tag
+                      size={23}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Exclusive Offers"
+                  description="Get access to special deals and member-only discounts."
+                />
+
+                <RegisterBenefit
+                  icon={
+                    <ShieldCheck
+                      size={23}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Secure & Safe"
+                  description="Your personal information is always protected with us."
+                />
+
+                <RegisterBenefit
+                  icon={
+                    <PackageCheck
+                      size={23}
+                      strokeWidth={1.7}
+                    />
+                  }
+                  title="Track & Manage"
+                  description="Easily track your orders and manage your addresses."
+                />
+              </div>
             </div>
+          </div>
 
-            <form className="space-y-5">
+          {/* =====================================
+              REGISTER CARD
+          ====================================== */}
 
-              {/* NAME */}
+          <div
+            ref={contentRef}
+            className="
+              flex
+              items-center
+              justify-center
+              bg-[#fafafa]
+              px-4
+              py-12
+              opacity-100
+
+              sm:px-8
+              sm:py-16
+
+              lg:bg-white
+              lg:px-12
+
+              xl:px-20
+            "
+          >
+            <div
+              className="
+                w-full
+                max-w-[560px]
+                rounded-2xl
+                border
+                border-[#e8e8e8]
+                bg-white
+                p-6
+
+                shadow-[0_15px_50px_rgba(0,0,0,0.06)]
+
+                sm:p-8
+
+                md:p-10
+              "
+            >
+              {/* Heading */}
+
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-[#403832] mb-2"
+                <h2
+                  className="
+                    text-2xl
+                    font-bold
+                    tracking-[-0.02em]
+                    text-[#171717]
+
+                    sm:text-[28px]
+                  "
                 >
-                  Full name
+                  Create Account
+                </h2>
+
+                <p
+                  className="
+                    mt-2
+                    text-sm
+                    text-[#666]
+                  "
+                >
+                  Already have an account?{" "}
+                  <Link
+                    href="/login"
+                    className="
+                      font-semibold
+                      text-[#ff6600]
+                      transition-colors
+
+                      hover:text-[#e55c00]
+                    "
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>
+
+              {/* =================================
+                  FORM
+              ================================== */}
+
+              <form
+                className="
+                  mt-8
+                  space-y-5
+                "
+                onSubmit={(event) => {
+                  event.preventDefault();
+
+                  /*
+                   * Connect your register API here.
+                   */
+                }}
+              >
+                {/* Full Name */}
+
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="
+                      mb-2
+                      block
+                      text-sm
+                      font-semibold
+                      text-[#252525]
+                    "
+                  >
+                    Full Name
+                  </label>
+
+                  <div className="relative">
+                    <UserRound
+                      size={19}
+                      strokeWidth={1.7}
+                      className="
+                        absolute
+                        left-4
+                        top-1/2
+                        -translate-y-1/2
+                        text-[#8b8b8b]
+                      "
+                    />
+
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      autoComplete="name"
+                      placeholder="Enter your full name"
+                      className="
+                        h-13
+                        w-full
+                        rounded-lg
+                        border
+                        border-[#dedede]
+                        bg-white
+                        pl-12
+                        pr-4
+                        text-sm
+                        text-[#222]
+                        outline-none
+                        transition-all
+
+                        placeholder:text-[#aaa]
+
+                        focus:border-[#063f82]
+                        focus:ring-2
+                        focus:ring-[#063f82]/10
+                      "
+                    />
+                  </div>
+                </div>
+
+                {/* Email */}
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="
+                      mb-2
+                      block
+                      text-sm
+                      font-semibold
+                      text-[#252525]
+                    "
+                  >
+                    Email Address
+                  </label>
+
+                  <div className="relative">
+                    <Mail
+                      size={19}
+                      strokeWidth={1.7}
+                      className="
+                        absolute
+                        left-4
+                        top-1/2
+                        -translate-y-1/2
+                        text-[#8b8b8b]
+                      "
+                    />
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      placeholder="Enter your email"
+                      className="
+                        h-13
+                        w-full
+                        rounded-lg
+                        border
+                        border-[#dedede]
+                        bg-white
+                        pl-12
+                        pr-4
+                        text-sm
+                        text-[#222]
+                        outline-none
+                        transition-all
+
+                        placeholder:text-[#aaa]
+
+                        focus:border-[#063f82]
+                        focus:ring-2
+                        focus:ring-[#063f82]/10
+                      "
+                    />
+                  </div>
+                </div>
+
+                {/* =================================
+                    PASSWORD ROW
+                ================================== */}
+
+                <div
+                  className="
+                    grid
+                    gap-5
+
+                    sm:grid-cols-2
+                  "
+                >
+                  {/* Password */}
+
+                  <div>
+                    <label
+                      htmlFor="password"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-semibold
+                        text-[#252525]
+                      "
+                    >
+                      Password
+                    </label>
+
+                    <div className="relative">
+                      <LockKeyhole
+                        size={18}
+                        strokeWidth={1.7}
+                        className="
+                          absolute
+                          left-4
+                          top-1/2
+                          -translate-y-1/2
+                          text-[#8b8b8b]
+                        "
+                      />
+
+                      <input
+                        id="password"
+                        name="password"
+                        type={
+                          showPassword
+                            ? "text"
+                            : "password"
+                        }
+                        required
+                        autoComplete="new-password"
+                        placeholder="Create password"
+                        className="
+                          h-13
+                          w-full
+                          rounded-lg
+                          border
+                          border-[#dedede]
+                          bg-white
+                          pl-11
+                          pr-11
+                          text-sm
+                          text-[#222]
+                          outline-none
+                          transition-all
+
+                          placeholder:text-[#aaa]
+
+                          focus:border-[#063f82]
+                          focus:ring-2
+                          focus:ring-[#063f82]/10
+                        "
+                      />
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setShowPassword(
+                            (previous) => !previous
+                          )
+                        }
+                        aria-label={
+                          showPassword
+                            ? "Hide password"
+                            : "Show password"
+                        }
+                        className="
+                          absolute
+                          right-3
+                          top-1/2
+                          -translate-y-1/2
+                          text-[#888]
+
+                          transition-colors
+
+                          hover:text-[#063f82]
+                        "
+                      >
+                        {showPassword ? (
+                          <EyeOff
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        ) : (
+                          <Eye
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Confirm Password */}
+
+                  <div>
+                    <label
+                      htmlFor="confirmPassword"
+                      className="
+                        mb-2
+                        block
+                        text-sm
+                        font-semibold
+                        text-[#252525]
+                      "
+                    >
+                      Confirm Password
+                    </label>
+
+                    <div className="relative">
+                      <LockKeyhole
+                        size={18}
+                        strokeWidth={1.7}
+                        className="
+                          absolute
+                          left-4
+                          top-1/2
+                          -translate-y-1/2
+                          text-[#8b8b8b]
+                        "
+                      />
+
+                      <input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type={
+                          showConfirmPassword
+                            ? "text"
+                            : "password"
+                        }
+                        required
+                        autoComplete="new-password"
+                        placeholder="Confirm password"
+                        className="
+                          h-13
+                          w-full
+                          rounded-lg
+                          border
+                          border-[#dedede]
+                          bg-white
+                          pl-11
+                          pr-11
+                          text-sm
+                          text-[#222]
+                          outline-none
+                          transition-all
+
+                          placeholder:text-[#aaa]
+
+                          focus:border-[#063f82]
+                          focus:ring-2
+                          focus:ring-[#063f82]/10
+                        "
+                      />
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setShowConfirmPassword(
+                            (previous) => !previous
+                          )
+                        }
+                        aria-label={
+                          showConfirmPassword
+                            ? "Hide password"
+                            : "Show password"
+                        }
+                        className="
+                          absolute
+                          right-3
+                          top-1/2
+                          -translate-y-1/2
+                          text-[#888]
+
+                          transition-colors
+
+                          hover:text-[#063f82]
+                        "
+                      >
+                        {showConfirmPassword ? (
+                          <EyeOff
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        ) : (
+                          <Eye
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phone */}
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="
+                      mb-2
+                      block
+                      text-sm
+                      font-semibold
+                      text-[#252525]
+                    "
+                  >
+                    Phone Number{" "}
+                    <span
+                      className="
+                        font-normal
+                        text-[#888]
+                      "
+                    >
+                      (Optional)
+                    </span>
+                  </label>
+
+                  <div
+                    className="
+                      flex
+                      overflow-hidden
+                      rounded-lg
+                      border
+                      border-[#dedede]
+                      bg-white
+
+                      transition-all
+
+                      focus-within:border-[#063f82]
+                      focus-within:ring-2
+                      focus-within:ring-[#063f82]/10
+                    "
+                  >
+                    <div
+                      className="
+                        flex
+                        shrink-0
+                        items-center
+                        gap-2
+                        border-r
+                        border-[#dedede]
+                        bg-[#fafafa]
+                        px-4
+                        text-sm
+                        font-medium
+                        text-[#333]
+                      "
+                    >
+                      +977
+                    </div>
+
+                    <div
+                      className="
+                        relative
+                        flex-1
+                      "
+                    >
+                      <Phone
+                        size={18}
+                        strokeWidth={1.7}
+                        className="
+                          absolute
+                          left-4
+                          top-1/2
+                          -translate-y-1/2
+                          text-[#8b8b8b]
+                        "
+                      />
+
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="Enter your phone number"
+                        className="
+                          h-13
+                          w-full
+                          bg-transparent
+                          pl-11
+                          pr-4
+                          text-sm
+                          text-[#222]
+                          outline-none
+
+                          placeholder:text-[#aaa]
+                        "
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Terms */}
+
+                <label
+                  className="
+                    flex
+                    cursor-pointer
+                    items-start
+                    gap-3
+                    text-xs
+                    leading-5
+                    text-[#555]
+
+                    sm:text-[13px]
+                  "
+                >
+                  <input
+                    type="checkbox"
+                    required
+                    className="
+                      mt-0.5
+                      h-4
+                      w-4
+                      shrink-0
+                      cursor-pointer
+                      accent-[#ff6600]
+                    "
+                  />
+
+                  <span>
+                    I agree to the{" "}
+                    <Link
+                      href="/terms"
+                      className="
+                        font-medium
+                        text-[#ff6600]
+
+                        hover:underline
+                      "
+                    >
+                      Terms &amp; Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      href="/privacy"
+                      className="
+                        font-medium
+                        text-[#ff6600]
+
+                        hover:underline
+                      "
+                    >
+                      Privacy Policy
+                    </Link>
+                  </span>
                 </label>
 
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Your full name"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
+                {/* Submit */}
+
+                <button
+                  type="submit"
+                  className="
+                    flex
+                    h-13
+                    w-full
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-[#ff6600]
+                    px-6
+                    text-sm
+                    font-bold
+                    text-white
+
+                    transition-all
+                    duration-200
+
+                    hover:-translate-y-0.5
+                    hover:bg-[#e85d00]
+                    hover:shadow-lg
+
+                    active:translate-y-0
+                  "
+                >
+                  Create Account
+                </button>
+              </form>
+
+              {/* Divider */}
+
+              <div
+                className="
+                  my-7
+                  flex
+                  items-center
+                  gap-4
+                "
+              >
+                <div
+                  className="
+                    h-px
+                    flex-1
+                    bg-[#e5e5e5]
+                  "
+                />
+
+                <span
+                  className="
+                    whitespace-nowrap
+                    text-xs
+                    text-[#999]
+                  "
+                >
+                  or register with
+                </span>
+
+                <div
+                  className="
+                    h-px
+                    flex-1
+                    bg-[#e5e5e5]
+                  "
                 />
               </div>
 
-              {/* EMAIL */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-[#403832] mb-2"
-                >
-                  Email address
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
-
-              {/* PASSWORD */}
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-[#403832] mb-2"
-                >
-                  Password
-                </label>
-
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="new-password"
-                  placeholder="Create a password"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
-
-              {/* CONFIRM PASSWORD */}
-              <div>
-                <label
-                  htmlFor="confirmPassword"
-                  className="block text-sm font-medium text-[#403832] mb-2"
-                >
-                  Confirm password
-                </label>
-
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  autoComplete="new-password"
-                  placeholder="Confirm your password"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
+              {/* Google */}
 
               <button
-                type="submit"
-                className="w-full rounded-lg bg-[#2f2a26] py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-[#8b7355] hover:-translate-y-0.5"
+                type="button"
+                className="
+                  flex
+                  h-12
+                  w-full
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-lg
+                  border
+                  border-[#dedede]
+                  bg-white
+                  text-sm
+                  font-semibold
+                  text-[#333]
+
+                  transition-all
+
+                  hover:border-[#bfbfbf]
+                  hover:bg-[#fafafa]
+                "
               >
-                Create account
+                <GoogleIcon />
+
+                Continue with Google
               </button>
-            </form>
 
-            <p className="text-center text-sm text-[#81766d] mt-8">
-              Already have an account?{" "}
-              <Link
-                href="/login"
-                className="font-medium text-[#2f2a26] transition hover:text-[#8b7355]"
+              {/* Facebook */}
+
+              <button
+                type="button"
+                className="
+                  mt-3
+                  flex
+                  h-12
+                  w-full
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-lg
+                  border
+                  border-[#dedede]
+                  bg-white
+                  text-sm
+                  font-semibold
+                  text-[#333]
+
+                  transition-all
+
+                  hover:border-[#bfbfbf]
+                  hover:bg-[#fafafa]
+                "
               >
-                Sign in
-              </Link>
-            </p>
+                <FacebookIcon />
 
+                Continue with Facebook
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* =========================================
+          TRUST STRIP
+      ========================================== */}
+
+      <section
+        className="
+          border-y
+          border-[#e8e8e8]
+          bg-[#faf8f5]
+        "
+      >
+        <div
+          className="
+            mx-auto
+            grid
+            max-w-[1440px]
+            grid-cols-2
+            gap-y-6
+            px-4
+            py-7
+
+            sm:px-6
+
+            lg:grid-cols-4
+            lg:gap-0
+            lg:px-8
+          "
+        >
+          <StoreBenefit
+            icon={
+              <Truck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="FREE DELIVERY"
+            description="Across Nepal"
+          />
+
+          <StoreBenefit
+            icon={
+              <Wrench
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="EXPERT INSTALLATION"
+            description="Professional & Reliable"
+          />
+
+          <StoreBenefit
+            icon={
+              <ShieldCheck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="PREMIUM QUALITY"
+            description="Built to Last"
+          />
+
+          <StoreBenefit
+            icon={
+              <PackageCheck
+                size={28}
+                strokeWidth={1.5}
+              />
+            }
+            title="CUSTOMER SATISFACTION"
+            description="Our Top Priority"
+          />
+        </div>
+      </section>
     </main>
+  );
+}
+
+/* =============================================
+   LEFT BENEFIT
+============================================= */
+
+function RegisterBenefit({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div
+      className="
+        flex
+        items-center
+        gap-4
+      "
+    >
+      <div
+        className="
+          flex
+          h-12
+          w-12
+          shrink-0
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-[#ff6600]
+
+          shadow-[0_5px_20px_rgba(0,0,0,0.08)]
+        "
+      >
+        {icon}
+      </div>
+
+      <div>
+        <p
+          className="
+            text-sm
+            font-bold
+            text-[#222]
+          "
+        >
+          {title}
+        </p>
+
+        <p
+          className="
+            mt-1
+            max-w-[270px]
+            text-xs
+            leading-5
+            text-[#666]
+          "
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* =============================================
+   STORE BENEFIT
+============================================= */
+
+function StoreBenefit({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div
+      className="
+        flex
+        items-center
+        justify-center
+        gap-3
+        px-3
+
+        lg:border-r
+        lg:border-[#dedede]
+
+        lg:last:border-r-0
+      "
+    >
+      <div className="shrink-0 text-[#063f82]">
+        {icon}
+      </div>
+
+      <div>
+        <p
+          className="
+            text-[11px]
+            font-bold
+            text-[#222]
+
+            sm:text-xs
+          "
+        >
+          {title}
+        </p>
+
+        <p
+          className="
+            mt-0.5
+            text-[11px]
+            text-[#555]
+
+            sm:text-xs
+          "
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* =============================================
+   GOOGLE ICON
+============================================= */
+
+function GoogleIcon() {
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        fill="#4285F4"
+        d="M21.6 12.227c0-.709-.064-1.391-.182-2.045H12v3.868h5.382a4.6 4.6 0 0 1-1.995 3.018v2.509h3.232c1.891-1.741 2.981-4.305 2.981-7.35Z"
+      />
+
+      <path
+        fill="#34A853"
+        d="M12 22c2.7 0 4.964-.895 6.619-2.423l-3.232-2.509c-.895.6-2.041.955-3.387.955-2.605 0-4.81-1.759-5.6-4.123H3.059v2.591A9.998 9.998 0 0 0 12 22Z"
+      />
+
+      <path
+        fill="#FBBC05"
+        d="M6.4 13.9A6.012 6.012 0 0 1 6.086 12c0-.659.114-1.3.314-1.9V7.509H3.059A9.998 9.998 0 0 0 2 12c0 1.614.386 3.141 1.059 4.491L6.4 13.9Z"
+      />
+
+      <path
+        fill="#EA4335"
+        d="M12 5.977c1.468 0 2.786.505 3.823 1.495l2.868-2.868C16.959 2.99 14.695 2 12 2a9.998 9.998 0 0 0-8.941 5.509L6.4 10.1c.79-2.364 2.995-4.123 5.6-4.123Z"
+      />
+    </svg>
+  );
+}
+
+/* =============================================
+   FACEBOOK ICON
+============================================= */
+
+function FacebookIcon() {
+  return (
+    <div
+      className="
+        flex
+        h-[19px]
+        w-[19px]
+        items-center
+        justify-center
+        rounded-full
+        bg-[#1877F2]
+        text-[14px]
+        font-bold
+        text-white
+      "
+    >
+      f
+    </div>
   );
 }

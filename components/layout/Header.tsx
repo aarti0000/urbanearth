@@ -20,8 +20,8 @@ import {
 
 import { useEffect, useState } from "react";
 
-import AccountMenu from "./AccountMenu";
-import { useCart } from "@/components/CartContext";
+import AccountMenu from "@/components/auth/AccountMenu";
+import { useCart } from "@/components/cart/CartContext";
 import products from "@/data/products.json";
 
 const navigation = [
@@ -34,19 +34,19 @@ const navigation = [
     href: "/products",
     dropdown: [
       { label: "All Products", href: "/products" },
-      { label: "Carpets", href: "/category/carpets" },
+      { label: "Carpets", href: "/products?category=Carpets" },
       {
         label: "Laminate Flooring",
-        href: "/category/laminate-flooring",
+        href: "/products?category=Laminate%20Flooring",
       },
-      { label: "Parquet", href: "/category/parquet" },
-      { label: "SPC Flooring", href: "/category/spc-flooring" },
-      { label: "Rugs", href: "/category/rugs" },
-      { label: "Doormats", href: "/category/doormats" },
-      { label: "Mattresses", href: "/category/mattresses" },
+      { label: "Parquet", href: "/products?category=Parquet" },
+      { label: "SPC Flooring", href: "/products?category=SPC%20Flooring" },
+      { label: "Rugs", href: "/products?category=Rugs" },
+      { label: "Doormats", href: "/products?category=Doormats" },
+      { label: "Mattresses", href: "/products?category=Mattresses" },
       {
         label: "Artificial Grass",
-        href: "/category/artificial-grass",
+        href: "/products?category=Artificial%20Grass",
       },
     ],
   },
@@ -159,7 +159,7 @@ export default function Header() {
   };
 
   return (
-    <header className="relative z-50 bg-white text-[#171717]">
+     <>
       {/* =====================================================
           TOP INFORMATION BAR
       ====================================================== */}
@@ -387,7 +387,7 @@ export default function Header() {
           MAIN NAVIGATION
       ====================================================== */}
 
-      <div className="border-b border-[#e8e8e8] bg-white">
+      <header className="sticky top-0 z-50 border-b border-[#e8e8e8] bg-white">
         <div
           className="
             mx-auto
@@ -693,17 +693,9 @@ export default function Header() {
             </button>
 
             {/* Desktop / Tablet Account */}
-            <div
-              className="
-                hidden
-                md:block
-
-                [&_button>span]:hidden
-                [&_button>svg:last-child]:hidden
-              "
-            >
-              <AccountMenu />
-            </div>
+            <div className="hidden md:block">
+  <AccountMenu />
+</div>
 
             {/* Mobile Account */}
             <Link
@@ -854,7 +846,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </div>
+      
 
       {/* =====================================================
           SEARCH PANEL
@@ -1394,5 +1386,6 @@ export default function Header() {
         </div>
       )}
     </header>
+     </>
   );
 }

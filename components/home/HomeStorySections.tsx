@@ -1,17 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
-
-const reviews = [
-  ["Excellent quality flooring and professional installation. Highly recommended!", "Sabin K."],
-  ["Wide variety of products. Found the perfect carpet for our living room.", "Anusha M."],
-  ["Very good customer service and on-time delivery across Nepal.", "Rajan P."],
-  ["Urban Earth made our office look brand new. Amazing experience!", "Bishal T."],
-];
+import { ArrowRight } from "lucide-react";
+import CustomerReviews from "@/components/home/CustomerReviews";
 
 export default function HomeStorySections() {
   return (
     <>
+      <section className="mx-auto max-w-[1440px] px-5 pb-9 sm:px-8 lg:px-10">
+        <div className="grid overflow-hidden rounded-lg border border-[#dbe4ee] bg-white shadow-[0_12px_34px_rgba(6,63,130,.08)] lg:grid-cols-2">
+          <div className="relative min-h-[300px] sm:min-h-[390px] lg:min-h-[430px]">
+            <Image
+              src="/images/why-laminate-flooring.jpg"
+              alt="Warm wood-look laminate flooring in a bright kitchen"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="flex flex-col justify-center bg-[#f2f3f5] p-7 sm:p-10 lg:p-12">
+            <div>
+              <p className="text-[10px] font-extrabold uppercase tracking-[.08em] text-[#ff6600]">The Urban Earth Guide</p>
+              <h2 className="mt-2 text-3xl font-extrabold leading-[1.05] tracking-[-.035em] text-[#063f82] sm:text-4xl">Why Choose Laminate Flooring?</h2>
+              <div className="mt-4 max-w-xl text-sm leading-6 text-[#4f5965]">
+                <p>Laminate flooring brings the warmth and natural character of timber into your space through beautifully detailed grains and carefully selected finishes. It creates an inviting foundation that works effortlessly across kitchens, living rooms, bedrooms and professional interiors.</p>
+                <p className="mt-4">Designed for the way modern homes are lived in, laminate offers dependable durability while remaining simple to clean and maintain. It is a considered choice for anyone who wants lasting style, everyday comfort and premium quality at a practical value.</p>
+              </div>
+
+              <Link href="/products?category=Laminate%20Flooring" className="mt-6 inline-flex w-fit items-center gap-2 rounded bg-[#063f82] px-5 py-3 text-[10px] font-bold uppercase text-white transition hover:bg-[#ff6600]">Explore laminate flooring <ArrowRight size={14} /></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-[1440px] px-5 pb-9 sm:px-8 lg:px-10">
         <div className="grid overflow-hidden rounded-lg bg-[#f2f3f5] lg:grid-cols-[.78fr_1.22fr]">
           <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
@@ -24,12 +45,7 @@ export default function HomeStorySections() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-5 pb-7 sm:px-8 lg:px-10">
-        <div className="mb-4 flex items-center justify-between"><h2 className="text-lg font-extrabold uppercase text-[#063f82] sm:text-xl">What our customers say</h2><Link href="/contact" className="hidden text-[10px] font-bold text-[#ff6600] sm:block">View all reviews →</Link></div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {reviews.map(([quote, author]) => <figure key={author} className="rounded-md border border-[#e0e5ea] p-4 shadow-[0_4px_12px_rgba(6,63,130,.035)]"><div className="flex text-[#ff6600]">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={11} fill="currentColor" />)}</div><blockquote className="mt-2.5 text-[11px] leading-[18px] text-[#424b55]">“{quote}”</blockquote><figcaption className="mt-3 text-[11px] font-bold text-[#1f2b37]">— {author}</figcaption></figure>)}
-        </div>
-      </section>
+      <CustomerReviews />
 
       <section className="mx-auto max-w-[1440px] px-5 pb-10 sm:px-8 lg:px-10">
         <div className="relative isolate overflow-hidden rounded-xl bg-[#052c5f] px-7 py-9 text-white sm:px-10">

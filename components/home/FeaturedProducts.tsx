@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Headphones, ShieldCheck, ShoppingCart, Star, Truck, Wrench } from "lucide-react";
 import { useRef } from "react";
 import products from "@/data/products.json";
-import { useCart } from "@/components/CartContext";
+import { useCart } from "@/components/cart/CartContext";
 
 type Product = (typeof products)[number];
 

@@ -1,13 +1,15 @@
-import AboutHero from "@/components/AboutHero";
-import AboutStory from "@/components/AboutStory";
-import AboutValues from "@/components/AboutValues";
+import AboutHero from "@/components/ui/AboutHero";
+import AboutStory from "@/components/ui/AboutStory";
+import AboutValues from "@/components/ui/AboutValues";
+import AboutCTA from "@/components/ui/AboutCTA";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#faf7f2]">
+    <main className="min-h-screen bg-white">
       <AboutHero />
       <AboutStory />
-       <AboutValues />
+      <AboutValues />
+      <AboutCTA />
     </main>
   );
 }

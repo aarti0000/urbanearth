@@ -37,8 +37,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-5 pb-9 pt-12 sm:px-6 lg:px-10 lg:pb-10 lg:pt-16">
         <div className="grid gap-11 md:grid-cols-2 lg:grid-cols-[1.35fr_2fr] lg:gap-16">
           <div>
-            <Link href="/" aria-label="Urban Earth home" className="inline-flex h-18.5 w-54.5 items-center rounded-xl bg-white px-3 py-2 shadow-sm transition hover:shadow-md sm:h-20.5 sm:w-61">
-              <Image src="/images/logo.png" alt="Urban Earth" width={250} height={81} className="h-full w-full object-contain object-center" />
+            <Link href="/" aria-label="Urban Earth home" className="relative block h-[34px] w-[110px] min-[360px]:w-[120px] sm:h-[42px] sm:w-[165px] md:h-[46px] md:w-[190px] lg:h-[56px] lg:w-[220px] xl:h-[58px] xl:w-[250px]">
+              <Image src="/images/logo.png" alt="Urban Earth" fill sizes="(max-width: 359px) 110px, (max-width: 639px) 165px, (max-width: 767px) 190px, (max-width: 1023px) 190px, (max-width: 1279px) 220px, 250px" className="object-contain object-left" />
             </Link>
             <p className="mt-5 max-w-md text-sm leading-6 text-white/70">Quality flooring, rugs and interior essentials selected to make every space feel more like home.</p>
             <div className="mt-6 space-y-3 text-[13px] text-white/75">

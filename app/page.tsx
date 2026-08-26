@@ -1,7 +1,7 @@
-import Hero from "@/components/Hero";
-import Categories from "@/components/Categories";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import HomeStorySections from "@/components/HomeStorySections";
+import Hero from "@/components/home/Hero";
+import Categories from "@/components/home/Categories";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+import HomeStorySections from "@/components/home/HomeStorySections";
 
 export default function HomePage() {
   return <main className="bg-white"><Hero /><Categories /><FeaturedProducts /><HomeStorySections /></main>;
