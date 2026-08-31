@@ -15,6 +15,9 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
+const BLUE = "#0054A6";
+const ORANGE = "#FF6500";
+
 export default function CheckoutContent() {
   const { cart } = useCart();
 
@@ -27,7 +30,6 @@ export default function CheckoutContent() {
   );
 
   const shipping = subtotal >= 5000 ? 0 : 250;
-
   const total = subtotal + shipping;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -57,25 +59,27 @@ export default function CheckoutContent() {
 
   if (cart.length === 0) {
     return (
-      <main className="min-h-[70vh] bg-[#faf7f2] px-6 py-20">
+      <main className="min-h-[70vh] bg-white px-6 py-20">
         <div className="mx-auto max-w-xl text-center">
-          <ShoppingBag
-            size={44}
-            strokeWidth={1.4}
-            className="mx-auto text-stone-400"
-          />
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#FFF3EB]">
+            <ShoppingBag
+              size={30}
+              strokeWidth={1.8}
+              className="text-[#FF6500]"
+            />
+          </div>
 
-          <h1 className="mt-6 font-serif text-3xl font-semibold text-stone-900">
+          <h1 className="mt-6 text-3xl font-bold tracking-tight text-[#111827]">
             Your cart is empty
           </h1>
 
-          <p className="mt-3 text-sm text-stone-500">
+          <p className="mt-3 text-sm text-[#64748B]">
             Add some products before proceeding to checkout.
           </p>
 
           <Link
             href="/products"
-            className="mt-7 inline-flex rounded-full bg-stone-900 px-7 py-3 text-sm font-medium text-white transition hover:bg-stone-800"
+            className="mt-7 inline-flex items-center justify-center rounded-md bg-[#FF6500] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#E85A00]"
           >
             Continue Shopping
           </Link>
@@ -85,50 +89,45 @@ export default function CheckoutContent() {
   }
 
   return (
-    <main className="min-h-screen bg-[#faf7f2]">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        {/* Heading */}
-        <div className="mb-10">
+    <main className="min-h-screen bg-[#F8FAFC]">
+      <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8 lg:py-12">
+
+        {/* PAGE HEADER */}
+        <div className="mb-8">
           <Link
             href="/cart"
-            className="mb-5 inline-flex items-center gap-2 text-sm text-stone-500 transition hover:text-stone-900"
+            className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-[#64748B] transition hover:text-[#0054A6]"
           >
             <ArrowLeft size={16} />
             Back to cart
           </Link>
 
-          <h1 className="font-serif text-4xl font-semibold text-stone-900">
+          <h1 className="text-4xl font-bold tracking-tight text-[#111827]">
             Checkout
           </h1>
 
-          <p className="mt-2 text-sm text-stone-500">
+          <p className="mt-2 text-sm text-[#64748B]">
             Complete your delivery and payment information.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="grid gap-10 lg:grid-cols-[1fr_420px]"
+          className="grid gap-8 lg:grid-cols-[1fr_400px]"
         >
+          {/* ===================================== */}
           {/* LEFT SIDE */}
-          <div className="space-y-8">
-            {/* Contact Information */}
-            <section className="rounded-3xl border border-stone-200 bg-white p-6 md:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-100">
-                  <Package size={18} />
-                </div>
+          {/* ===================================== */}
 
-                <div>
-                  <h2 className="font-serif text-xl font-semibold text-stone-900">
-                    Contact Information
-                  </h2>
+          <div className="space-y-6">
 
-                  <p className="text-xs text-stone-500">
-                    We&apos;ll use this to contact you about your order.
-                  </p>
-                </div>
-              </div>
+            {/* CONTACT INFORMATION */}
+            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+              <SectionHeader
+                icon={<Package size={19} />}
+                title="Contact Information"
+                description="We'll use this to contact you about your order."
+              />
 
               <div className="grid gap-5 md:grid-cols-2">
                 <Field
@@ -159,23 +158,13 @@ export default function CheckoutContent() {
               </div>
             </section>
 
-            {/* Shipping */}
-            <section className="rounded-3xl border border-stone-200 bg-white p-6 md:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-100">
-                  <MapPin size={18} />
-                </div>
-
-                <div>
-                  <h2 className="font-serif text-xl font-semibold text-stone-900">
-                    Delivery Address
-                  </h2>
-
-                  <p className="text-xs text-stone-500">
-                    Enter the address where your order should be delivered.
-                  </p>
-                </div>
-              </div>
+            {/* DELIVERY ADDRESS */}
+            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+              <SectionHeader
+                icon={<MapPin size={19} />}
+                title="Delivery Address"
+                description="Enter the address where your order should be delivered."
+              />
 
               <div className="grid gap-5 md:grid-cols-2">
                 <div className="md:col-span-2">
@@ -214,36 +203,30 @@ export default function CheckoutContent() {
               </div>
 
               <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium text-stone-700">
+                <label
+                  htmlFor="notes"
+                  className="mb-2 block text-sm font-semibold text-[#334155]"
+                >
                   Order Notes
                 </label>
 
                 <textarea
+                  id="notes"
                   name="notes"
                   rows={4}
                   placeholder="Delivery instructions, landmarks, preferred time, etc."
-                  className="w-full resize-none rounded-2xl border border-stone-200 bg-[#faf7f2] px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-stone-500"
+                  className="w-full resize-none rounded-md border border-[#D1D5DB] bg-white px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-[#94A3B8] focus:border-[#0054A6] focus:ring-1 focus:ring-[#0054A6]"
                 />
               </div>
             </section>
 
-            {/* Payment */}
-            <section className="rounded-3xl border border-stone-200 bg-white p-6 md:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-100">
-                  <CreditCard size={18} />
-                </div>
-
-                <div>
-                  <h2 className="font-serif text-xl font-semibold text-stone-900">
-                    Payment Method
-                  </h2>
-
-                  <p className="text-xs text-stone-500">
-                    Choose how you would like to pay.
-                  </p>
-                </div>
-              </div>
+            {/* PAYMENT */}
+            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+              <SectionHeader
+                icon={<CreditCard size={19} />}
+                title="Payment Method"
+                description="Choose how you would like to pay."
+              />
 
               <div className="space-y-3">
                 <PaymentOption
@@ -281,12 +264,24 @@ export default function CheckoutContent() {
             </section>
           </div>
 
+          {/* ===================================== */}
           {/* RIGHT SIDE */}
+          {/* ===================================== */}
+
           <aside>
-            <div className="sticky top-8 rounded-3xl border border-stone-200 bg-white p-6">
-              <h2 className="font-serif text-2xl font-semibold text-stone-900">
-                Order Summary
-              </h2>
+            <div className="sticky top-8 border border-[#E5E7EB] bg-white p-6 shadow-sm">
+
+              {/* Summary heading */}
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-[#111827]">
+                  Order Summary
+                </h2>
+
+                <span className="text-sm font-medium text-[#0054A6]">
+                  {cart.length}{" "}
+                  {cart.length === 1 ? "Item" : "Items"}
+                </span>
+              </div>
 
               {/* Products */}
               <div className="mt-6 max-h-[360px] space-y-5 overflow-y-auto pr-1">
@@ -295,7 +290,7 @@ export default function CheckoutContent() {
                     key={item.id}
                     className="flex gap-4"
                   >
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-stone-100">
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-[#F1F5F9]">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -304,23 +299,23 @@ export default function CheckoutContent() {
                         className="object-cover"
                       />
 
-                      <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-stone-900 px-1 text-[10px] text-white">
+                      <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0054A6] px-1 text-[10px] font-semibold text-white">
                         {item.quantity}
                       </span>
                     </div>
 
                     <div className="flex flex-1 justify-between gap-3">
                       <div>
-                        <p className="text-sm font-medium text-stone-900">
+                        <p className="text-sm font-semibold text-[#111827]">
                           {item.name}
                         </p>
 
-                        <p className="mt-1 text-xs text-stone-500">
+                        <p className="mt-1 text-xs text-[#64748B]">
                           Qty: {item.quantity}
                         </p>
                       </div>
 
-                      <p className="whitespace-nowrap text-sm font-medium text-stone-900">
+                      <p className="whitespace-nowrap text-sm font-semibold text-[#111827]">
                         Rs.{" "}
                         {(item.price * item.quantity).toLocaleString()}
                       </p>
@@ -330,7 +325,7 @@ export default function CheckoutContent() {
               </div>
 
               {/* Totals */}
-              <div className="mt-6 space-y-3 border-t border-stone-200 pt-5">
+              <div className="mt-6 space-y-3 border-t border-[#E5E7EB] pt-5">
                 <SummaryRow
                   label="Subtotal"
                   value={`Rs. ${subtotal.toLocaleString()}`}
@@ -346,27 +341,29 @@ export default function CheckoutContent() {
                 />
 
                 {shipping === 0 && (
-                  <div className="flex items-center gap-2 text-xs text-green-700">
+                  <div className="flex items-center gap-2 text-xs font-medium text-green-600">
                     <Check size={14} />
                     Free delivery applied
                   </div>
                 )}
               </div>
 
-              <div className="mt-5 flex items-center justify-between border-t border-stone-200 pt-5">
-                <span className="font-medium text-stone-700">
+              {/* TOTAL */}
+              <div className="mt-5 flex items-center justify-between border-t border-[#E5E7EB] pt-5">
+                <span className="text-base font-semibold text-[#334155]">
                   Total
                 </span>
 
-                <span className="font-serif text-2xl font-semibold text-stone-900">
+                <span className="text-2xl font-bold text-[#0054A6]">
                   Rs. {total.toLocaleString()}
                 </span>
               </div>
 
+              {/* CTA */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-full bg-stone-900 px-6 py-4 text-sm font-medium text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-6 w-full rounded-md bg-[#FF6500] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#E85A00] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting
                   ? "Processing..."
@@ -375,7 +372,7 @@ export default function CheckoutContent() {
                   : `Pay Rs. ${total.toLocaleString()}`}
               </button>
 
-              <p className="mt-4 text-center text-xs leading-5 text-stone-400">
+              <p className="mt-4 text-center text-xs leading-5 text-[#94A3B8]">
                 By placing your order, you agree to our terms and privacy
                 policy.
               </p>
@@ -386,6 +383,42 @@ export default function CheckoutContent() {
     </main>
   );
 }
+
+/* ========================================= */
+/* SECTION HEADER */
+/* ========================================= */
+
+function SectionHeader({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="mb-6 flex items-center gap-3">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EEF6FF] text-[#0054A6]">
+        {icon}
+      </div>
+
+      <div>
+        <h2 className="text-xl font-bold text-[#111827]">
+          {title}
+        </h2>
+
+        <p className="text-xs text-[#64748B]">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ========================================= */
+/* INPUT FIELD */
+/* ========================================= */
 
 function Field({
   label,
@@ -408,7 +441,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="mb-2 block text-sm font-medium text-stone-700"
+        className="mb-2 block text-sm font-semibold text-[#334155]"
       >
         {label}
       </label>
@@ -421,11 +454,15 @@ function Field({
         placeholder={placeholder}
         defaultValue={value}
         readOnly={readOnly}
-        className="w-full rounded-full border border-stone-200 bg-[#faf7f2] px-4 py-3 text-sm text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-stone-500"
+        className="w-full rounded-md border border-[#D1D5DB] bg-white px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-[#94A3B8] focus:border-[#0054A6] focus:ring-1 focus:ring-[#0054A6]"
       />
     </div>
   );
 }
+
+/* ========================================= */
+/* PAYMENT OPTION */
+/* ========================================= */
 
 function PaymentOption({
   selected,
@@ -444,22 +481,28 @@ function PaymentOption({
     <button
       type="button"
       onClick={onClick}
-      className={`flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition ${
+      className={`flex w-full items-center gap-4 rounded-md border p-4 text-left transition ${
         selected
-          ? "border-stone-900 bg-[#faf7f2]"
-          : "border-stone-200 hover:border-stone-400"
+          ? "border-[#0054A6] bg-[#F4F9FF]"
+          : "border-[#E5E7EB] bg-white hover:border-[#0054A6]"
       }`}
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-700">
+      <div
+        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
+          selected
+            ? "bg-[#0054A6] text-white"
+            : "bg-[#EEF6FF] text-[#0054A6]"
+        }`}
+      >
         {icon}
       </div>
 
       <div className="flex-1">
-        <p className="text-sm font-medium text-stone-900">
+        <p className="text-sm font-semibold text-[#111827]">
           {title}
         </p>
 
-        <p className="mt-1 text-xs text-stone-500">
+        <p className="mt-1 text-xs text-[#64748B]">
           {description}
         </p>
       </div>
@@ -467,8 +510,8 @@ function PaymentOption({
       <div
         className={`flex h-5 w-5 items-center justify-center rounded-full border ${
           selected
-            ? "border-stone-900 bg-stone-900"
-            : "border-stone-300"
+            ? "border-[#0054A6] bg-[#0054A6]"
+            : "border-[#CBD5E1]"
         }`}
       >
         {selected && (
@@ -483,6 +526,10 @@ function PaymentOption({
   );
 }
 
+/* ========================================= */
+/* SUMMARY ROW */
+/* ========================================= */
+
 function SummaryRow({
   label,
   value,
@@ -492,11 +539,11 @@ function SummaryRow({
 }) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-stone-500">
+      <span className="text-[#64748B]">
         {label}
       </span>
 
-      <span className="font-medium text-stone-900">
+      <span className="font-semibold text-[#111827]">
         {value}
       </span>
     </div>
