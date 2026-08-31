@@ -16,12 +16,16 @@ import {
   Wrench,
 } from "lucide-react";
 
+import { signIn } from "next-auth/react";
+
 export default function LoginForm() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,6 +66,57 @@ export default function LoginForm() {
     };
   }, []);
 
+  const handleLogin = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setError("");
+
+    const formData = new FormData(event.currentTarget);
+
+    const email = formData
+      .get("email")
+      ?.toString()
+      .trim();
+
+    const password = formData
+      .get("password")
+      ?.toString();
+
+    if (!email || !password) {
+      setError("Please enter your email and password.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("Invalid email or password.");
+        return;
+      }
+
+      if (result?.ok) {
+        window.location.href = "/";
+        return;
+      }
+
+      setError("Unable to log in. Please try again.");
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main
       ref={containerRef}
@@ -101,23 +156,17 @@ export default function LoginForm() {
               min-h-[500px]
               overflow-hidden
               opacity-100
-
               sm:min-h-[560px]
-
               lg:min-h-[700px]
             "
           >
-            {/* Background image */}
-
-           <Image
-  src="/images/login-room.jpg"
-  alt="Urban Earth modern interior"
-  fill
-  sizes="(max-width: 1023px) 100vw, 50vw"
-  className="object-cover object-center"
-/>
-
-            {/* Gradient overlay */}
+            <Image
+              src="/images/login-room.jpg"
+              alt="Urban Earth modern interior"
+              fill
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
 
             <div
               className="
@@ -127,12 +176,9 @@ export default function LoginForm() {
                 from-[#faf7f2]
                 via-[#faf7f2]/90
                 to-[#faf7f2]/15
-
                 lg:via-[#faf7f2]/80
               "
             />
-
-            {/* Bottom soft gradient */}
 
             <div
               className="
@@ -145,8 +191,6 @@ export default function LoginForm() {
               "
             />
 
-            {/* Left Content */}
-
             <div
               className="
                 relative
@@ -158,15 +202,11 @@ export default function LoginForm() {
                 justify-center
                 px-6
                 py-16
-
                 sm:min-h-[560px]
                 sm:px-10
-
                 md:px-14
-
                 lg:min-h-[700px]
                 lg:px-16
-
                 xl:px-20
               "
             >
@@ -177,7 +217,6 @@ export default function LoginForm() {
                   uppercase
                   tracking-[0.18em]
                   text-[#ff6600]
-
                   sm:text-sm
                 "
               >
@@ -193,9 +232,7 @@ export default function LoginForm() {
                   leading-[1.08]
                   tracking-[-0.03em]
                   text-[#171717]
-
                   sm:text-[48px]
-
                   lg:text-[54px]
                 "
               >
@@ -206,14 +243,7 @@ export default function LoginForm() {
                 Account
               </h1>
 
-              <div
-                className="
-                  mt-6
-                  h-[2px]
-                  w-14
-                  bg-[#ff6600]
-                "
-              />
+              <div className="mt-6 h-[2px] w-14 bg-[#ff6600]" />
 
               <p
                 className="
@@ -222,7 +252,6 @@ export default function LoginForm() {
                   text-sm
                   leading-7
                   text-[#494949]
-
                   sm:text-[15px]
                 "
               >
@@ -231,15 +260,12 @@ export default function LoginForm() {
                 experience.
               </p>
 
-              {/* Benefits */}
-
               <div
                 className="
                   mt-10
                   grid
                   max-w-[440px]
                   gap-6
-
                   sm:mt-12
                 "
               >
@@ -293,13 +319,10 @@ export default function LoginForm() {
               px-4
               py-12
               opacity-100
-
               sm:px-8
               sm:py-16
-
               lg:bg-white
               lg:px-12
-
               xl:px-20
             "
           >
@@ -313,14 +336,10 @@ export default function LoginForm() {
                 bg-white
                 p-6
                 shadow-[0_15px_50px_rgba(0,0,0,0.06)]
-
                 sm:p-8
-
                 md:p-10
               "
             >
-              {/* Heading */}
-
               <div>
                 <h2
                   className="
@@ -328,20 +347,13 @@ export default function LoginForm() {
                     font-bold
                     tracking-[-0.02em]
                     text-[#171717]
-
                     sm:text-[28px]
                   "
                 >
                   Login
                 </h2>
 
-                <p
-                  className="
-                    mt-2
-                    text-sm
-                    text-[#666]
-                  "
-                >
+                <p className="mt-2 text-sm text-[#666]">
                   Don&apos;t have an account?{" "}
                   <Link
                     href="/register"
@@ -357,20 +369,9 @@ export default function LoginForm() {
                 </p>
               </div>
 
-              {/* =================================================
-                  FORM
-              ================================================== */}
-
               <form
                 className="mt-8 space-y-5"
-                onSubmit={(event) => {
-                  event.preventDefault();
-
-                  /*
-                   * Connect this with your login API
-                   * later.
-                   */
-                }}
+                onSubmit={handleLogin}
               >
                 {/* Email */}
 
@@ -421,9 +422,7 @@ export default function LoginForm() {
                         text-[#222]
                         outline-none
                         transition-all
-
                         placeholder:text-[#aaa]
-
                         focus:border-[#063f82]
                         focus:ring-2
                         focus:ring-[#063f82]/10
@@ -462,9 +461,7 @@ export default function LoginForm() {
                         font-medium
                         text-[#ff6600]
                         transition-colors
-
                         hover:text-[#e55c00]
-
                         sm:text-[13px]
                       "
                     >
@@ -509,9 +506,7 @@ export default function LoginForm() {
                         text-[#222]
                         outline-none
                         transition-all
-
                         placeholder:text-[#aaa]
-
                         focus:border-[#063f82]
                         focus:ring-2
                         focus:ring-[#063f82]/10
@@ -537,7 +532,6 @@ export default function LoginForm() {
                         -translate-y-1/2
                         text-[#888]
                         transition-colors
-
                         hover:text-[#063f82]
                       "
                     >
@@ -555,6 +549,23 @@ export default function LoginForm() {
                     </button>
                   </div>
                 </div>
+
+                {/* Error */}
+
+                {error && (
+                  <div
+                    className="
+                      rounded-lg
+                      bg-red-50
+                      px-4
+                      py-3
+                      text-sm
+                      text-red-600
+                    "
+                  >
+                    {error}
+                  </div>
+                )}
 
                 {/* Remember Me */}
 
@@ -586,6 +597,7 @@ export default function LoginForm() {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="
                     flex
                     h-13
@@ -600,21 +612,19 @@ export default function LoginForm() {
                     text-white
                     transition-all
                     duration-200
-
                     hover:-translate-y-0.5
                     hover:bg-[#e85d00]
                     hover:shadow-lg
-
                     active:translate-y-0
+                    disabled:cursor-not-allowed
+                    disabled:opacity-60
                   "
                 >
-                  Login
+                  {loading ? "Logging in..." : "Login"}
                 </button>
               </form>
 
-              {/* =================================================
-                  SOCIAL DIVIDER
-              ================================================== */}
+              {/* Divider */}
 
               <div
                 className="
@@ -639,12 +649,15 @@ export default function LoginForm() {
                 <div className="h-px flex-1 bg-[#e5e5e5]" />
               </div>
 
-              {/* =================================================
-                  GOOGLE
-              ================================================== */}
+              {/* Google */}
 
               <button
                 type="button"
+                onClick={() =>
+                  signIn("google", {
+                    callbackUrl: "/",
+                  })
+                }
                 className="
                   flex
                   h-12
@@ -660,22 +673,23 @@ export default function LoginForm() {
                   font-semibold
                   text-[#333]
                   transition-all
-
                   hover:border-[#bfbfbf]
                   hover:bg-[#fafafa]
                 "
               >
                 <GoogleIcon />
-
                 Continue with Google
               </button>
 
-              {/* =================================================
-                  FACEBOOK
-              ================================================== */}
+              {/* Facebook */}
 
               <button
                 type="button"
+                onClick={() =>
+                  signIn("facebook", {
+                    callbackUrl: "/",
+                  })
+                }
                 className="
                   mt-3
                   flex
@@ -692,13 +706,11 @@ export default function LoginForm() {
                   font-semibold
                   text-[#333]
                   transition-all
-
                   hover:border-[#bfbfbf]
                   hover:bg-[#fafafa]
                 "
               >
                 <FacebookIcon />
-
                 Continue with Facebook
               </button>
 
@@ -711,7 +723,6 @@ export default function LoginForm() {
                   text-[11px]
                   leading-5
                   text-[#777]
-
                   sm:text-xs
                 "
               >
@@ -764,9 +775,7 @@ export default function LoginForm() {
             gap-y-6
             px-4
             py-7
-
             sm:px-6
-
             lg:grid-cols-4
             lg:gap-0
             lg:px-8
@@ -835,13 +844,7 @@ function LoginBenefit({
   description: string;
 }) {
   return (
-    <div
-      className="
-        flex
-        items-center
-        gap-4
-      "
-    >
+    <div className="flex items-center gap-4">
       <div
         className="
           flex
@@ -860,13 +863,7 @@ function LoginBenefit({
       </div>
 
       <div>
-        <p
-          className="
-            text-sm
-            font-bold
-            text-[#222]
-          "
-        >
+        <p className="text-sm font-bold text-[#222]">
           {title}
         </p>
 
@@ -907,19 +904,12 @@ function StoreBenefit({
         justify-center
         gap-3
         px-3
-
         lg:border-r
         lg:border-[#dedede]
-
         lg:last:border-r-0
       "
     >
-      <div
-        className="
-          shrink-0
-          text-[#063f82]
-        "
-      >
+      <div className="shrink-0 text-[#063f82]">
         {icon}
       </div>
 
@@ -929,7 +919,6 @@ function StoreBenefit({
             text-[11px]
             font-bold
             text-[#222]
-
             sm:text-xs
           "
         >
@@ -941,7 +930,6 @@ function StoreBenefit({
             mt-0.5
             text-[11px]
             text-[#555]
-
             sm:text-xs
           "
         >

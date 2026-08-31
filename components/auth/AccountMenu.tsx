@@ -10,28 +10,23 @@ import {
   UserRound,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function AccountMenu() {
   const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
-
   const menuRef = useRef<HTMLDivElement>(null);
 
-  /*
-   * Temporary authentication state.
-   * Later replace this with your real authentication/session.
-   */
-  const isLoggedIn = false;
+  const { data: session, status } = useSession();
 
-  const user = {
-    name: "User",
-    email: "user@example.com",
-  };
+  const isLoggedIn = status === "authenticated";
+  const user = session?.user;
 
-  /*
-   * Close dropdown when clicking outside
-   */
+  /* =========================================
+     CLOSE WHEN CLICKING OUTSIDE
+  ========================================== */
+
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -42,7 +37,10 @@ export default function AccountMenu() {
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener(
+      "mousedown",
+      handleOutsideClick
+    );
 
     return () => {
       document.removeEventListener(
@@ -52,9 +50,10 @@ export default function AccountMenu() {
     };
   }, []);
 
-  /*
-   * Close with Escape key
-   */
+  /* =========================================
+     CLOSE WITH ESCAPE
+  ========================================== */
+
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -65,7 +64,10 @@ export default function AccountMenu() {
     window.addEventListener("keydown", handleEscape);
 
     return () => {
-      window.removeEventListener("keydown", handleEscape);
+      window.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, []);
 
@@ -77,15 +79,32 @@ export default function AccountMenu() {
     return pathname.startsWith(href);
   };
 
+  /* =========================================
+     LOGOUT
+  ========================================== */
+
+  const handleLogout = async () => {
+    closeMenu();
+
+    await signOut({
+      callbackUrl: "/",
+    });
+  };
+
   return (
-    <div ref={menuRef} className="relative">
+    <div
+      ref={menuRef}
+      className="relative"
+    >
       {/* =====================================
           ACCOUNT BUTTON
       ====================================== */}
 
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() =>
+          setOpen((previous) => !previous)
+        }
         aria-label="Account menu"
         aria-expanded={open}
         className={`
@@ -97,7 +116,6 @@ export default function AccountMenu() {
           rounded-full
           transition-all
           duration-200
-
           ${
             open
               ? "bg-[#fff3eb] text-[#ff6600] ring-1 ring-[#ff6600]"
@@ -128,12 +146,9 @@ export default function AccountMenu() {
           border
           border-[#e8e8e8]
           bg-white
-
           shadow-[0_18px_50px_rgba(0,0,0,0.14)]
-
           transition-all
           duration-200
-
           ${
             open
               ? "visible translate-y-0 scale-100 opacity-100"
@@ -183,7 +198,9 @@ export default function AccountMenu() {
                 text-[#171717]
               "
             >
-              {isLoggedIn ? user.name : "My Account"}
+              {isLoggedIn
+                ? user?.name || "User"
+                : "My Account"}
             </p>
 
             <p
@@ -195,14 +212,14 @@ export default function AccountMenu() {
               "
             >
               {isLoggedIn
-                ? user.email
+                ? user?.email || ""
                 : "Manage your Urban Earth account"}
             </p>
           </div>
         </div>
 
         {/* =====================================
-            REGISTER + LOGIN
+            NOT LOGGED IN
         ====================================== */}
 
         {!isLoggedIn && (
@@ -240,56 +257,47 @@ export default function AccountMenu() {
         )}
 
         {/* =====================================
-            PROFILE + ORDERS
-        ====================================== */}
-
-        <div className="p-2">
-          <AccountLink
-            href="/profile"
-            label="My Profile"
-            active={isActive("/profile")}
-            closeMenu={closeMenu}
-            icon={
-              <UserRound
-                size={20}
-                strokeWidth={1.7}
-              />
-            }
-          />
-
-          <AccountLink
-            href="/orders"
-            label="My Orders"
-            active={isActive("/orders")}
-            closeMenu={closeMenu}
-            icon={
-              <Package
-                size={20}
-                strokeWidth={1.7}
-              />
-            }
-          />
-        </div>
-
-        {/* =====================================
-            LOGOUT
+            LOGGED IN MENU
         ====================================== */}
 
         {isLoggedIn && (
           <>
+            <div className="p-2">
+              <AccountLink
+                href="/profile"
+                label="My Profile"
+                active={isActive("/profile")}
+                closeMenu={closeMenu}
+                icon={
+                  <UserRound
+                    size={20}
+                    strokeWidth={1.7}
+                  />
+                }
+              />
+
+              <AccountLink
+                href="/orders"
+                label="My Orders"
+                active={isActive("/orders")}
+                closeMenu={closeMenu}
+                icon={
+                  <Package
+                    size={20}
+                    strokeWidth={1.7}
+                  />
+                }
+              />
+            </div>
+
+            {/* Logout */}
+
             <div className="h-px bg-[#eeeeee]" />
 
             <div className="p-2">
               <button
                 type="button"
-                onClick={() => {
-                  closeMenu();
-
-                  /*
-                   * Add your real logout function here.
-                   */
-                  console.log("Logout");
-                }}
+                onClick={handleLogout}
                 className="
                   flex
                   w-full
@@ -302,9 +310,7 @@ export default function AccountMenu() {
                   text-sm
                   font-medium
                   text-[#333]
-
                   transition-colors
-
                   hover:bg-[#fff3eb]
                   hover:text-[#ff6600]
                 "
@@ -319,13 +325,23 @@ export default function AccountMenu() {
             </div>
           </>
         )}
+
+        {/* =====================================
+            LOADING
+        ====================================== */}
+
+        {status === "loading" && (
+          <div className="px-5 py-4 text-xs text-[#777]">
+            Loading account...
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 /* =========================================
-   REUSABLE MENU ITEM
+   ACCOUNT LINK
 ========================================= */
 
 function AccountLink({
@@ -354,10 +370,8 @@ function AccountLink({
         py-3
         text-sm
         font-medium
-
         transition-colors
         duration-200
-
         ${
           active
             ? "bg-[#fff3eb] text-[#ff6600]"

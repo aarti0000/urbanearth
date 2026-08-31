@@ -1,7 +1,10 @@
 import "./globals.css";
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+
 import { CartProvider } from "@/components/cart/CartContext";
+import AuthSessionProvider from "@/components/auth/SessionProvider";
 
 export default function RootLayout({
   children,
@@ -11,14 +14,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <CartProvider>
-          <Header />
+        <AuthSessionProvider>
+          <CartProvider>
+            <Header />
 
-          {children}
+            {children}
 
-          <Footer />
-        </CartProvider>
+            <Footer />
+          </CartProvider>
+        </AuthSessionProvider>
       </body>
-    </html> 
+    </html>
   );
 }

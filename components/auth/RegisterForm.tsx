@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -23,6 +24,7 @@ import {
 } from "react";
 
 import gsap from "gsap";
+import { signIn } from "next-auth/react";
 
 export default function RegisterForm() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,6 +36,14 @@ export default function RegisterForm() {
 
   const [showConfirmPassword, setShowConfirmPassword] =
     useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  /* =========================================
+     GSAP ANIMATION
+  ========================================== */
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -74,6 +84,118 @@ export default function RegisterForm() {
     };
   }, []);
 
+  /* =========================================
+     REGISTER FUNCTION
+  ========================================== */
+
+  const handleRegister = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setError("");
+    setSuccess("");
+
+    const formData = new FormData(event.currentTarget);
+
+    const name = formData
+      .get("name")
+      ?.toString()
+      .trim();
+
+    const email = formData
+      .get("email")
+      ?.toString()
+      .trim();
+
+    const password = formData
+      .get("password")
+      ?.toString();
+
+    const confirmPassword = formData
+      .get("confirmPassword")
+      ?.toString();
+
+    const phone = formData
+      .get("phone")
+      ?.toString()
+      .trim();
+
+    /* Required fields */
+
+    if (
+      !name ||
+      !email ||
+      !password ||
+      !confirmPassword
+    ) {
+      setError(
+        "Please fill in all required fields."
+      );
+      return;
+    }
+
+    /* Password match */
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    /* Password length */
+
+    if (password.length < 6) {
+      setError(
+        "Password must be at least 6 characters."
+      );
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        "/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            phone,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(
+          data.error ||
+            "Registration failed. Please try again."
+        );
+        return;
+      }
+
+      setSuccess("Account created successfully!");
+(event.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error(
+        "Registration error:",
+        error
+      );
+
+      setError(
+        "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main
       ref={containerRef}
@@ -99,7 +221,6 @@ export default function RegisterForm() {
             grid
             min-h-[720px]
             max-w-[1440px]
-
             lg:grid-cols-[0.95fr_1.05fr]
           "
         >
@@ -114,9 +235,7 @@ export default function RegisterForm() {
               min-h-[520px]
               overflow-hidden
               opacity-100
-
               sm:min-h-[600px]
-
               lg:min-h-[820px]
             "
           >
@@ -140,7 +259,6 @@ export default function RegisterForm() {
                 from-[#faf7f2]
                 via-[#faf7f2]/90
                 to-[#faf7f2]/15
-
                 lg:via-[#faf7f2]/80
               "
             />
@@ -171,19 +289,15 @@ export default function RegisterForm() {
                 justify-center
                 px-6
                 py-14
-
                 sm:min-h-[600px]
                 sm:px-10
-
                 md:px-14
-
                 lg:min-h-[820px]
                 lg:px-16
-
                 xl:px-20
               "
             >
-              {/* Small Title */}
+              {/* Small title */}
 
               <p
                 className="
@@ -192,14 +306,13 @@ export default function RegisterForm() {
                   uppercase
                   tracking-[0.18em]
                   text-[#ff6600]
-
                   sm:text-sm
                 "
               >
                 Create Your Account
               </p>
 
-              {/* Main Heading */}
+              {/* Main heading */}
 
               <h1
                 className="
@@ -210,9 +323,7 @@ export default function RegisterForm() {
                   leading-[1.08]
                   tracking-[-0.03em]
                   text-[#171717]
-
                   sm:text-[48px]
-
                   lg:text-[54px]
                 "
               >
@@ -241,7 +352,6 @@ export default function RegisterForm() {
                   text-sm
                   leading-7
                   text-[#494949]
-
                   sm:text-[15px]
                 "
               >
@@ -259,7 +369,6 @@ export default function RegisterForm() {
                   grid
                   max-w-[450px]
                   gap-6
-
                   sm:mt-12
                 "
               >
@@ -313,13 +422,10 @@ export default function RegisterForm() {
               px-4
               py-12
               opacity-100
-
               sm:px-8
               sm:py-16
-
               lg:bg-white
               lg:px-12
-
               xl:px-20
             "
           >
@@ -332,11 +438,8 @@ export default function RegisterForm() {
                 border-[#e8e8e8]
                 bg-white
                 p-6
-
                 shadow-[0_15px_50px_rgba(0,0,0,0.06)]
-
                 sm:p-8
-
                 md:p-10
               "
             >
@@ -349,7 +452,6 @@ export default function RegisterForm() {
                     font-bold
                     tracking-[-0.02em]
                     text-[#171717]
-
                     sm:text-[28px]
                   "
                 >
@@ -370,7 +472,6 @@ export default function RegisterForm() {
                       font-semibold
                       text-[#ff6600]
                       transition-colors
-
                       hover:text-[#e55c00]
                     "
                   >
@@ -388,13 +489,7 @@ export default function RegisterForm() {
                   mt-8
                   space-y-5
                 "
-                onSubmit={(event) => {
-                  event.preventDefault();
-
-                  /*
-                   * Connect your register API here.
-                   */
-                }}
+                onSubmit={handleRegister}
               >
                 {/* Full Name */}
 
@@ -445,9 +540,7 @@ export default function RegisterForm() {
                         text-[#222]
                         outline-none
                         transition-all
-
                         placeholder:text-[#aaa]
-
                         focus:border-[#063f82]
                         focus:ring-2
                         focus:ring-[#063f82]/10
@@ -505,9 +598,7 @@ export default function RegisterForm() {
                         text-[#222]
                         outline-none
                         transition-all
-
                         placeholder:text-[#aaa]
-
                         focus:border-[#063f82]
                         focus:ring-2
                         focus:ring-[#063f82]/10
@@ -524,7 +615,6 @@ export default function RegisterForm() {
                   className="
                     grid
                     gap-5
-
                     sm:grid-cols-2
                   "
                 >
@@ -581,9 +671,7 @@ export default function RegisterForm() {
                           text-[#222]
                           outline-none
                           transition-all
-
                           placeholder:text-[#aaa]
-
                           focus:border-[#063f82]
                           focus:ring-2
                           focus:ring-[#063f82]/10
@@ -594,7 +682,8 @@ export default function RegisterForm() {
                         type="button"
                         onClick={() =>
                           setShowPassword(
-                            (previous) => !previous
+                            (previous) =>
+                              !previous
                           )
                         }
                         aria-label={
@@ -608,9 +697,7 @@ export default function RegisterForm() {
                           top-1/2
                           -translate-y-1/2
                           text-[#888]
-
                           transition-colors
-
                           hover:text-[#063f82]
                         "
                       >
@@ -682,9 +769,7 @@ export default function RegisterForm() {
                           text-[#222]
                           outline-none
                           transition-all
-
                           placeholder:text-[#aaa]
-
                           focus:border-[#063f82]
                           focus:ring-2
                           focus:ring-[#063f82]/10
@@ -695,7 +780,8 @@ export default function RegisterForm() {
                         type="button"
                         onClick={() =>
                           setShowConfirmPassword(
-                            (previous) => !previous
+                            (previous) =>
+                              !previous
                           )
                         }
                         aria-label={
@@ -709,9 +795,7 @@ export default function RegisterForm() {
                           top-1/2
                           -translate-y-1/2
                           text-[#888]
-
                           transition-colors
-
                           hover:text-[#063f82]
                         "
                       >
@@ -763,9 +847,7 @@ export default function RegisterForm() {
                       border
                       border-[#dedede]
                       bg-white
-
                       transition-all
-
                       focus-within:border-[#063f82]
                       focus-within:ring-2
                       focus-within:ring-[#063f82]/10
@@ -822,7 +904,6 @@ export default function RegisterForm() {
                           text-sm
                           text-[#222]
                           outline-none
-
                           placeholder:text-[#aaa]
                         "
                       />
@@ -841,7 +922,6 @@ export default function RegisterForm() {
                     text-xs
                     leading-5
                     text-[#555]
-
                     sm:text-[13px]
                   "
                 >
@@ -865,11 +945,10 @@ export default function RegisterForm() {
                       className="
                         font-medium
                         text-[#ff6600]
-
                         hover:underline
                       "
                     >
-                      Terms &amp; Conditions
+                      Terms & Conditions
                     </Link>{" "}
                     and{" "}
                     <Link
@@ -877,7 +956,6 @@ export default function RegisterForm() {
                       className="
                         font-medium
                         text-[#ff6600]
-
                         hover:underline
                       "
                     >
@@ -886,10 +964,45 @@ export default function RegisterForm() {
                   </span>
                 </label>
 
+                {/* Error message */}
+
+                {error && (
+                  <p
+                    className="
+                      rounded-lg
+                      bg-red-50
+                      px-4
+                      py-3
+                      text-sm
+                      text-red-600
+                    "
+                  >
+                    {error}
+                  </p>
+                )}
+
+                {/* Success message */}
+
+                {success && (
+                  <p
+                    className="
+                      rounded-lg
+                      bg-green-50
+                      px-4
+                      py-3
+                      text-sm
+                      text-green-600
+                    "
+                  >
+                    {success}
+                  </p>
+                )}
+
                 {/* Submit */}
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="
                     flex
                     h-13
@@ -902,18 +1015,19 @@ export default function RegisterForm() {
                     text-sm
                     font-bold
                     text-white
-
                     transition-all
                     duration-200
-
                     hover:-translate-y-0.5
                     hover:bg-[#e85d00]
                     hover:shadow-lg
-
                     active:translate-y-0
+                    disabled:cursor-not-allowed
+                    disabled:opacity-60
                   "
                 >
-                  Create Account
+                  {loading
+                    ? "Creating Account..."
+                    : "Create Account"}
                 </button>
               </form>
 
@@ -956,64 +1070,64 @@ export default function RegisterForm() {
 
               {/* Google */}
 
-              <button
-                type="button"
-                className="
-                  flex
-                  h-12
-                  w-full
-                  items-center
-                  justify-center
-                  gap-3
-                  rounded-lg
-                  border
-                  border-[#dedede]
-                  bg-white
-                  text-sm
-                  font-semibold
-                  text-[#333]
-
-                  transition-all
-
-                  hover:border-[#bfbfbf]
-                  hover:bg-[#fafafa]
-                "
-              >
-                <GoogleIcon />
-
-                Continue with Google
-              </button>
+             <button
+  type="button"
+  onClick={() => signIn("google", { callbackUrl: "/" })}
+  className="
+    flex
+    h-12
+    w-full
+    items-center
+    justify-center
+    gap-3
+    rounded-lg
+    border
+    border-[#dedede]
+    bg-white
+    text-sm
+    font-semibold
+    text-[#333]
+    transition-all
+    hover:border-[#bfbfbf]
+    hover:bg-[#fafafa]
+  "
+>
+  <GoogleIcon />
+  Continue with Google
+</button>
 
               {/* Facebook */}
+<button
+  type="button"
+  onClick={() =>
+    signIn("facebook", {
+      callbackUrl: "/",
+    })
+  }
+  className="
+    mt-3
+    flex
+    h-12
+    w-full
+    items-center
+    justify-center
+    gap-3
+    rounded-lg
+    border
+    border-[#dedede]
+    bg-white
+    text-sm
+    font-semibold
+    text-[#333]
+    transition-all
+    hover:border-[#bfbfbf]
+    hover:bg-[#fafafa]
+  "
+>
+  <FacebookIcon />
 
-              <button
-                type="button"
-                className="
-                  mt-3
-                  flex
-                  h-12
-                  w-full
-                  items-center
-                  justify-center
-                  gap-3
-                  rounded-lg
-                  border
-                  border-[#dedede]
-                  bg-white
-                  text-sm
-                  font-semibold
-                  text-[#333]
-
-                  transition-all
-
-                  hover:border-[#bfbfbf]
-                  hover:bg-[#fafafa]
-                "
-              >
-                <FacebookIcon />
-
-                Continue with Facebook
-              </button>
+  Continue with Facebook
+</button>
             </div>
           </div>
         </div>
@@ -1039,9 +1153,7 @@ export default function RegisterForm() {
             gap-y-6
             px-4
             py-7
-
             sm:px-6
-
             lg:grid-cols-4
             lg:gap-0
             lg:px-8
@@ -1128,7 +1240,6 @@ function RegisterBenefit({
           rounded-full
           bg-white
           text-[#ff6600]
-
           shadow-[0_5px_20px_rgba(0,0,0,0.08)]
         "
       >
@@ -1183,10 +1294,8 @@ function StoreBenefit({
         justify-center
         gap-3
         px-3
-
         lg:border-r
         lg:border-[#dedede]
-
         lg:last:border-r-0
       "
     >
@@ -1200,7 +1309,6 @@ function StoreBenefit({
             text-[11px]
             font-bold
             text-[#222]
-
             sm:text-xs
           "
         >
@@ -1212,7 +1320,6 @@ function StoreBenefit({
             mt-0.5
             text-[11px]
             text-[#555]
-
             sm:text-xs
           "
         >
@@ -1282,3 +1389,4 @@ function FacebookIcon() {
     </div>
   );
 }
+

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "UE-1001",
+    "date": "August 24, 2026",
+    "status": "Delivered",
+    "total": 18500,
+    "items": [
+      {
+        "name": "Modern Beige Carpet",
+        "size": "160 x 230 cm",
+        "quantity": 1,
+        "price": 12500,
+        "image": "/images/products/beige-carpet.jpg"
+      },
+      {
+        "name": "Natural Jute Rug",
+        "size": "120 x 180 cm",
+        "quantity": 1,
+        "price": 6000,
+        "image": "/images/products/jute-rug.jpg"
+      }
+    ]
+  },
+  {
+    "id": "UE-1002",
+    "date": "August 20, 2026",
+    "status": "Shipped",
+    "total": 9500,
+    "items": [
+      {
+        "name": "Premium Floor Carpet",
+        "size": "150 x 200 cm",
+        "quantity": 1,
+        "price": 9500,
+        "image": "/images/products/floor-carpet.jpg"
+      }
+    ]
+  }
+]

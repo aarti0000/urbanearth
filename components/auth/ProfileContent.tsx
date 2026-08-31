@@ -1,12 +1,48 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
+import {
+  Bell,
+  CalendarDays,
+  CreditCard,
+  Crown,
+  Heart,
+  KeyRound,
+  LogOut,
+  Mail,
+  MapPin,
+  Package,
+  Phone,
+  UserRound,
+} from "lucide-react";
+
 export default function ProfileContent() {
+  const pathname = usePathname();
+
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  /*
+   * Temporary user data.
+   * Later replace this with data from your authentication/session.
+   */
+  const user = {
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "+977 9841234567",
+    birthDate: "1998-05-12",
+    address: "Kathmandu, Nepal",
+    gender: "male",
+    bio: "I love minimal interiors and natural materials.",
+    memberSince: "15 March 2024",
+    totalOrders: 8,
+    wishlistItems: 24,
+  };
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -21,208 +57,1032 @@ export default function ProfileContent() {
           opacity: 1,
           duration: 0.7,
           ease: "power3.out",
+          clearProps: "transform",
         }
-      ); 
+      );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
     <main
       ref={containerRef}
-      className="min-h-[calc(100vh-110px)] bg-[#faf7f2] px-5 py-12 md:px-10"
+      className="min-h-screen bg-[#f8f9fa]"
     >
       <div
         ref={contentRef}
-        className="mx-auto w-full max-w-6xl"
+        className="
+          mx-auto
+          w-full
+          max-w-[1440px]
+          px-4
+          py-8
+          opacity-100
+
+          sm:px-6
+          sm:py-10
+
+          lg:px-8
+          lg:py-12
+        "
       >
-        {/* HEADER */}
-        <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8b7355]">
-            HomeHaven
-          </p>
+        {/* =====================================================
+            MAIN LAYOUT
+        ====================================================== */}
 
-          <h1 className="mt-3 font-serif text-3xl text-[#2f2a26] md:text-4xl">
-            My account
-          </h1>
+        <div
+          className="
+            grid
+            gap-6
 
-          <p className="mt-2 text-sm text-[#81766d]">
-            Manage your profile, account details and orders.
-          </p>
-        </div>
+            lg:grid-cols-[260px_1fr]
 
-        <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+            xl:grid-cols-[280px_1fr]
+          "
+        >
+          {/* ===================================================
+              LEFT SIDEBAR
+          ==================================================== */}
 
-          {/* SIDEBAR */}
-          <aside className="h-fit rounded-2xl bg-white p-5">
-            <div className="border-b border-[#eee8e2] pb-5">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1ebe4] font-serif text-xl text-[#8b7355]">
-                JD
+          <aside
+            className="
+              h-fit
+              overflow-hidden
+              rounded-2xl
+              border
+              border-[#e8e8e8]
+              bg-white
+              shadow-[0_8px_30px_rgba(0,0,0,0.04)]
+            "
+          >
+            {/* User */}
+
+            <div
+              className="
+                border-b
+                border-[#eeeeee]
+                px-5
+                py-6
+              "
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="
+                    flex
+                    h-14
+                    w-14
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#eef2f7]
+                    text-[#063f82]
+                  "
+                >
+                  <UserRound
+                    size={30}
+                    strokeWidth={1.6}
+                  />
+                </div>
+
+                <div className="min-w-0">
+                  <h2
+                    className="
+                      truncate
+                      text-base
+                      font-bold
+                      text-[#171717]
+                    "
+                  >
+                    Hello, {user.name.split(" ")[0]}
+                  </h2>
+
+                  <p
+                    className="
+                      mt-1
+                      truncate
+                      text-xs
+                      text-[#777]
+                    "
+                  >
+                    {user.email}
+                  </p>
+                </div>
               </div>
-
-              <h2 className="mt-4 font-medium text-[#2f2a26]">
-                John Doe
-              </h2>
-
-              <p className="mt-1 text-sm text-[#81766d]">
-                john@example.com
-              </p>
             </div>
 
-            <nav className="mt-5 space-y-1">
-              <Link
+            {/* Navigation */}
+
+            <nav className="p-3">
+              <SidebarLink
                 href="/profile"
-                className="block rounded-lg bg-[#f6f1eb] px-4 py-3 text-sm font-medium text-[#2f2a26]"
-              >
-                Profile
-              </Link>
+                label="My Profile"
+                icon={<UserRound size={20} />}
+                active={pathname === "/profile"}
+              />
 
-              <Link
+              <SidebarLink
                 href="/orders"
-                className="block rounded-lg px-4 py-3 text-sm text-[#81766d] transition hover:bg-[#faf7f2] hover:text-[#2f2a26]"
-              >
-                My orders
-              </Link>
+                label="My Orders"
+                icon={<Package size={20} />}
+                active={pathname.startsWith("/orders")}
+              />
 
-              <Link
-                href="/cart"
-                className="block rounded-lg px-4 py-3 text-sm text-[#81766d] transition hover:bg-[#faf7f2] hover:text-[#2f2a26]"
-              >
-                My cart
-              </Link>
+              <SidebarLink
+                href="/addresses"
+                label="My Addresses"
+                icon={<MapPin size={20} />}
+                active={pathname.startsWith("/addresses")}
+              />
 
-              <Link
-                href="/logout"
-                className="block rounded-lg px-4 py-3 text-sm text-red-500 transition hover:bg-red-50"
+              <SidebarLink
+                href="/wishlist"
+                label="Wishlist"
+                icon={<Heart size={20} />}
+                active={pathname.startsWith("/wishlist")}
+              />
+
+              <SidebarLink
+                href="/payment-methods"
+                label="Payment Methods"
+                icon={<CreditCard size={20} />}
+                active={pathname.startsWith(
+                  "/payment-methods"
+                )}
+              />
+
+              <SidebarLink
+                href="/notifications"
+                label="Notifications"
+                icon={<Bell size={20} />}
+                active={pathname.startsWith(
+                  "/notifications"
+                )}
+              />
+
+              <SidebarLink
+                href="/change-password"
+                label="Change Password"
+                icon={<KeyRound size={20} />}
+                active={pathname.startsWith(
+                  "/change-password"
+                )}
+              />
+
+              <div
+                className="
+                  my-3
+                  h-px
+                  bg-[#eeeeee]
+                "
+              />
+
+              <button
+                type="button"
+                onClick={() => {
+                  /*
+                   * Connect your real logout function later.
+                   */
+                  console.log("Sign out");
+                }}
+                className="
+                  flex
+                  w-full
+                  items-center
+                  gap-3
+                  rounded-xl
+                  px-4
+                  py-3
+                  text-left
+                  text-sm
+                  font-medium
+                  text-[#333]
+                  transition-colors
+
+                  hover:bg-[#fff3eb]
+                  hover:text-[#ff6600]
+                "
               >
-                Sign out
-              </Link>
+                <LogOut
+                  size={20}
+                  strokeWidth={1.7}
+                />
+
+                Sign Out
+              </button>
             </nav>
           </aside>
 
-          {/* PROFILE CONTENT */}
-          <section className="rounded-2xl bg-white p-7 md:p-10">
-            <div className="mb-8">
-              <h2 className="font-serif text-2xl text-[#2f2a26]">
-                Personal information
-              </h2>
+          {/* ===================================================
+              RIGHT SIDE
+          ==================================================== */}
 
-              <p className="mt-2 text-sm text-[#81766d]">
-                Update your personal details below.
-              </p>
-            </div>
+          <div className="min-w-0">
+            {/* ===============================================
+                PROFILE HEADER
+            ================================================ */}
 
-            <form className="space-y-6">
+            <section
+              className="
+                relative
+                mb-6
+                overflow-hidden
+                rounded-2xl
+                border
+                border-[#e8e8e8]
+                bg-white
+                px-6
+                py-8
 
-              <div className="grid gap-5 md:grid-cols-2">
+                sm:px-8
 
-                {/* FIRST NAME */}
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="mb-2 block text-sm font-medium text-[#403832]"
+                md:min-h-[160px]
+
+                lg:px-10
+              "
+            >
+              {/* Background image */}
+
+              <div
+                className="
+                  absolute
+                  right-0
+                  top-0
+                  hidden
+                  h-full
+                  w-[45%]
+
+                  md:block
+                "
+              >
+                <Image
+                  src="/images/login-room.jpg"
+                  alt="Urban Earth interior"
+                  fill
+                  sizes="40vw"
+                  className="object-cover object-center"
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-r
+                    from-white
+                    via-white/65
+                    to-white/10
+                  "
+                />
+              </div>
+
+              <div className="relative z-10">
+                <p
+                  className="
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-[0.15em]
+                    text-[#ff6600]
+                  "
+                >
+                  My Account
+                </p>
+
+                <h1
+                  className="
+                    mt-2
+                    text-3xl
+                    font-bold
+                    tracking-[-0.03em]
+                    text-[#152033]
+
+                    sm:text-4xl
+                  "
+                >
+                  My Profile
+                </h1>
+
+                <p
+                  className="
+                    mt-3
+                    max-w-xl
+                    text-sm
+                    leading-6
+                    text-[#555]
+                  "
+                >
+                  Manage your personal information and
+                  account details.
+                </p>
+              </div>
+            </section>
+
+            {/* ===============================================
+                PROFILE INFORMATION CARD
+            ================================================ */}
+
+            <section
+              className="
+                overflow-hidden
+                rounded-2xl
+                border
+                border-[#e8e8e8]
+                bg-white
+                shadow-[0_8px_30px_rgba(0,0,0,0.03)]
+              "
+            >
+              <div
+                className="
+                  grid
+
+                  xl:grid-cols-[1fr_320px]
+                "
+              >
+                {/* ===========================================
+                    FORM
+                ============================================ */}
+
+                <div
+                  className="
+                    p-5
+
+                    sm:p-7
+
+                    lg:p-8
+
+                    xl:p-9
+                  "
+                >
+                  <div className="mb-7">
+                    <h2
+                      className="
+                        text-xl
+                        font-bold
+                        text-[#152033]
+
+                        sm:text-2xl
+                      "
+                    >
+                      Personal Information
+                    </h2>
+
+                    <p
+                      className="
+                        mt-2
+                        text-sm
+                        text-[#777]
+                      "
+                    >
+                      Update your personal details below.
+                    </p>
+                  </div>
+
+                  <form
+                    className="space-y-5"
+                    onSubmit={(event) => {
+                      event.preventDefault();
+
+                      /*
+                       * Connect profile update API here.
+                       */
+                    }}
                   >
-                    First name
-                  </label>
+                    {/* =====================================
+                        NAME + EMAIL
+                    ====================================== */}
 
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    defaultValue="John"
-                    className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition focus:border-[#8b7355] focus:bg-white"
-                  />
+                    <div
+                      className="
+                        grid
+                        gap-5
+
+                        md:grid-cols-2
+                      "
+                    >
+                      {/* Full Name */}
+
+                      <ProfileInput
+                        label="Full Name"
+                        id="name"
+                        name="name"
+                        type="text"
+                        defaultValue={user.name}
+                        icon={
+                          <UserRound
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        }
+                      />
+
+                      {/* Email */}
+
+                      <ProfileInput
+                        label="Email Address"
+                        id="email"
+                        name="email"
+                        type="email"
+                        defaultValue={user.email}
+                        icon={
+                          <Mail
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        }
+                      />
+                    </div>
+
+                    {/* =====================================
+                        PHONE + DATE
+                    ====================================== */}
+
+                    <div
+                      className="
+                        grid
+                        gap-5
+
+                        md:grid-cols-2
+                      "
+                    >
+                      <ProfileInput
+                        label="Phone Number"
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        defaultValue={user.phone}
+                        icon={
+                          <Phone
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        }
+                      />
+
+                      <ProfileInput
+                        label="Date of Birth"
+                        id="birthDate"
+                        name="birthDate"
+                        type="date"
+                        defaultValue={user.birthDate}
+                        icon={
+                          <CalendarDays
+                            size={18}
+                            strokeWidth={1.7}
+                          />
+                        }
+                      />
+                    </div>
+
+                    {/* =====================================
+                        ADDRESS
+                    ====================================== */}
+
+                    <ProfileInput
+                      label="Address"
+                      id="address"
+                      name="address"
+                      type="text"
+                      defaultValue={user.address}
+                      icon={
+                        <MapPin
+                          size={18}
+                          strokeWidth={1.7}
+                        />
+                      }
+                    />
+
+                    {/* =====================================
+                        GENDER
+                    ====================================== */}
+
+                    <div>
+                      <label
+                        className="
+                          mb-2
+                          block
+                          text-sm
+                          font-semibold
+                          text-[#222]
+                        "
+                      >
+                        Gender
+                      </label>
+
+                      <div
+                        className="
+                          grid
+                          gap-3
+
+                          sm:grid-cols-3
+                        "
+                      >
+                        <GenderOption
+                          value="male"
+                          label="Male"
+                          defaultChecked={
+                            user.gender === "male"
+                          }
+                        />
+
+                        <GenderOption
+                          value="female"
+                          label="Female"
+                          defaultChecked={
+                            user.gender === "female"
+                          }
+                        />
+
+                        <GenderOption
+                          value="other"
+                          label="Other"
+                          defaultChecked={
+                            user.gender === "other"
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    {/* =====================================
+                        BIO
+                    ====================================== */}
+
+                    <div>
+                      <label
+                        htmlFor="bio"
+                        className="
+                          mb-2
+                          block
+                          text-sm
+                          font-semibold
+                          text-[#222]
+                        "
+                      >
+                        Bio{" "}
+                        <span
+                          className="
+                            font-normal
+                            text-[#888]
+                          "
+                        >
+                          (Optional)
+                        </span>
+                      </label>
+
+                      <textarea
+                        id="bio"
+                        name="bio"
+                        rows={4}
+                        defaultValue={user.bio}
+                        placeholder="Tell us a little about yourself"
+                        className="
+                          w-full
+                          resize-none
+                          rounded-lg
+                          border
+                          border-[#dedede]
+                          bg-white
+                          px-4
+                          py-3.5
+                          text-sm
+                          leading-6
+                          text-[#222]
+                          outline-none
+                          transition-all
+
+                          placeholder:text-[#aaa]
+
+                          focus:border-[#063f82]
+                          focus:ring-2
+                          focus:ring-[#063f82]/10
+                        "
+                      />
+                    </div>
+
+                    {/* =====================================
+                        BUTTON
+                    ====================================== */}
+
+                    <div
+                      className="
+                        border-t
+                        border-[#eeeeee]
+                        pt-6
+                      "
+                    >
+                      <button
+                        type="submit"
+                        className="
+                          rounded-lg
+                          bg-[#ff6600]
+                          px-7
+                          py-3.5
+                          text-sm
+                          font-bold
+                          text-white
+                          transition-all
+                          duration-200
+
+                          hover:-translate-y-0.5
+                          hover:bg-[#e85d00]
+                          hover:shadow-lg
+
+                          active:translate-y-0
+                        "
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </form>
                 </div>
 
-                {/* LAST NAME */}
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="mb-2 block text-sm font-medium text-[#403832]"
+                {/* ===========================================
+                    ACCOUNT SUMMARY
+                ============================================ */}
+
+                <aside
+                  className="
+                    border-t
+                    border-[#eeeeee]
+                    bg-[#fcfcfc]
+                    p-5
+
+                    sm:p-7
+
+                    xl:border-l
+                    xl:border-t-0
+                    xl:p-8
+                  "
+                >
+                  <h2
+                    className="
+                      text-lg
+                      font-bold
+                      text-[#152033]
+                    "
                   >
-                    Last name
-                  </label>
+                    Account Summary
+                  </h2>
 
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    defaultValue="Doe"
-                    className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition focus:border-[#8b7355] focus:bg-white"
-                  />
-                </div>
+                  <div
+                    className="
+                      mt-6
+                      space-y-5
+                    "
+                  >
+                    <SummaryItem
+                      icon={
+                        <CalendarDays
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      }
+                      label="Member Since"
+                      value={user.memberSince}
+                    />
 
+                    <SummaryItem
+                      icon={
+                        <Package
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      }
+                      label="Total Orders"
+                      value={`${user.totalOrders} Orders`}
+                    />
+
+                    <SummaryItem
+                      icon={
+                        <Heart
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      }
+                      label="Wishlist Items"
+                      value={`${user.wishlistItems} Items`}
+                    />
+
+                    <SummaryItem
+                      icon={
+                        <MapPin
+                          size={19}
+                          strokeWidth={1.7}
+                        />
+                      }
+                      label="Default Address"
+                      value={user.address}
+                    />
+                  </div>
+
+                  {/* =========================================
+                      MEMBER CARD
+                  ========================================== */}
+
+                  <div
+                    className="
+                      mt-8
+                      rounded-xl
+                      bg-[#fff3eb]
+                      p-5
+                    "
+                  >
+                    <div
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                      "
+                    >
+                      <Crown
+                        size={24}
+                        strokeWidth={1.7}
+                        className="text-[#ff6600]"
+                      />
+
+                      <p
+                        className="
+                          font-bold
+                          text-[#222]
+                        "
+                      >
+                        Urban Earth Member
+                      </p>
+                    </div>
+
+                    <p
+                      className="
+                        mt-3
+                        text-sm
+                        leading-6
+                        text-[#666]
+                      "
+                    >
+                      You are a valued member. Keep
+                      shopping to unlock more rewards
+                      and benefits.
+                    </p>
+
+                    <Link
+                      href="/rewards"
+                      className="
+                        mt-5
+                        inline-flex
+                        items-center
+                        gap-2
+                        text-sm
+                        font-bold
+                        text-[#ff6600]
+
+                        hover:underline
+                      "
+                    >
+                      View Benefits
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </aside>
               </div>
-
-              {/* EMAIL */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-[#403832]"
-                >
-                  Email address
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  defaultValue="john@example.com"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
-
-              {/* PHONE */}
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-2 block text-sm font-medium text-[#403832]"
-                >
-                  Phone number
-                </label>
-
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="+977 98XXXXXXXX"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
-
-              {/* ADDRESS */}
-              <div>
-                <label
-                  htmlFor="address"
-                  className="mb-2 block text-sm font-medium text-[#403832]"
-                >
-                  Address
-                </label>
-
-                <input
-                  id="address"
-                  name="address"
-                  type="text"
-                  placeholder="Your address"
-                  className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
-                />
-              </div>
-
-              <div className="flex justify-end border-t border-[#eee8e2] pt-6">
-                <button
-                  type="submit"
-                  className="rounded-lg bg-[#2f2a26] px-7 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-[#8b7355]"
-                >
-                  Save changes
-                </button>
-              </div>
-
-            </form>
-          </section>
-
+            </section>
+          </div>
         </div>
       </div>
     </main>
+  );
+}
+
+/* =========================================================
+   SIDEBAR LINK
+========================================================= */
+
+function SidebarLink({
+  href,
+  label,
+  icon,
+  active,
+}: {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+  active: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`
+        flex
+        items-center
+        gap-3
+        rounded-xl
+        px-4
+        py-3
+        text-sm
+        font-medium
+        transition-colors
+
+        ${
+          active
+            ? "bg-[#fff3eb] text-[#ff6600]"
+            : "text-[#263247] hover:bg-[#f5f7fa] hover:text-[#063f82]"
+        }
+      `}
+    >
+      <span className="shrink-0">
+        {icon}
+      </span>
+
+      <span>{label}</span>
+    </Link>
+  );
+}
+
+/* =========================================================
+   PROFILE INPUT
+========================================================= */
+
+function ProfileInput({
+  label,
+  id,
+  name,
+  type,
+  defaultValue,
+  icon,
+}: {
+  label: string;
+  id: string;
+  name: string;
+  type: string;
+  defaultValue?: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="
+          mb-2
+          block
+          text-sm
+          font-semibold
+          text-[#222]
+        "
+      >
+        {label}
+      </label>
+
+      <div className="relative">
+        <div
+          className="
+            absolute
+            left-4
+            top-1/2
+            -translate-y-1/2
+            text-[#8b8b8b]
+          "
+        >
+          {icon}
+        </div>
+
+        <input
+          id={id}
+          name={name}
+          type={type}
+          defaultValue={defaultValue}
+          className="
+            h-13
+            w-full
+            rounded-lg
+            border
+            border-[#dedede]
+            bg-white
+            pl-12
+            pr-4
+            text-sm
+            text-[#222]
+            outline-none
+            transition-all
+
+            focus:border-[#063f82]
+            focus:ring-2
+            focus:ring-[#063f82]/10
+          "
+        />
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   GENDER OPTION
+========================================================= */
+
+function GenderOption({
+  value,
+  label,
+  defaultChecked,
+}: {
+  value: string;
+  label: string;
+  defaultChecked?: boolean;
+}) {
+  return (
+    <label
+      className="
+        flex
+        cursor-pointer
+        items-center
+        gap-3
+        rounded-lg
+        border
+        border-[#dedede]
+        px-4
+        py-3
+        text-sm
+        font-medium
+        text-[#333]
+        transition-colors
+
+        hover:border-[#ff6600]
+        hover:bg-[#fffaf7]
+      "
+    >
+      <input
+        type="radio"
+        name="gender"
+        value={value}
+        defaultChecked={defaultChecked}
+        className="
+          h-4
+          w-4
+          accent-[#ff6600]
+        "
+      />
+
+      {label}
+    </label>
+  );
+}
+
+/* =========================================================
+   SUMMARY ITEM
+========================================================= */
+
+function SummaryItem({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div
+      className="
+        flex
+        items-start
+        gap-3
+      "
+    >
+      <div
+        className="
+          flex
+          h-9
+          w-9
+          shrink-0
+          items-center
+          justify-center
+          rounded-full
+          bg-[#eef2f7]
+          text-[#063f82]
+        "
+      >
+        {icon}
+      </div>
+
+      <div>
+        <p
+          className="
+            text-sm
+            font-bold
+            text-[#222]
+          "
+        >
+          {label}
+        </p>
+
+        <p
+          className="
+            mt-1
+            text-sm
+            text-[#667085]
+          "
+        >
+          {value}
+        </p>
+      </div>
+    </div>
   );
 }
