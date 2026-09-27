@@ -28,6 +28,7 @@ export default function LoginForm() {
   const [error, setError] = useState("");
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
@@ -131,7 +132,7 @@ export default function LoginForm() {
           relative
           overflow-hidden
           bg-gradient-to-r
-          from-[#faf7f2]
+          from-[#f7f7f7]
           via-white
           to-white
         "
@@ -173,10 +174,10 @@ export default function LoginForm() {
                 absolute
                 inset-0
                 bg-gradient-to-r
-                from-[#faf7f2]
-                via-[#faf7f2]/90
-                to-[#faf7f2]/15
-                lg:via-[#faf7f2]/80
+                from-[#f7f7f7]
+                via-[#f7f7f7]/90
+                to-[#f7f7f7]/15
+                lg:via-[#f7f7f7]/80
               "
             />
 
@@ -185,7 +186,7 @@ export default function LoginForm() {
                 absolute
                 inset-0
                 bg-gradient-to-t
-                from-[#faf7f2]/80
+                from-[#f7f7f7]/80
                 via-transparent
                 to-transparent
               "
@@ -216,7 +217,7 @@ export default function LoginForm() {
                   font-bold
                   uppercase
                   tracking-[0.18em]
-                  text-[#ff6600]
+                  text-[#000000]
                   sm:text-sm
                 "
               >
@@ -237,13 +238,13 @@ export default function LoginForm() {
                 "
               >
                 Login to Your{" "}
-                <span className="text-[#ff6600]">
+                <span className="text-[#000000]">
                   Urban Earth
                 </span>{" "}
                 Account
               </h1>
 
-              <div className="mt-6 h-[2px] w-14 bg-[#ff6600]" />
+              <div className="mt-6 h-[2px] w-14 bg-[#000000]" />
 
               <p
                 className="
@@ -359,9 +360,9 @@ export default function LoginForm() {
                     href="/register"
                     className="
                       font-semibold
-                      text-[#ff6600]
+                      text-[#000000]
                       transition-colors
-                      hover:text-[#e55c00]
+                      hover:text-[#000000]
                     "
                   >
                     Create Account
@@ -423,9 +424,9 @@ export default function LoginForm() {
                         outline-none
                         transition-all
                         placeholder:text-[#aaa]
-                        focus:border-[#063f82]
+                        focus:border-[#000000]
                         focus:ring-2
-                        focus:ring-[#063f82]/10
+                        focus:ring-[#000000]/10
                       "
                     />
                   </div>
@@ -459,9 +460,9 @@ export default function LoginForm() {
                       className="
                         text-xs
                         font-medium
-                        text-[#ff6600]
+                        text-[#000000]
                         transition-colors
-                        hover:text-[#e55c00]
+                        hover:text-[#000000]
                         sm:text-[13px]
                       "
                     >
@@ -507,9 +508,9 @@ export default function LoginForm() {
                         outline-none
                         transition-all
                         placeholder:text-[#aaa]
-                        focus:border-[#063f82]
+                        focus:border-[#000000]
                         focus:ring-2
-                        focus:ring-[#063f82]/10
+                        focus:ring-[#000000]/10
                       "
                     />
 
@@ -532,7 +533,7 @@ export default function LoginForm() {
                         -translate-y-1/2
                         text-[#888]
                         transition-colors
-                        hover:text-[#063f82]
+                        hover:text-[#000000]
                       "
                     >
                       {showPassword ? (
@@ -556,11 +557,11 @@ export default function LoginForm() {
                   <div
                     className="
                       rounded-lg
-                      bg-red-50
+                      bg-neutral-50
                       px-4
                       py-3
                       text-sm
-                      text-red-600
+                      text-black
                     "
                   >
                     {error}
@@ -586,7 +587,7 @@ export default function LoginForm() {
                       h-4
                       w-4
                       cursor-pointer
-                      accent-[#ff6600]
+                      accent-[#000000]
                     "
                   />
 
@@ -605,7 +606,7 @@ export default function LoginForm() {
                     items-center
                     justify-center
                     rounded-lg
-                    bg-[#ff6600]
+                    bg-[#000000]
                     px-6
                     text-sm
                     font-bold
@@ -613,7 +614,7 @@ export default function LoginForm() {
                     transition-all
                     duration-200
                     hover:-translate-y-0.5
-                    hover:bg-[#e85d00]
+                    hover:bg-[#000000]
                     hover:shadow-lg
                     active:translate-y-0
                     disabled:cursor-not-allowed
@@ -731,7 +732,7 @@ export default function LoginForm() {
                   href="/terms"
                   className="
                     font-medium
-                    text-[#ff6600]
+                    text-[#000000]
                     hover:underline
                   "
                 >
@@ -742,7 +743,7 @@ export default function LoginForm() {
                   href="/privacy"
                   className="
                     font-medium
-                    text-[#ff6600]
+                    text-[#000000]
                     hover:underline
                   "
                 >
@@ -763,7 +764,7 @@ export default function LoginForm() {
         className="
           border-y
           border-[#e8e8e8]
-          bg-[#faf8f5]
+          bg-[#f7f7f7]
         "
       >
         <div
@@ -855,7 +856,7 @@ function LoginBenefit({
           justify-center
           rounded-full
           bg-white
-          text-[#ff6600]
+          text-[#000000]
           shadow-[0_5px_20px_rgba(0,0,0,0.08)]
         "
       >
@@ -909,7 +910,7 @@ function StoreBenefit({
         lg:last:border-r-0
       "
     >
-      <div className="shrink-0 text-[#063f82]">
+      <div className="shrink-0 text-[#000000]">
         {icon}
       </div>
 
@@ -953,22 +954,22 @@ function GoogleIcon() {
       aria-hidden="true"
     >
       <path
-        fill="#4285F4"
+        fill="#000000"
         d="M21.6 12.227c0-.709-.064-1.391-.182-2.045H12v3.868h5.382a4.6 4.6 0 0 1-1.995 3.018v2.509h3.232c1.891-1.741 2.981-4.305 2.981-7.35Z"
       />
 
       <path
-        fill="#34A853"
+        fill="#000000"
         d="M12 22c2.7 0 4.964-.895 6.619-2.423l-3.232-2.509c-.895.6-2.041.955-3.387.955-2.605 0-4.81-1.759-5.6-4.123H3.059v2.591A9.998 9.998 0 0 0 12 22Z"
       />
 
       <path
-        fill="#FBBC05"
+        fill="#000000"
         d="M6.4 13.9A6.012 6.012 0 0 1 6.086 12c0-.659.114-1.3.314-1.9V7.509H3.059A9.998 9.998 0 0 0 2 12c0 1.614.386 3.141 1.059 4.491L6.4 13.9Z"
       />
 
       <path
-        fill="#EA4335"
+        fill="#000000"
         d="M12 5.977c1.468 0 2.786.505 3.823 1.495l2.868-2.868C16.959 2.99 14.695 2 12 2a9.998 9.998 0 0 0-8.941 5.509L6.4 10.1c.79-2.364 2.995-4.123 5.6-4.123Z"
       />
     </svg>
@@ -989,7 +990,7 @@ function FacebookIcon() {
         items-center
         justify-center
         rounded-full
-        bg-[#1877F2]
+        bg-[#000000]
         text-[14px]
         font-bold
         text-white

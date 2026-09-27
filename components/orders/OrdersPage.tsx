@@ -29,7 +29,7 @@ export default function OrdersPage() {
       <section className="px-6 pb-10 pt-14 sm:px-10 lg:px-16 lg:pb-12 lg:pt-20">
         <div className="mx-auto max-w-[1180px] text-center">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#ef5b12]">
+          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#000000]">
             Your account
           </p>
 
@@ -37,7 +37,7 @@ export default function OrdersPage() {
             My Orders
           </h1>
 
-          <span className="mx-auto mt-5 block h-[2px] w-16 bg-[#ef5b12]" />
+          <span className="mx-auto mt-5 block h-[2px] w-16 bg-[#000000]" />
 
           <p className="mx-auto mt-5 max-w-[620px] text-[15px] leading-7 text-[#575757]">
             View your recent purchases, track your orders, and manage your
@@ -48,7 +48,7 @@ export default function OrdersPage() {
       </section>
 
       {/* Orders */}
-      <section className="bg-[#f8f4ee] px-6 py-12 sm:px-10 lg:px-16 lg:py-16">
+      <section className="bg-[#f7f7f7] px-6 py-12 sm:px-10 lg:px-16 lg:py-16">
         <div className="mx-auto max-w-[1180px]">
 
           {/* Filters */}
@@ -60,8 +60,8 @@ export default function OrdersPage() {
                 onClick={() => setActiveFilter(filter)}
                 className={`whitespace-nowrap border px-5 py-2.5 text-xs font-semibold transition ${
                   activeFilter === filter
-                    ? "border-[#07539a] bg-[#07539a] text-white"
-                    : "border-[#d8d8d8] bg-white text-[#444] hover:border-[#07539a] hover:text-[#07539a]"
+                    ? "border-[#000000] bg-[#000000] text-white"
+                    : "border-[#d8d8d8] bg-white text-[#444] hover:border-[#000000] hover:text-[#000000]"
                 }`}
               >
                 {filter}
@@ -91,7 +91,7 @@ export default function OrdersPage() {
 
 function OrderCard({ order }: { order: (typeof orders)[number] }) {
   return (
-    <article className="border border-[#ded9d2] bg-white">
+    <article className="border border-[#e5e5e5] bg-white">
 
       {/* Header */}
       <div className="flex flex-col gap-4 border-b border-[#e5e5e5] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
@@ -121,7 +121,7 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
           >
 
             {/* Product Image */}
-            <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-[#f5f3ef] sm:h-24 sm:w-24">
+            <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-[#f7f7f7] sm:h-24 sm:w-24">
 
               <Image
                 src={item.image}
@@ -181,7 +181,7 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
 
         <Link
           href={`/orders/${order.id}`}
-          className="inline-flex min-h-11 items-center justify-center gap-4 bg-[#07539a] px-6 text-xs font-semibold text-white transition hover:bg-[#063f82]"
+          className="inline-flex min-h-11 items-center justify-center gap-4 bg-[#000000] px-6 text-xs font-semibold text-white transition hover:bg-[#000000]"
         >
           View Order
           <ArrowRight size={15} />
@@ -198,10 +198,10 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
 
 function StatusBadge({ status }: { status: string }) {
   const styles = {
-    Delivered: "bg-[#edf6e9] text-[#4b762e]",
-    Shipped: "bg-[#eaf2fa] text-[#07539a]",
-    Processing: "bg-[#fff3e8] text-[#ef5b12]",
-    Cancelled: "bg-[#fcecec] text-[#b43838]",
+    Delivered: "bg-[#f7f7f7] text-[#000000]",
+    Shipped: "bg-[#f7f7f7] text-[#000000]",
+    Processing: "bg-[#f7f7f7] text-[#000000]",
+    Cancelled: "bg-[#f7f7f7] text-[#000000]",
   };
 
   const style =
@@ -222,10 +222,10 @@ function StatusBadge({ status }: { status: string }) {
 
 function EmptyOrders() {
   return (
-    <div className="border border-[#ded9d2] bg-white px-6 py-20 text-center">
+    <div className="border border-[#e5e5e5] bg-white px-6 py-20 text-center">
 
       <PackageOpen
-        className="mx-auto h-11 w-11 text-[#ef5b12]"
+        className="mx-auto h-11 w-11 text-[#000000]"
         strokeWidth={1.4}
       />
 
@@ -234,13 +234,13 @@ function EmptyOrders() {
       </h2>
 
       <p className="mx-auto mt-3 max-w-[430px] text-sm leading-6 text-[#666]">
-        You haven't placed an order yet. Explore our collection and find
+        You haven&apos;t placed an order yet. Explore our collection and find
         something perfect for your space.
       </p>
 
       <Link
         href="/products"
-        className="mt-7 inline-flex min-h-12 items-center gap-4 bg-[#07539a] px-6 text-xs font-semibold text-white transition hover:bg-[#063f82]"
+        className="mt-7 inline-flex min-h-12 items-center gap-4 bg-[#000000] px-6 text-xs font-semibold text-white transition hover:bg-[#000000]"
       >
         Explore Products
         <ArrowRight size={16} />

@@ -17,11 +17,11 @@ export default function ProductGrid({
 
   return (
     <section className="mx-auto max-w-[1440px] px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
-      <div className="mb-7 flex items-center justify-between border-b border-[#dfe5ec] pb-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#063f82]">
+      <div className="mb-7 flex items-center justify-between border-b border-[#e5e5e5] pb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#000000]">
           {selectedCategory === "All" ? "All products" : selectedCategory}
         </p>
-        <p className="text-sm text-[#718096]">
+        <p className="text-sm text-[#000000]">
           {filteredProducts.length} {filteredProducts.length === 1 ? "item" : "items"}
         </p>
       </div>

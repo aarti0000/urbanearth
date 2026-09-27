@@ -26,8 +26,8 @@ export default function CategoryFilter({
             onClick={() => onCategoryChange(category)}
             className={`rounded-full border px-5 py-2.5 text-sm transition ${
               selectedCategory === category
-                ? "border-stone-900 bg-stone-900 text-white"
-                : "border-stone-300 bg-white text-stone-700 hover:border-stone-900"
+                ? "border-neutral-900 bg-black text-white"
+                : "border-neutral-300 bg-white text-black hover:border-neutral-900"
             }`}
           >
             {category}

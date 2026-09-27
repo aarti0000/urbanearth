@@ -9,6 +9,7 @@ export default function ResetPasswordForm() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
@@ -31,7 +32,7 @@ export default function ResetPasswordForm() {
   return (
     <main
       ref={containerRef}
-      className="min-h-screen bg-[#faf7f2] flex items-center justify-center px-5 py-10"
+      className="min-h-screen bg-[#f7f7f7] flex items-center justify-center px-5 py-10"
     >
       <div
         ref={contentRef}
@@ -39,16 +40,16 @@ export default function ResetPasswordForm() {
       >
         <div className="mb-8 text-center">
 
-          <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#8b7355]">
-            HomeHaven
+          <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#000000]">
+            Urban Earth
           </p>
 
-          <h1 className="mt-5 text-3xl md:text-4xl font-serif text-[#2f2a26]">
+          <h1 className="mt-5 text-3xl md:text-4xl font-serif text-[#000000]">
             Set new password
           </h1>
 
-          <p className="mt-4 text-sm leading-6 text-[#81766d]">
-            Choose a secure new password for your HomeHaven account.
+          <p className="mt-4 text-sm leading-6 text-[#000000]">
+            Choose a secure new password for your Urban Earth account.
           </p>
 
         </div>
@@ -59,7 +60,7 @@ export default function ResetPasswordForm() {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-[#403832] mb-2"
+              className="block text-sm font-medium text-[#000000] mb-2"
             >
               New password
             </label>
@@ -70,7 +71,7 @@ export default function ResetPasswordForm() {
               type="password"
               autoComplete="new-password"
               placeholder="Enter new password"
-              className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
+              className="w-full rounded-lg border border-[#e5e5e5] bg-[#f7f7f7] px-4 py-3.5 text-sm text-[#000000] outline-none transition placeholder:text-[#a3a3a3] focus:border-[#000000] focus:bg-white"
             />
           </div>
 
@@ -78,7 +79,7 @@ export default function ResetPasswordForm() {
           <div>
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-medium text-[#403832] mb-2"
+              className="block text-sm font-medium text-[#000000] mb-2"
             >
               Confirm new password
             </label>
@@ -89,13 +90,13 @@ export default function ResetPasswordForm() {
               type="password"
               autoComplete="new-password"
               placeholder="Confirm new password"
-              className="w-full rounded-lg border border-[#ded6ce] bg-[#fcfaf8] px-4 py-3.5 text-sm text-[#2f2a26] outline-none transition placeholder:text-[#aaa19a] focus:border-[#8b7355] focus:bg-white"
+              className="w-full rounded-lg border border-[#e5e5e5] bg-[#f7f7f7] px-4 py-3.5 text-sm text-[#000000] outline-none transition placeholder:text-[#a3a3a3] focus:border-[#000000] focus:bg-white"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-[#2f2a26] py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-[#8b7355] hover:-translate-y-0.5"
+            className="w-full rounded-lg bg-[#000000] py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-[#000000] hover:-translate-y-0.5"
           >
             Reset password
           </button>
@@ -105,7 +106,7 @@ export default function ResetPasswordForm() {
         <div className="mt-8 text-center">
           <Link
             href="/login"
-            className="text-sm font-medium text-[#8b7355] transition hover:text-[#2f2a26]"
+            className="text-sm font-medium text-[#000000] transition hover:text-[#000000]"
           >
             ← Back to sign in
           </Link>

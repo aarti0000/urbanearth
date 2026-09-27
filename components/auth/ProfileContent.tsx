@@ -45,6 +45,7 @@ export default function ProfileContent() {
   };
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
@@ -70,7 +71,7 @@ export default function ProfileContent() {
   return (
     <main
       ref={containerRef}
-      className="min-h-screen bg-[#f8f9fa]"
+      className="min-h-screen bg-[#f7f7f7]"
     >
       <div
         ref={contentRef}
@@ -138,8 +139,8 @@ export default function ProfileContent() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-[#eef2f7]
-                    text-[#063f82]
+                    bg-[#f7f7f7]
+                    text-[#000000]
                   "
                 >
                   <UserRound
@@ -262,8 +263,8 @@ export default function ProfileContent() {
                   text-[#333]
                   transition-colors
 
-                  hover:bg-[#fff3eb]
-                  hover:text-[#ff6600]
+                  hover:bg-[#f7f7f7]
+                  hover:text-[#000000]
                 "
               >
                 <LogOut
@@ -345,7 +346,7 @@ export default function ProfileContent() {
                     font-bold
                     uppercase
                     tracking-[0.15em]
-                    text-[#ff6600]
+                    text-[#000000]
                   "
                 >
                   My Account
@@ -357,7 +358,7 @@ export default function ProfileContent() {
                     text-3xl
                     font-bold
                     tracking-[-0.03em]
-                    text-[#152033]
+                    text-[#000000]
 
                     sm:text-4xl
                   "
@@ -421,7 +422,7 @@ export default function ProfileContent() {
                       className="
                         text-xl
                         font-bold
-                        text-[#152033]
+                        text-[#000000]
 
                         sm:text-2xl
                       "
@@ -654,9 +655,9 @@ export default function ProfileContent() {
 
                           placeholder:text-[#aaa]
 
-                          focus:border-[#063f82]
+                          focus:border-[#000000]
                           focus:ring-2
-                          focus:ring-[#063f82]/10
+                          focus:ring-[#000000]/10
                         "
                       />
                     </div>
@@ -676,7 +677,7 @@ export default function ProfileContent() {
                         type="submit"
                         className="
                           rounded-lg
-                          bg-[#ff6600]
+                          bg-[#000000]
                           px-7
                           py-3.5
                           text-sm
@@ -686,7 +687,7 @@ export default function ProfileContent() {
                           duration-200
 
                           hover:-translate-y-0.5
-                          hover:bg-[#e85d00]
+                          hover:bg-[#000000]
                           hover:shadow-lg
 
                           active:translate-y-0
@@ -720,7 +721,7 @@ export default function ProfileContent() {
                     className="
                       text-lg
                       font-bold
-                      text-[#152033]
+                      text-[#000000]
                     "
                   >
                     Account Summary
@@ -785,7 +786,7 @@ export default function ProfileContent() {
                     className="
                       mt-8
                       rounded-xl
-                      bg-[#fff3eb]
+                      bg-[#f7f7f7]
                       p-5
                     "
                   >
@@ -799,7 +800,7 @@ export default function ProfileContent() {
                       <Crown
                         size={24}
                         strokeWidth={1.7}
-                        className="text-[#ff6600]"
+                        className="text-[#000000]"
                       />
 
                       <p
@@ -834,7 +835,7 @@ export default function ProfileContent() {
                         gap-2
                         text-sm
                         font-bold
-                        text-[#ff6600]
+                        text-[#000000]
 
                         hover:underline
                       "
@@ -884,8 +885,8 @@ function SidebarLink({
 
         ${
           active
-            ? "bg-[#fff3eb] text-[#ff6600]"
-            : "text-[#263247] hover:bg-[#f5f7fa] hover:text-[#063f82]"
+            ? "bg-[#f7f7f7] text-[#000000]"
+            : "text-[#000000] hover:bg-[#f7f7f7] hover:text-[#000000]"
         }
       `}
     >
@@ -964,9 +965,9 @@ function ProfileInput({
             outline-none
             transition-all
 
-            focus:border-[#063f82]
+            focus:border-[#000000]
             focus:ring-2
-            focus:ring-[#063f82]/10
+            focus:ring-[#000000]/10
           "
         />
       </div>
@@ -1004,8 +1005,8 @@ function GenderOption({
         text-[#333]
         transition-colors
 
-        hover:border-[#ff6600]
-        hover:bg-[#fffaf7]
+        hover:border-[#000000]
+        hover:bg-[#f7f7f7]
       "
     >
       <input
@@ -1016,7 +1017,7 @@ function GenderOption({
         className="
           h-4
           w-4
-          accent-[#ff6600]
+          accent-[#000000]
         "
       />
 
@@ -1055,8 +1056,8 @@ function SummaryItem({
           items-center
           justify-center
           rounded-full
-          bg-[#eef2f7]
-          text-[#063f82]
+          bg-[#f7f7f7]
+          text-[#000000]
         "
       >
         {icon}
@@ -1077,7 +1078,7 @@ function SummaryItem({
           className="
             mt-1
             text-sm
-            text-[#667085]
+            text-[#000000]
           "
         >
           {value}

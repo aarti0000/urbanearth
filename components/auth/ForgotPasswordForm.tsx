@@ -15,6 +15,7 @@ export default function ForgotPasswordForm() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
@@ -65,7 +66,7 @@ export default function ForgotPasswordForm() {
           relative
           overflow-hidden
           bg-gradient-to-r
-          from-[#faf7f2]
+          from-[#f7f7f7]
           via-white
           to-white
         "
@@ -111,10 +112,10 @@ export default function ForgotPasswordForm() {
                 absolute
                 inset-0
                 bg-gradient-to-r
-                from-[#faf7f2]
-                via-[#faf7f2]/90
-                to-[#faf7f2]/15
-                lg:via-[#faf7f2]/80
+                from-[#f7f7f7]
+                via-[#f7f7f7]/90
+                to-[#f7f7f7]/15
+                lg:via-[#f7f7f7]/80
               "
             />
 
@@ -125,7 +126,7 @@ export default function ForgotPasswordForm() {
                 absolute
                 inset-0
                 bg-gradient-to-t
-                from-[#faf7f2]/80
+                from-[#f7f7f7]/80
                 via-transparent
                 to-transparent
               "
@@ -158,7 +159,7 @@ export default function ForgotPasswordForm() {
                   font-bold
                   uppercase
                   tracking-[0.18em]
-                  text-[#ff6600]
+                  text-[#000000]
                   sm:text-sm
                 "
               >
@@ -179,13 +180,13 @@ export default function ForgotPasswordForm() {
                 "
               >
                 Forgot Your{" "}
-                <span className="text-[#ff6600]">
+                <span className="text-[#000000]">
                   Urban Earth
                 </span>{" "}
                 Password?
               </h1>
 
-              <div className="mt-6 h-[2px] w-14 bg-[#ff6600]" />
+              <div className="mt-6 h-[2px] w-14 bg-[#000000]" />
 
               <p
                 className="
@@ -367,9 +368,9 @@ export default function ForgotPasswordForm() {
                         outline-none
                         transition-all
                         placeholder:text-[#aaa]
-                        focus:border-[#063f82]
+                        focus:border-[#000000]
                         focus:ring-2
-                        focus:ring-[#063f82]/10
+                        focus:ring-[#000000]/10
                       "
                     />
                   </div>
@@ -386,7 +387,7 @@ export default function ForgotPasswordForm() {
                     items-center
                     justify-center
                     rounded-lg
-                    bg-[#ff6600]
+                    bg-[#000000]
                     px-6
                     text-sm
                     font-bold
@@ -394,7 +395,7 @@ export default function ForgotPasswordForm() {
                     transition-all
                     duration-200
                     hover:-translate-y-0.5
-                    hover:bg-[#e85d00]
+                    hover:bg-[#000000]
                     hover:shadow-lg
                     active:translate-y-0
                   "
@@ -422,9 +423,9 @@ export default function ForgotPasswordForm() {
                     gap-2
                     text-sm
                     font-semibold
-                    text-[#063f82]
+                    text-[#000000]
                     transition-colors
-                    hover:text-[#ff6600]
+                    hover:text-[#000000]
                   "
                 >
                   <span>←</span>
@@ -468,7 +469,7 @@ export default function ForgotPasswordForm() {
         className="
           border-y
           border-[#e8e8e8]
-          bg-[#faf8f5]
+          bg-[#f7f7f7]
         "
       >
         <div
@@ -560,7 +561,7 @@ function RecoveryBenefit({
           justify-center
           rounded-full
           bg-white
-          text-[#ff6600]
+          text-[#000000]
           shadow-[0_5px_20px_rgba(0,0,0,0.08)]
         "
       >
@@ -614,7 +615,7 @@ function StoreBenefit({
         lg:last:border-r-0
       "
     >
-      <div className="shrink-0 text-[#063f82]">
+      <div className="shrink-0 text-[#000000]">
         {icon}
       </div>
 

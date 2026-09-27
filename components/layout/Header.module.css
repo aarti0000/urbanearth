@@ -1,0 +1,76 @@
+.announcement { overflow: hidden; background: #000; color: #fff; border-top: 2px solid #000; }
+.announcementTrack { display: flex; width: max-content; animation: ticker 45s linear infinite; }
+.announcementGroup { display: flex; align-items: center; justify-content: space-around; min-width: 100vw; height: 32px; }
+.announcementGroup > span { display: flex; align-items: center; gap: 25px; padding-inline: 28px; font-size: 9px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; white-space: nowrap; }
+.announcementGroup i { width: 4px; height: 4px; background: #fff; transform: rotate(45deg); }
+.announcement:hover .announcementTrack { animation-play-state: paused; }
+.header { position: sticky; top: 0; z-index: 50; background: #fff; color: #000; border-bottom: 1px solid #e5e5e5; }
+.header > div:first-child { max-width: 1920px; height: 64px; padding-inline: 3%; gap: 28px; }
+.header > div:first-child > a:first-child > div { width: 165px; height: 44px; }
+.header nav[aria-label="Primary navigation"] { gap: 30px; margin-inline: auto; }
+.header nav[aria-label="Primary navigation"] > a,
+.header nav[aria-label="Primary navigation"] > div > a { color: #000; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; height: 64px; transition: opacity .2s; }
+.header nav[aria-label="Primary navigation"] > a::after,
+.header nav[aria-label="Primary navigation"] > div > a::after { content: ""; position: absolute; bottom: 16px; left: 0; width: 100%; height: 1px; background: #000; transform: scaleX(0); transform-origin: left; transition: transform .22s; }
+.header nav[aria-label="Primary navigation"] > a:hover::after,
+.header nav[aria-label="Primary navigation"] > div > a:hover::after,
+.header nav[aria-label="Primary navigation"] > a:focus-visible::after,
+.header nav[aria-label="Primary navigation"] > div:focus-within > a::after { transform: scaleX(1); box-shadow: none; }
+.header nav[aria-label="Primary navigation"] > a > span,
+.header nav[aria-label="Primary navigation"] > div > a > span { background: #000; height: 1px; bottom: 16px; }
+.header nav[aria-label="Primary navigation"] > div > a > svg { width: 11px; color: #aaa; }
+.header nav[aria-label="Primary navigation"] > div > div { top: 64px; border-radius: 0; }
+.header nav[aria-label="Primary navigation"] > div > div a { color: #000; border-radius: 0; font-size: 12px; }
+.header nav[aria-label="Primary navigation"] > div > div a:hover { background: #f2f2f2; }
+.header nav[aria-label="Primary navigation"] > div > div a span { color: #000; }
+.header > div:first-child > div:last-child { gap: 2px; }
+.header > div:first-child > div:last-child > button,
+.header > div:first-child > div:last-child > a:not(.contactButton),
+.header button[aria-label="Account menu"] { color: #000; width: 34px; height: 36px; border-radius: 0; }
+.header > div:first-child > div:last-child > button:hover,
+.header > div:first-child > div:last-child > a:not(.contactButton):hover,
+.header button[aria-label="Account menu"]:hover,
+.header button[aria-label="Account menu"][aria-expanded="true"] { background: #f5f5f5; color: #000; box-shadow: none; }
+.header > div:first-child > div:last-child > button svg,
+.header > div:first-child > div:last-child > a svg,
+.header button[aria-label="Account menu"] svg { width: 17px; height: 17px; stroke-width: 1.4; }
+.header a[aria-label^="Shopping cart"] > span { background: #000; color: #fff; }
+.contactButton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; margin-left: 18px; padding: 13px 21px; border: 1px solid #000; background: #000; color: #fff; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; transition: background .2s, color .2s; }
+.contactButton:hover { background: #fff; color: #000; }
+.header a:focus-visible, .header button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@media (max-width: 1100px) { .header > div:first-child { gap: 14px; } .header nav[aria-label="Primary navigation"] { gap: 20px; } .header > div:first-child > a:first-child > div { width: 150px; } .contactButton { margin-left: 8px; padding-inline: 13px; } }
+@media (max-width: 1023px) { .header > div:first-child { height: 60px; padding-inline: 5%; } }
+@media (max-width: 639px) { .header > div:first-child { height: 56px; padding-inline: 12px; gap: 8px; } .header > div:first-child > a:first-child > div { width: 120px; height: 36px; } .contactButton { display: none; } .announcementGroup { height: 28px; } .announcementGroup > span { font-size: 8px; padding-inline: 22px; } }
+@media (prefers-reduced-motion: reduce) { .announcementTrack { animation: none; } .header *, .header *::after { transition: none !important; } }
+
+.header > div:first-child > a:first-child { flex-shrink: 0; }
+.header nav[aria-label="Primary navigation"] > div { height: 64px; }
+
+.mattressMenu { position: relative; display: flex; align-items: center; }
+.mattressTrigger { display: flex; align-items: center; gap: 8px; height: 64px; cursor: pointer; color: #000; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: transparent; border: 0; }
+.mattressTrigger::after { content: ""; position: absolute; bottom: 16px; left: 0; right: 0; height: 1px; background: #000; transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+.mattressTrigger:hover::after, .mattressTrigger[aria-expanded="true"]::after { transform: scaleX(1); }
+.mattressTrigger svg { transition: transform .2s; }
+.mattressTrigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.header nav[aria-label="Primary navigation"] .megaMenu { position: absolute; top: 64px; left: 0; width: 300px; max-height: calc(100dvh - 105px); display: flex; flex-direction: column; background: #fff; border: 1px solid #ddd; box-shadow: 0 18px 40px #0003; overflow: hidden; }
+.menuHeading { flex-shrink: 0; padding: 18px 20px; background: #101010; color: #fff; }
+.menuHeading > span { display: block; height: 2px; width: 20px; background: #fff; margin-bottom: 11px; }
+.menuHeading h2 { font-size: 10px; line-height: 1.4; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.menuHeading p { margin-top: 9px; font-size: 12px; line-height: 1.6; color: #ddd; }
+.collectionGrid { display: flex; flex-direction: column; overflow-y: auto; min-height: 0; max-height: 390px; padding: 12px 20px 16px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #aaa #fff; }
+.collectionGrid section + section { padding-top: 12px; margin-top: 8px; border-top: 1px solid #eee; }
+.collectionGrid h3 { margin: 5px 0 8px; font-size: 9px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #666; }
+.header nav[aria-label="Primary navigation"] .megaMenu .collectionGrid a,
+.mobileCollections .collectionGrid a { display: flex; align-items: center; gap: 9px; width: 100%; padding: 9px 0; color: #444; font-size: 12px; line-height: 1.45; font-weight: 600; background: transparent; transition: color .2s, padding .2s; }
+.collectionGrid a::before { content: ""; width: 3px; height: 3px; flex-shrink: 0; border-radius: 50%; background: #000; }
+.header nav[aria-label="Primary navigation"] .megaMenu .collectionGrid a:hover,
+.mobileCollections .collectionGrid a:hover { background: #f5f5f5; color: #000; padding-left: 6px; }
+.header nav[aria-label="Primary navigation"] .megaMenu .menuFooter,
+.mobileCollections .menuFooter { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; padding: 17px 20px; border-top: 1px solid #ddd; color: #000; background: #fafafa; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+.header nav[aria-label="Primary navigation"] .megaMenu .menuFooter:hover,
+.mobileCollections .menuFooter:hover { background: #eee; }
+.mobileMattressTrigger { display: flex; width: 100%; align-items: center; justify-content: space-between; padding-block: 16px; color: #000; font-size: 14px; font-weight: 600; }
+.mobileCollections { display: flex; flex-direction: column; margin-bottom: 18px; border: 1px solid #ddd; background: #fff; color: #000; }
+.mobileCollections .collectionGrid { max-height: 340px; }
+@media (prefers-reduced-motion: reduce) { .mattressTrigger::after, .mattressTrigger svg { transition: none; } }

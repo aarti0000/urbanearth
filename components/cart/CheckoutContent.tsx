@@ -15,8 +15,6 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
-const BLUE = "#0054A6";
-const ORANGE = "#FF6500";
 
 export default function CheckoutContent() {
   const { cart } = useCart();
@@ -61,25 +59,25 @@ export default function CheckoutContent() {
     return (
       <main className="min-h-[70vh] bg-white px-6 py-20">
         <div className="mx-auto max-w-xl text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#FFF3EB]">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#f7f7f7]">
             <ShoppingBag
               size={30}
               strokeWidth={1.8}
-              className="text-[#FF6500]"
+              className="text-[#000000]"
             />
           </div>
 
-          <h1 className="mt-6 text-3xl font-bold tracking-tight text-[#111827]">
+          <h1 className="mt-6 text-3xl font-bold tracking-tight text-[#000000]">
             Your cart is empty
           </h1>
 
-          <p className="mt-3 text-sm text-[#64748B]">
+          <p className="mt-3 text-sm text-[#000000]">
             Add some products before proceeding to checkout.
           </p>
 
           <Link
             href="/products"
-            className="mt-7 inline-flex items-center justify-center rounded-md bg-[#FF6500] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#E85A00]"
+            className="mt-7 inline-flex items-center justify-center rounded-md bg-[#000000] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#000000]"
           >
             Continue Shopping
           </Link>
@@ -89,24 +87,24 @@ export default function CheckoutContent() {
   }
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC]">
+    <main className="min-h-screen bg-[#f7f7f7]">
       <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8 lg:py-12">
 
         {/* PAGE HEADER */}
         <div className="mb-8">
           <Link
             href="/cart"
-            className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-[#64748B] transition hover:text-[#0054A6]"
+            className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-[#000000] transition hover:text-[#000000]"
           >
             <ArrowLeft size={16} />
             Back to cart
           </Link>
 
-          <h1 className="text-4xl font-bold tracking-tight text-[#111827]">
+          <h1 className="text-4xl font-bold tracking-tight text-[#000000]">
             Checkout
           </h1>
 
-          <p className="mt-2 text-sm text-[#64748B]">
+          <p className="mt-2 text-sm text-[#000000]">
             Complete your delivery and payment information.
           </p>
         </div>
@@ -122,7 +120,7 @@ export default function CheckoutContent() {
           <div className="space-y-6">
 
             {/* CONTACT INFORMATION */}
-            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+            <section className="border border-[#e5e5e5] bg-white p-6 shadow-sm md:p-8">
               <SectionHeader
                 icon={<Package size={19} />}
                 title="Contact Information"
@@ -159,7 +157,7 @@ export default function CheckoutContent() {
             </section>
 
             {/* DELIVERY ADDRESS */}
-            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+            <section className="border border-[#e5e5e5] bg-white p-6 shadow-sm md:p-8">
               <SectionHeader
                 icon={<MapPin size={19} />}
                 title="Delivery Address"
@@ -205,7 +203,7 @@ export default function CheckoutContent() {
               <div className="mt-5">
                 <label
                   htmlFor="notes"
-                  className="mb-2 block text-sm font-semibold text-[#334155]"
+                  className="mb-2 block text-sm font-semibold text-[#000000]"
                 >
                   Order Notes
                 </label>
@@ -215,13 +213,13 @@ export default function CheckoutContent() {
                   name="notes"
                   rows={4}
                   placeholder="Delivery instructions, landmarks, preferred time, etc."
-                  className="w-full resize-none rounded-md border border-[#D1D5DB] bg-white px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-[#94A3B8] focus:border-[#0054A6] focus:ring-1 focus:ring-[#0054A6]"
+                  className="w-full resize-none rounded-md border border-[#e5e5e5] bg-white px-4 py-3 text-sm text-[#000000] outline-none transition placeholder:text-[#a3a3a3] focus:border-[#000000] focus:ring-1 focus:ring-[#000000]"
                 />
               </div>
             </section>
 
             {/* PAYMENT */}
-            <section className="border border-[#E5E7EB] bg-white p-6 shadow-sm md:p-8">
+            <section className="border border-[#e5e5e5] bg-white p-6 shadow-sm md:p-8">
               <SectionHeader
                 icon={<CreditCard size={19} />}
                 title="Payment Method"
@@ -269,15 +267,15 @@ export default function CheckoutContent() {
           {/* ===================================== */}
 
           <aside>
-            <div className="sticky top-8 border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div className="sticky top-8 border border-[#e5e5e5] bg-white p-6 shadow-sm">
 
               {/* Summary heading */}
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-[#111827]">
+                <h2 className="text-2xl font-bold text-[#000000]">
                   Order Summary
                 </h2>
 
-                <span className="text-sm font-medium text-[#0054A6]">
+                <span className="text-sm font-medium text-[#000000]">
                   {cart.length}{" "}
                   {cart.length === 1 ? "Item" : "Items"}
                 </span>
@@ -290,7 +288,7 @@ export default function CheckoutContent() {
                     key={item.id}
                     className="flex gap-4"
                   >
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-[#F1F5F9]">
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-[#f7f7f7]">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -299,23 +297,23 @@ export default function CheckoutContent() {
                         className="object-cover"
                       />
 
-                      <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0054A6] px-1 text-[10px] font-semibold text-white">
+                      <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#000000] px-1 text-[10px] font-semibold text-white">
                         {item.quantity}
                       </span>
                     </div>
 
                     <div className="flex flex-1 justify-between gap-3">
                       <div>
-                        <p className="text-sm font-semibold text-[#111827]">
+                        <p className="text-sm font-semibold text-[#000000]">
                           {item.name}
                         </p>
 
-                        <p className="mt-1 text-xs text-[#64748B]">
+                        <p className="mt-1 text-xs text-[#000000]">
                           Qty: {item.quantity}
                         </p>
                       </div>
 
-                      <p className="whitespace-nowrap text-sm font-semibold text-[#111827]">
+                      <p className="whitespace-nowrap text-sm font-semibold text-[#000000]">
                         Rs.{" "}
                         {(item.price * item.quantity).toLocaleString()}
                       </p>
@@ -325,7 +323,7 @@ export default function CheckoutContent() {
               </div>
 
               {/* Totals */}
-              <div className="mt-6 space-y-3 border-t border-[#E5E7EB] pt-5">
+              <div className="mt-6 space-y-3 border-t border-[#e5e5e5] pt-5">
                 <SummaryRow
                   label="Subtotal"
                   value={`Rs. ${subtotal.toLocaleString()}`}
@@ -341,7 +339,7 @@ export default function CheckoutContent() {
                 />
 
                 {shipping === 0 && (
-                  <div className="flex items-center gap-2 text-xs font-medium text-green-600">
+                  <div className="flex items-center gap-2 text-xs font-medium text-black">
                     <Check size={14} />
                     Free delivery applied
                   </div>
@@ -349,12 +347,12 @@ export default function CheckoutContent() {
               </div>
 
               {/* TOTAL */}
-              <div className="mt-5 flex items-center justify-between border-t border-[#E5E7EB] pt-5">
-                <span className="text-base font-semibold text-[#334155]">
+              <div className="mt-5 flex items-center justify-between border-t border-[#e5e5e5] pt-5">
+                <span className="text-base font-semibold text-[#000000]">
                   Total
                 </span>
 
-                <span className="text-2xl font-bold text-[#0054A6]">
+                <span className="text-2xl font-bold text-[#000000]">
                   Rs. {total.toLocaleString()}
                 </span>
               </div>
@@ -363,7 +361,7 @@ export default function CheckoutContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-md bg-[#FF6500] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#E85A00] disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-6 w-full rounded-md bg-[#000000] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#000000] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting
                   ? "Processing..."
@@ -372,7 +370,7 @@ export default function CheckoutContent() {
                   : `Pay Rs. ${total.toLocaleString()}`}
               </button>
 
-              <p className="mt-4 text-center text-xs leading-5 text-[#94A3B8]">
+              <p className="mt-4 text-center text-xs leading-5 text-[#a3a3a3]">
                 By placing your order, you agree to our terms and privacy
                 policy.
               </p>
@@ -399,16 +397,16 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-6 flex items-center gap-3">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EEF6FF] text-[#0054A6]">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f7f7f7] text-[#000000]">
         {icon}
       </div>
 
       <div>
-        <h2 className="text-xl font-bold text-[#111827]">
+        <h2 className="text-xl font-bold text-[#000000]">
           {title}
         </h2>
 
-        <p className="text-xs text-[#64748B]">
+        <p className="text-xs text-[#000000]">
           {description}
         </p>
       </div>
@@ -441,7 +439,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="mb-2 block text-sm font-semibold text-[#334155]"
+        className="mb-2 block text-sm font-semibold text-[#000000]"
       >
         {label}
       </label>
@@ -454,7 +452,7 @@ function Field({
         placeholder={placeholder}
         defaultValue={value}
         readOnly={readOnly}
-        className="w-full rounded-md border border-[#D1D5DB] bg-white px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-[#94A3B8] focus:border-[#0054A6] focus:ring-1 focus:ring-[#0054A6]"
+        className="w-full rounded-md border border-[#e5e5e5] bg-white px-4 py-3 text-sm text-[#000000] outline-none transition placeholder:text-[#a3a3a3] focus:border-[#000000] focus:ring-1 focus:ring-[#000000]"
       />
     </div>
   );
@@ -483,26 +481,26 @@ function PaymentOption({
       onClick={onClick}
       className={`flex w-full items-center gap-4 rounded-md border p-4 text-left transition ${
         selected
-          ? "border-[#0054A6] bg-[#F4F9FF]"
-          : "border-[#E5E7EB] bg-white hover:border-[#0054A6]"
+          ? "border-[#000000] bg-[#f7f7f7]"
+          : "border-[#e5e5e5] bg-white hover:border-[#000000]"
       }`}
     >
       <div
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
           selected
-            ? "bg-[#0054A6] text-white"
-            : "bg-[#EEF6FF] text-[#0054A6]"
+            ? "bg-[#000000] text-white"
+            : "bg-[#f7f7f7] text-[#000000]"
         }`}
       >
         {icon}
       </div>
 
       <div className="flex-1">
-        <p className="text-sm font-semibold text-[#111827]">
+        <p className="text-sm font-semibold text-[#000000]">
           {title}
         </p>
 
-        <p className="mt-1 text-xs text-[#64748B]">
+        <p className="mt-1 text-xs text-[#000000]">
           {description}
         </p>
       </div>
@@ -510,8 +508,8 @@ function PaymentOption({
       <div
         className={`flex h-5 w-5 items-center justify-center rounded-full border ${
           selected
-            ? "border-[#0054A6] bg-[#0054A6]"
-            : "border-[#CBD5E1]"
+            ? "border-[#000000] bg-[#000000]"
+            : "border-[#e5e5e5]"
         }`}
       >
         {selected && (
@@ -539,11 +537,11 @@ function SummaryRow({
 }) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-[#64748B]">
+      <span className="text-[#000000]">
         {label}
       </span>
 
-      <span className="font-semibold text-[#111827]">
+      <span className="font-semibold text-[#000000]">
         {value}
       </span>
     </div>

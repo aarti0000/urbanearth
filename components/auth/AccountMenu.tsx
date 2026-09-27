@@ -118,8 +118,8 @@ export default function AccountMenu() {
           duration-200
           ${
             open
-              ? "bg-[#fff3eb] text-[#ff6600] ring-1 ring-[#ff6600]"
-              : "text-[#063f82] hover:bg-[#f2f6fa]"
+              ? "bg-[#f7f7f7] text-[#000000] ring-1 ring-[#000000]"
+              : "text-[#000000] hover:bg-[#f7f7f7]"
           }
         `}
       >
@@ -180,8 +180,8 @@ export default function AccountMenu() {
               items-center
               justify-center
               rounded-full
-              bg-[#e8f1ff]
-              text-[#3478f6]
+              bg-[#f7f7f7]
+              text-[#000000]
             "
           >
             <UserRound
@@ -311,8 +311,8 @@ export default function AccountMenu() {
                   font-medium
                   text-[#333]
                   transition-colors
-                  hover:bg-[#fff3eb]
-                  hover:text-[#ff6600]
+                  hover:bg-[#f7f7f7]
+                  hover:text-[#000000]
                 "
               >
                 <LogOut
@@ -374,8 +374,8 @@ function AccountLink({
         duration-200
         ${
           active
-            ? "bg-[#fff3eb] text-[#ff6600]"
-            : "text-[#333] hover:bg-[#f6f7f8] hover:text-[#063f82]"
+            ? "bg-[#f7f7f7] text-[#000000]"
+            : "text-[#333] hover:bg-[#f7f7f7] hover:text-[#000000]"
         }
       `}
     >

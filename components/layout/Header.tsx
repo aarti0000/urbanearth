@@ -1,20 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import styles from "./Header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
   ChevronDown,
-  Headphones,
   MapPin,
   Menu,
   Search,
-  ShieldCheck,
   ShoppingCart,
-  Truck,
   UserRound,
-  Wrench,
   X,
 } from "lucide-react";
 
@@ -24,42 +21,38 @@ import AccountMenu from "@/components/auth/AccountMenu";
 import { useCart } from "@/components/cart/CartContext";
 import products from "@/data/products.json";
 
-const navigation = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Shop",
-    href: "/products",
-    dropdown: [
-      { label: "All Products", href: "/products" },
-      { label: "Carpets", href: "/products?category=Carpets" },
-      {
-        label: "Laminate Flooring",
-        href: "/products?category=Laminate%20Flooring",
-      },
-      { label: "Parquet", href: "/products?category=Parquet" },
-      { label: "SPC Flooring", href: "/products?category=SPC%20Flooring" },
-      { label: "Rugs", href: "/products?category=Rugs" },
-      { label: "Doormats", href: "/products?category=Doormats" },
-      { label: "Mattresses", href: "/products?category=Mattresses" },
-      {
-        label: "Artificial Grass",
-        href: "/products?category=Artificial%20Grass",
-      },
-    ],
-  },
-  {
-    label: "About Us",
-    href: "/about",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
+const mattressCollections = [
+  "Orthopaedic",
+  "Luxury",
+  "Organic",
+  "Hospitality",
 ];
-
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Shop", href: "/products" },
+  { label: "Mattresses", href: "/products?category=Mattresses" },
+  { label: "Flooring", href: "/products?category=Laminate%20Flooring" },
+  { label: "About Us", href: "/about" },
+];
+function MattressCollections({ close }: { close: () => void }) {
+  return <>
+    <div className={styles.menuHeading}><span aria-hidden="true" /><h2>Mattresses</h2><p>Considered comfort for deeper rest.<br />Discover your perfect mattress.</p></div>
+    <div className={styles.collectionGrid}>{mattressCollections.map((name) => <Link key={name} href={`/products?category=Mattresses&q=${encodeURIComponent(name)}`} onClick={close}>{name}</Link>)}</div>
+    <Link className={styles.menuFooter} href="/products?category=Mattresses" onClick={close}>Shop all mattresses <span aria-hidden="true">→</span></Link>
+  </>;
+}
+function FlooringCollections({ close }: { close: () => void }) {
+  const options = [
+    { name: "Everclick Laminate", href: "/products?category=Laminate%20Flooring" },
+    { name: "Urban AquaSafe", href: "/products?category=Laminate%20Flooring" },
+    { name: "Urban SPC", href: "/products?category=SPC%20Flooring" },
+  ];
+  return <>
+    <div className={styles.menuHeading}><span aria-hidden="true" /><h2>Flooring</h2><p>Beautiful foundations for everyday living.<br />Explore our flooring collections.</p></div>
+    <div className={styles.collectionGrid}>{options.map(({ name, href }) => <Link key={name} href={href} onClick={close}>{name}</Link>)}</div>
+    <Link className={styles.menuFooter} href="/products" onClick={close}>Shop all products <span aria-hidden="true">→</span></Link>
+  </>;
+}
 export default function Header() {
   const pathname = usePathname();
 
@@ -67,7 +60,7 @@ export default function Header() {
 
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [shopOpen, setShopOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const cartCount = cart.reduce(
@@ -90,20 +83,20 @@ export default function Header() {
   const closePanels = () => {
     setSearchOpen(false);
     setMenuOpen(false);
-    setShopOpen(false);
+    setOpenDropdown(null);
     setSearchQuery("");
   };
 
   const toggleSearch = () => {
     setSearchOpen((open) => !open);
     setMenuOpen(false);
-    setShopOpen(false);
+    setOpenDropdown(null);
   };
 
   const toggleMenu = () => {
     setMenuOpen((open) => !open);
     setSearchOpen(false);
-    setShopOpen(false);
+    setOpenDropdown(null);
   };
 
   /*
@@ -139,24 +132,7 @@ export default function Header() {
     };
   }, []);
 
-  const isNavigationActive = (
-    href: string,
-    hasDropdown = false
-  ) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-
-    if (hasDropdown) {
-      return (
-        pathname.startsWith("/products") ||
-        pathname.startsWith("/product/") ||
-        pathname.startsWith("/category/")
-      );
-    }
-
-    return pathname.startsWith(href);
-  };
+  const isNavigationActive = (href: string) => href === "/" ? pathname === "/" : pathname === href;
 
   return (
      <>
@@ -164,230 +140,14 @@ export default function Header() {
           TOP INFORMATION BAR
       ====================================================== */}
 
-      <div className="bg-[#063f82] text-white">
-        <div
-          className="
-            mx-auto
-            flex
-            min-h-9
-            max-w-[1440px]
-            items-center
-            justify-between
-            gap-2
-            px-3
-            py-1.5
-
-            sm:min-h-10
-            sm:gap-4
-            sm:px-6
-            sm:py-2
-
-            lg:px-8
-            xl:px-10
-          "
-        >
-          {/* Left Side */}
-          <div
-            className="
-              flex
-              min-w-0
-              items-center
-              gap-3
-              text-[10px]
-              font-medium
-
-              sm:text-[11px]
-              md:gap-4
-              md:text-[12px]
-            "
-          >
-            {/* Delivery */}
-            <div className="flex shrink-0 items-center gap-1.5">
-              <Truck
-                size={14}
-                strokeWidth={1.8}
-                className="shrink-0"
-              />
-
-              <span className="whitespace-nowrap">
-                <strong className="hidden sm:inline">
-                  FREE DELIVERY
-                </strong>
-
-                <strong className="sm:hidden">DELIVERY</strong>
-
-                <span className="hidden sm:inline">
-                  {" "}
-                  Across Nepal
-                </span>
-              </span>
-            </div>
-
-            {/* Divider */}
-            <span className="hidden h-4 w-px bg-white/35 md:block" />
-
-            {/* Installation */}
-            <div className="hidden items-center gap-1.5 md:flex">
-              <Wrench size={14} strokeWidth={1.8} />
-
-              <span>Expert Installation</span>
-            </div>
-
-            {/* Divider */}
-            <span className="hidden h-4 w-px bg-white/35 xl:block" />
-
-            {/* Quality */}
-            <div className="hidden items-center gap-1.5 xl:flex">
-              <ShieldCheck size={14} strokeWidth={1.8} />
-
-              <span>Premium Quality Guaranteed</span>
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div
-            className="
-              flex
-              shrink-0
-              items-center
-              gap-0.5
-              text-[12px]
-
-              sm:gap-1
-              lg:gap-3
-            "
-          >
-            <Link
-              href="/contact"
-              className="
-                hidden
-                transition-opacity
-                hover:opacity-75
-                lg:block
-              "
-            >
-              Visit Our Showroom
-            </Link>
-
-            <span className="hidden h-4 w-px bg-white/35 lg:block" />
-
-            <Link
-              href="/track-order"
-              className="
-                hidden
-                transition-opacity
-                hover:opacity-75
-                xl:block
-              "
-            >
-              Track Order
-            </Link>
-
-            <span className="hidden h-4 w-px bg-white/35 xl:block" />
-
-            <Link
-              href="/contact"
-              className="
-                hidden
-                items-center
-                gap-1.5
-                transition-opacity
-                hover:opacity-75
-                xl:flex
-              "
-            >
-              <Headphones size={13} />
-
-              Help &amp; Support
-            </Link>
-
-            <span className="hidden h-4 w-px bg-white/35 lg:block" />
-
-            <span className="hidden text-white/80 sm:inline">
-              Follow us
-            </span>
-
-            {/* Facebook */}
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Urban Earth on Facebook"
-              className="
-                flex
-                h-7
-                w-7
-                items-center
-                justify-center
-                rounded-full
-                transition-colors
-                hover:bg-white/15
-              "
-            >
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="h-[14px] w-[14px] fill-current"
-              >
-                <path d="M13.5 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.7 1.8-1.7H17V2.5c-.8-.1-1.7-.2-2.5-.2-2.6 0-4.4 1.6-4.4 4.6v2.6H7V13h3.1v9h3.4Z" />
-              </svg>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Urban Earth on Instagram"
-              className="
-                flex
-                h-7
-                w-7
-                items-center
-                justify-center
-                rounded-full
-                transition-colors
-                hover:bg-white/15
-              "
-            >
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="
-                  h-[14px]
-                  w-[14px]
-                  fill-none
-                  stroke-current
-                "
-                strokeWidth="2"
-              >
-                <rect
-                  x="3"
-                  y="3"
-                  width="18"
-                  height="18"
-                  rx="5"
-                />
-
-                <circle cx="12" cy="12" r="4" />
-
-                <circle
-                  cx="17.5"
-                  cy="6.5"
-                  r="1"
-                  className="fill-current stroke-none"
-                />
-              </svg>
-            </a>
-          </div>
+      <div className={styles.announcement} aria-label="Urban Earth services">
+        <div className={styles.announcementTrack}>
+          {[0, 1].map((copy) => <div key={copy} className={styles.announcementGroup} aria-hidden={copy === 1 ? true : undefined}>
+            {["Premium flooring & home essentials", "Expert installation", "Visit our showroom", "Delivery across Nepal"].map((text) => <span key={text}><i aria-hidden="true" />{text}</span>)}
+          </div>)}
         </div>
       </div>
-
-      {/* =====================================================
-          MAIN NAVIGATION
-      ====================================================== */}
-
-      <header className="sticky top-0 z-50 border-b border-[#e8e8e8] bg-white">
+      <header className={styles.header}>
         <div
           className="
             mx-auto
@@ -476,163 +236,18 @@ export default function Header() {
               2xl:gap-10
             "
           >
-            {navigation.map((item) => {
-              const isActive = isNavigationActive(
-                item.href,
-                Boolean(item.dropdown)
-              );
-
-              if (item.dropdown) {
-                return (
-                  <div
-                    key={item.label}
-                    className="group relative flex h-[82px] items-center"
-                  >
-                    <Link
-                      href={item.href}
-                      className={`
-                        relative
-                        flex
-                        h-full
-                        items-center
-                        gap-1.5
-                        whitespace-nowrap
-                        text-[13px]
-                        font-semibold
-                        transition-colors
-
-                        xl:text-sm
-
-                        ${
-                          isActive
-                            ? "text-[#063f82]"
-                            : "text-[#202020] hover:text-[#ff6600]"
-                        }
-                      `}
-                    >
-                      {item.label}
-
-                      <ChevronDown
-                        size={15}
-                        strokeWidth={2}
-                        className="
-                          transition-transform
-                          duration-200
-                          group-hover:rotate-180
-                        "
-                      />
-
-                      {isActive && (
-                        <span
-                          className="
-                            absolute
-                            bottom-[22px]
-                            left-0
-                            h-[2px]
-                            w-full
-                            bg-[#ff6600]
-                          "
-                        />
-                      )}
-                    </Link>
-
-                    {/* Desktop Dropdown */}
-                    <div
-                      className="
-                        invisible
-                        absolute
-                        left-1/2
-                        top-[72px]
-                        w-[250px]
-                        -translate-x-1/2
-                        translate-y-2
-                        rounded-xl
-                        border
-                        border-[#e8e8e8]
-                        bg-white
-                        p-2
-                        opacity-0
-                        shadow-[0_18px_50px_rgba(0,0,0,0.12)]
-                        transition-all
-                        duration-200
-
-                        group-hover:visible
-                        group-hover:translate-y-0
-                        group-hover:opacity-100
-                      "
-                    >
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.label}
-                          href={dropdownItem.href}
-                          className="
-                            flex
-                            items-center
-                            justify-between
-                            rounded-lg
-                            px-4
-                            py-3
-                            text-sm
-                            font-medium
-                            text-[#333]
-                            transition-colors
-
-                            hover:bg-[#fff5ef]
-                            hover:text-[#ff6600]
-                          "
-                        >
-                          {dropdownItem.label}
-
-                          <span className="text-[#ff6600]">
-                            →
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`
-                    relative
-                    flex
-                    h-[82px]
-                    items-center
-                    whitespace-nowrap
-                    text-[13px]
-                    font-semibold
-                    transition-colors
-
-                    xl:text-sm
-
-                    ${
-                      isActive
-                        ? "text-[#063f82]"
-                        : "text-[#202020] hover:text-[#ff6600]"
-                    }
-                  `}
-                >
-                  {item.label}
-
-                  {isActive && (
-                    <span
-                      className="
-                        absolute
-                        bottom-[22px]
-                        left-0
-                        h-[2px]
-                        w-full
-                        bg-[#ff6600]
-                      "
-                    />
-                  )}
-                </Link>
-              );
-            })}
+            {navigation.map((item) => (item.label === "Mattresses" || item.label === "Flooring") ? (
+              <div key={item.label} className={styles.mattressMenu}
+                onMouseEnter={() => setOpenDropdown(item.label)} onMouseLeave={() => setOpenDropdown(null)}
+                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenDropdown(null); }}>
+                <button type="button" className={styles.mattressTrigger} aria-expanded={openDropdown === item.label} aria-controls={`${item.label.toLowerCase()}-menu`} onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}>
+                  {item.label} <ChevronDown size={12} aria-hidden="true" />
+                </button>
+                {openDropdown === item.label && <div id={`${item.label.toLowerCase()}-menu`} className={styles.megaMenu}>
+                  {item.label === "Mattresses" ? <MattressCollections close={closePanels} /> : <FlooringCollections close={closePanels} />}
+                </div>}
+              </div>
+            ) : <Link key={item.label} href={item.href} onClick={closePanels} className="relative flex items-center" aria-current={isNavigationActive(item.href) ? "page" : undefined}>{item.label}</Link>)}
           </nav>
 
           {/* =================================================
@@ -667,10 +282,10 @@ export default function Header() {
                 items-center
                 justify-center
                 rounded-full
-                text-[#063f82]
+                text-[#000000]
                 transition-colors
 
-                hover:bg-[#f2f6fa]
+                hover:bg-[#f7f7f7]
 
                 sm:h-10
                 sm:w-10
@@ -707,10 +322,10 @@ export default function Header() {
                 items-center
                 justify-center
                 rounded-full
-                text-[#063f82]
+                text-[#000000]
                 transition-colors
 
-                hover:bg-[#f2f6fa]
+                hover:bg-[#f7f7f7]
 
                 sm:h-10
                 sm:w-10
@@ -737,10 +352,10 @@ export default function Header() {
                 items-center
                 justify-center
                 rounded-full
-                text-[#063f82]
+                text-[#000000]
                 transition-colors
 
-                hover:bg-[#f2f6fa]
+                hover:bg-[#f7f7f7]
 
                 sm:h-10
                 sm:w-10
@@ -775,7 +390,7 @@ export default function Header() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-[#ff6600]
+                    bg-[#000000]
                     px-1
                     text-[9px]
                     font-bold
@@ -790,6 +405,8 @@ export default function Header() {
                 </span>
               )}
             </Link>
+
+            <Link href="/contact" className={styles.contactButton}>Contact us <span aria-hidden="true">→</span></Link>
 
             {/* Mobile Menu */}
             <button
@@ -806,10 +423,10 @@ export default function Header() {
                 items-center
                 justify-center
                 rounded-full
-                text-[#063f82]
+                text-[#000000]
                 transition-colors
 
-                hover:bg-[#f2f6fa]
+                hover:bg-[#f7f7f7]
 
                 sm:h-10
                 sm:w-10
@@ -892,7 +509,7 @@ export default function Header() {
                 px-3
                 transition
 
-                focus-within:border-[#063f82]
+                focus-within:border-[#000000]
                 focus-within:bg-white
 
                 sm:gap-3
@@ -902,7 +519,7 @@ export default function Header() {
               <Search
                 size={20}
                 strokeWidth={1.7}
-                className="shrink-0 text-[#063f82]"
+                className="shrink-0 text-[#000000]"
               />
 
               <label
@@ -1028,7 +645,7 @@ export default function Header() {
                                 mt-1
                                 text-[13px]
                                 font-bold
-                                text-[#ff6600]
+                                text-[#000000]
 
                                 sm:text-sm
                               "
@@ -1053,15 +670,15 @@ export default function Header() {
                         justify-center
                         rounded-lg
                         border
-                        border-[#063f82]
+                        border-[#000000]
                         px-4
                         py-2.5
                         text-[13px]
                         font-semibold
-                        text-[#063f82]
+                        text-[#000000]
                         transition
 
-                        hover:bg-[#063f82]
+                        hover:bg-[#000000]
                         hover:text-white
 
                         sm:px-5
@@ -1126,202 +743,18 @@ export default function Header() {
               md:px-8
             "
           >
-            {navigation.map((item) => {
-              const isActive = isNavigationActive(
-                item.href,
-                Boolean(item.dropdown)
-              );
-
-              /*
-               * Mobile Shop menu
-               */
-              if (item.dropdown) {
-                return (
-                  <div
-                    key={item.label}
-                    className="border-b border-[#eeeeee]"
-                  >
-                    <div className="flex items-center">
-                      <Link
-                        href={item.href}
-                        onClick={closePanels}
-                        className={`
-                          flex
-                          min-w-0
-                          flex-1
-                          items-center
-                          py-3.5
-                          text-[15px]
-                          font-semibold
-
-                          sm:py-4
-                          sm:text-base
-
-                          ${
-                            isActive
-                              ? "text-[#063f82]"
-                              : "text-[#222]"
-                          }
-                        `}
-                      >
-                        {item.label}
-                      </Link>
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setShopOpen((open) => !open)
-                        }
-                        aria-label={
-                          shopOpen
-                            ? "Close shop categories"
-                            : "Open shop categories"
-                        }
-                        aria-expanded={shopOpen}
-                        className="
-                          flex
-                          h-11
-                          w-11
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-lg
-                          text-[#555]
-                          transition-colors
-
-                          hover:bg-[#f5f5f5]
-                        "
-                      >
-                        <ChevronDown
-                          size={18}
-                          className={`
-                            transition-transform
-                            duration-200
-
-                            ${
-                              shopOpen
-                                ? "rotate-180 text-[#ff6600]"
-                                : ""
-                            }
-                          `}
-                        />
-                      </button>
-                    </div>
-
-                    {/* Mobile Shop Categories */}
-                    <div
-                      className={`
-                        grid
-                        overflow-hidden
-                        transition-[grid-template-rows,opacity]
-                        duration-300
-
-                        ${
-                          shopOpen
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
-                        }
-                      `}
-                    >
-                      <div className="min-h-0">
-                        <div
-                          className="
-                            mb-3
-                            rounded-xl
-                            bg-[#f7f9fc]
-                            p-2
-                          "
-                        >
-                          {item.dropdown.map(
-                            (dropdownItem) => {
-                              const dropdownActive =
-                                pathname ===
-                                dropdownItem.href;
-
-                              return (
-                                <Link
-                                  key={dropdownItem.label}
-                                  href={dropdownItem.href}
-                                  onClick={closePanels}
-                                  className={`
-                                    flex
-                                    items-center
-                                    justify-between
-                                    rounded-lg
-                                    px-3.5
-                                    py-3
-                                    text-[13px]
-                                    font-medium
-                                    transition-colors
-
-                                    sm:text-sm
-
-                                    ${
-                                      dropdownActive
-                                        ? "bg-white text-[#ff6600] shadow-sm"
-                                        : "text-[#444] hover:bg-white hover:text-[#ff6600]"
-                                    }
-                                  `}
-                                >
-                                  {dropdownItem.label}
-
-                                  <span
-                                    className="
-                                      text-[#ff6600]
-                                      opacity-80
-                                    "
-                                  >
-                                    →
-                                  </span>
-                                </Link>
-                              );
-                            }
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <div
-                  key={item.label}
-                  className="border-b border-[#eeeeee]"
-                >
-                  <Link
-                    href={item.href}
-                    onClick={closePanels}
-                    className={`
-                      flex
-                      items-center
-                      justify-between
-                      py-3.5
-                      text-[15px]
-                      font-semibold
-
-                      sm:py-4
-                      sm:text-base
-
-                      ${
-                        isActive
-                          ? "text-[#063f82]"
-                          : "text-[#222]"
-                      }
-                    `}
-                  >
-                    {item.label}
-                  </Link>
-                </div>
-              );
-            })}
-
+            {navigation.map((item) => <div key={item.label} className="border-b border-black/10">
+              {(item.label === "Mattresses" || item.label === "Flooring") ? <>
+                <button type="button" className={styles.mobileMattressTrigger} aria-expanded={openDropdown === item.label} aria-controls={`mobile-${item.label.toLowerCase()}-menu`} onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}>{item.label} <ChevronDown size={16} /></button>
+                {openDropdown === item.label && <div id={`mobile-${item.label.toLowerCase()}-menu`} className={styles.mobileCollections}>{item.label === "Mattresses" ? <MattressCollections close={closePanels} /> : <FlooringCollections close={closePanels} />}</div>}
+              </> : <Link href={item.href} onClick={closePanels} className="block py-4 text-sm font-semibold text-black">{item.label}</Link>}
+            </div>)}
             {/* Mobile Help Card */}
             <div
               className="
                 mt-4
                 rounded-xl
-                bg-[#f5f8fc]
+                bg-[#f7f7f7]
                 p-4
 
                 sm:mt-5
@@ -1331,7 +764,7 @@ export default function Header() {
                 className="
                   text-[13px]
                   font-bold
-                  text-[#063f82]
+                  text-[#000000]
 
                   sm:text-sm
                 "
@@ -1361,7 +794,7 @@ export default function Header() {
                   items-center
                   gap-2
                   rounded-lg
-                  bg-[#ff6600]
+                  bg-[#000000]
                   px-4
                   py-2.5
                   text-[13px]
@@ -1369,7 +802,7 @@ export default function Header() {
                   text-white
                   transition
 
-                  hover:bg-[#e85d00]
+                  hover:bg-[#000000]
 
                   sm:mt-4
                   sm:px-5
