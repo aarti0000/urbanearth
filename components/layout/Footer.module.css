@@ -1,0 +1,87 @@
+.footer { margin-top: auto; background: #090909; color: #999; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.footer a { transition: color .25s, background-color .25s; }
+.footer a:hover { color: #fff; }
+.footer :is(a, button, input):focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.ribbon { display: flex; min-height: 44px; background: #111; border-bottom: 1px solid #ffffff12; }
+.ribbonLabel { display: flex; align-items: center; flex-shrink: 0; padding: 14px 26px; color: #fff; background: #777; font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.ribbonItems { flex: 1; min-width: 0; overflow: hidden; }
+.ribbonTrack { display: flex; width: max-content; min-width: 200%; animation: footerMarquee 32s linear infinite; }
+.ribbonGroup { display: flex; flex: 1 0 auto; align-items: center; justify-content: space-around; gap: 35px; padding: 14px 0 14px 35px; }
+.ribbonItems:hover .ribbonTrack { animation-play-state: paused; }
+.ribbonItems:focus-within { overflow-x: auto; }
+.ribbonItems:focus-within .ribbonTrack { animation: none; }
+@keyframes footerMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ribbonItems a { display: flex; align-items: center; gap: 35px; color: #999; white-space: nowrap; font-size: 9px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.ribbonItems a span { color: #fff; font-size: 6px; }
+.main { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1.1fr 1fr; width: min(1200px, 90%); margin-inline: auto; overflow: hidden; }
+.watermark { position: absolute; z-index: -1; bottom: -40px; left: 0; color: #ffffff04; font-size: clamp(100px, 15vw, 285px); font-weight: 700; letter-spacing: -.06em; line-height: 1; white-space: nowrap; pointer-events: none; }
+.brand, .middle, .right { padding: 56px 40px; }
+.brand { padding-left: 0; }
+.middle { border-inline: 1px solid #ffffff0e; }
+.right { padding-right: 0; }
+.logo { position: relative; display: block; height: 44px; width: 145px; }
+.logo img { object-fit: contain; object-position: left;  }
+.brandDescription { max-width: 280px; margin: 24px 0 32px; line-height: 1.65; font-size: 11px; letter-spacing: .12em; }
+.sectionTitle { position: relative; color: #777; font-size: 11px; font-weight: 400; letter-spacing: .32em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #ffffff16; margin-bottom: 20px; }
+.sectionTitle::after { content: ""; position: absolute; width: 20px; height: 1px; background: #eee; bottom: -1px; left: 0; }
+.contacts { display: grid; gap: 18px; font-style: normal; margin-bottom: 34px; }
+.contacts a { display: flex; align-items: flex-start; gap: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.contacts svg { flex-shrink: 0; box-sizing: content-box; border: 1px solid #ffffff18; padding: 7px; }
+.contacts strong { display: block; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 5px; }
+.socials { display: flex; gap: 10px; }
+.socials a { display: grid; place-items: center; width: 36px; height: 36px; color: #777; border: 1px solid #ffffff22; }
+.socials a:hover { opacity: .85; }
+.navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.navigation h2 { border-top: 1px solid #ffffff25; padding-top: 16px; font-size: 10px; font-weight: 400; letter-spacing: .25em; text-transform: uppercase; color: #777; }
+.navigation ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+.navigation a { font-size: 12px; font-weight: 600; line-height: 1.5; }
+.map { position: relative; margin-top: 42px; border: 1px solid #ffffff20; }
+.map iframe { display: block; width: 100%; height: 258px; border: 0; filter: saturate(.55) brightness(.8);  }
+.map > a { position: absolute; bottom: 0; left: 0; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px; background: #111; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.newsletter { position: relative; min-height: 356px; padding: 24px; border: 1px solid #ffffff22; background: #ffffff03; }
+.newsletter::before { content: ""; position: absolute; left: -1px; top: -1px; width: 2px; height: 100%; background: linear-gradient(#aaa, #ffffff12); }
+.newsletter p { line-height: 1.6; font-size: 12px; letter-spacing: .025em; }
+.form { margin-top: 16px; }
+.form input { width: 100%; min-width: 0; padding: 12px 0; border: 0; border-bottom: 1px solid #ffffff26; background: transparent; color: #fff; font-size: 12px; border-radius: 0; }
+.form input::placeholder { color: #666; }
+.form button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 38px; margin-top: 16px; background: #fff; color: #090909; border: 1px solid #f5f5f5; font-family: inherit; font-size: 10px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; cursor: pointer; }
+.form button:hover { background: #ddd; }
+.form small { display: block; margin-top: 10px; font-size: 9px; line-height: 1.5; color: #777; }
+.hours { margin-top: 20px; border: 1px solid #ffffff22; padding: 20px 22px; background: #ffffff03; }
+.hours h2 { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 8px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 16px; }
+.hours h2 span { color: #00c990; letter-spacing: .08em; }
+.hours p { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; margin-top: 10px; font-size: 11px; }
+.hours strong { color: #fff; font-size: 12px; font-weight: 700; }
+.hours small { display: block; margin-top: 12px; font-size: 9px; color: #777; }
+.bottom { color: #666; border-top: 1px solid #ffffff16; }
+.bottom > div { display: flex; justify-content: space-between; align-items: center; gap: 20px; width: min(1200px, 90%); margin: auto; padding-block: 14px; font-size: 8px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+.bottom > div > div { display: flex; gap: 14px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 1100px) { .main { grid-template-columns: 1fr 1.2fr; } .middle { border-right: 0; padding-right: 0; } .right { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 0 0 40px; } .hours { margin-top: 0; align-self: start; } .bottom > div { flex-wrap: wrap; } }
+@media (max-width: 640px) { .ribbon { flex-direction: column; } .ribbonLabel { justify-content: center; padding-block: 12px; } .ribbonItems { justify-content: flex-start; } .main { grid-template-columns: 1fr; } .brand, .middle { padding: 36px 0; border: 0; } .brand { border-bottom: 1px solid #ffffff16; } .brandDescription { max-width: 350px; } .navigation { gap: 14px; } .navigation h2 { font-size: 8px; letter-spacing: .1em; } .right { grid-template-columns: 1fr; gap: 18px; } .newsletter, .hours { padding: 24px; } .newsletter { min-height: 0; } .map iframe { height: 240px; } .bottom > div { flex-direction: column; align-items: flex-start; gap: 15px; line-height: 1.8; } }
+@media (min-width: 1101px) {
+  .main { min-height: calc(60svh - 80px); }
+  .brand, .middle, .right { padding-block: 24px; }
+  .logo { height: 36px; width: 125px; }
+  .brandDescription { margin: 12px 0 18px; }
+  .sectionTitle { padding-bottom: 8px; margin-bottom: 12px; }
+  .contacts { gap: 10px; margin-bottom: 18px; }
+  .contacts strong { margin-bottom: 2px; }
+  .socials a { width: 30px; height: 30px; }
+  .navigation h2 { padding-top: 10px; }
+  .navigation ul { margin-top: 14px; gap: 8px; }
+  .map { margin-top: 22px; }
+  .map iframe { height: clamp(170px, 23svh, 230px); }
+  .newsletter { min-height: 0; padding: 18px 22px; }
+  .form { margin-top: 10px; }
+  .form input { padding-block: 8px; }
+  .form button { margin-top: 12px; }
+  .hours { margin-top: 12px; padding: 14px 22px; }
+  .hours h2 { margin-bottom: 10px; }
+  .hours p { margin-top: 6px; }
+  .hours small { margin-top: 8px; }
+  .bottom > div { padding-block: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .footer a { transition: none; } }
+
+@media (prefers-reduced-motion: reduce) { .ribbonItems { overflow-x: auto; } .ribbonTrack { animation: none; min-width: 100%; } .ribbonGroup[aria-hidden="true"] { display: none; } }

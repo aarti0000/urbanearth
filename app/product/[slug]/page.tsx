@@ -104,27 +104,29 @@ export default function ProductSlugPage() {
           </section>
 
           <section className={styles.detailCopy}>
-            <span className="inline-flex rounded-full bg-[#f7f7f7] px-3 py-1 text-xs font-semibold text-[#000000]">Best Seller</span>
+            <span className="inline-flex rounded-full bg-[#f7f7f7] px-3 py-1 text-xs font-semibold text-[#000000]">{product.price > 0 ? "Best Seller" : "Home collection"}</span>
             <h1 className="mt-3 text-3xl font-bold tracking-tight lg:text-[34px]">{product.name}</h1>
             <p className="mt-1.5 text-sm text-[#000000]">{product.category}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+            {product.price > 0 && <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
               <span className="flex text-[#000000]">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={16} fill={i < product.rating ? "currentColor" : "none"} />)}</span>
               <span>{product.rating}.0 (128 reviews)</span><span className="mx-1 h-5 w-px bg-[#e5e5e5]" /><span>Sold 450+</span>
             </div>
-            <div className="mt-6"><strong className="text-3xl">Rs. {product.price.toLocaleString()}</strong><span className="ml-2 text-lg">/ piece</span></div>
+            }
+            <div className="mt-6"><strong className="text-3xl">{product.price > 0 ? `Rs. ${product.price.toLocaleString()}` : "Contact for price"}</strong>{product.price > 0 && <span className="ml-2 text-lg">/ piece</span>}</div>
             <p className="mt-1 text-sm text-[#000000]">Premium quality, carefully selected</p>
-            <p className="mt-4 flex items-center gap-2 text-sm font-medium text-black"><span className="h-2.5 w-2.5 rounded-full bg-[#000000]" /> In Stock</p>
+            <p className="mt-4 flex items-center gap-2 text-sm font-medium text-black"><span className="h-2.5 w-2.5 rounded-full bg-[#000000]" /> {product.price > 0 ? "In Stock" : "Enquire for availability"}</p>
             <p className="mt-5 border-t border-[#e5e5e5] pt-5 text-sm leading-6 text-[#000000]">{product.name} brings warmth, character and timeless style to your space. Designed for everyday use with a durable finish and premium quality.</p>
-            <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-4 border-y border-[#e5e5e5] py-5 sm:grid-cols-2">
+            {product.price > 0 && <><div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-4 border-y border-[#e5e5e5] py-5 sm:grid-cols-2">
               {benefits.map(({ icon: Icon, text }) => <div key={text} className="flex items-center gap-3 text-xs"><Icon size={17} strokeWidth={1.7} />{text}</div>)}
             </div>
             <dl className="mt-5 grid grid-cols-[105px_1fr] gap-y-2 text-xs sm:text-sm">
               <dt className="font-semibold">Material:</dt><dd>Premium grade</dd><dt className="font-semibold">Finish:</dt><dd>Durable protective finish</dd><dt className="font-semibold">Size:</dt><dd>Standard size</dd><dt className="font-semibold">Warranty:</dt><dd>Manufacturer warranty included</dd>
-            </dl>
+            </dl></>}
           </section>
 
           <aside className={styles.purchasePanel}>
-            <div><strong className="text-3xl">Rs. {product.price.toLocaleString()}</strong><span className="ml-1">/ piece</span></div>
+            {product.price <= 0 ? <><h2 className="text-2xl font-semibold">Contact for price</h2><p className="mt-3 text-sm">Contact us for pricing, sizes and availability of {product.name}.</p><Link href="/contact" className="mt-6 flex h-12 items-center justify-center rounded-md bg-black text-white">Enquire about this product</Link></> : <>
+            <div><strong className="text-3xl">{product.price > 0 ? `Rs. ${product.price.toLocaleString()}` : "Contact for price"}</strong><span className="ml-1">/ piece</span></div>
             <p className="mt-1 text-sm text-[#000000]">Taxes included</p>
             <p className="mt-6 text-sm font-semibold">Quantity</p>
             <div className="mt-3 flex items-center gap-4">
@@ -137,6 +139,7 @@ export default function ProductSlugPage() {
               {serviceItems.map(({ icon: Icon, title, detail }) => <div key={title} className="flex gap-3"><Icon className="mt-0.5 shrink-0" size={20} strokeWidth={1.7} /><div><p className="text-xs font-semibold">{title}</p><p className="mt-1 text-xs text-[#000000]">{detail}</p></div></div>)}
             </div>
             <p className="mt-7 border-t border-[#e5e5e5] pt-5 text-xs"><strong>Need Help?</strong> Call us at +977 9800000000</p>
+          </>}
           </aside>
         </div>
 
@@ -147,7 +150,7 @@ export default function ProductSlugPage() {
         <section className="mt-8 pb-8">
           <h2 className="text-2xl font-bold">You May Also Like</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {related.map((item) => <Link key={item.id} href={`/product/${item.id}`} className="group flex min-w-0 items-center gap-3 rounded-lg border border-[#e5e5e5] bg-white p-3 transition hover:border-[#000000] hover:shadow-md"><Image src={item.image} alt={item.name} width={80} height={76} className="h-[76px] w-20 shrink-0 rounded-md object-cover" /><div className="min-w-0 flex-1"><h3 className="truncate text-xs font-semibold group-hover:text-[#000000]">{item.name}</h3><p className="mt-1 text-xs text-[#000000]">{item.category}</p><p className="mt-3 text-xs font-bold">Rs. {item.price.toLocaleString()}</p></div><ArrowRight size={15} className="shrink-0" /></Link>)}
+            {related.map((item) => <Link key={item.id} href={`/product/${item.id}`} className="group flex min-w-0 items-center gap-3 rounded-lg border border-[#e5e5e5] bg-white p-3 transition hover:border-[#000000] hover:shadow-md"><Image src={item.image} alt={item.name} width={80} height={76} className="h-[76px] w-20 shrink-0 rounded-md object-cover" /><div className="min-w-0 flex-1"><h3 className="truncate text-xs font-semibold group-hover:text-[#000000]">{item.name}</h3><p className="mt-1 text-xs text-[#000000]">{item.category}</p><p className="mt-3 text-xs font-bold">{item.price > 0 ? `Rs. ${item.price.toLocaleString()}` : "Contact for price"}</p></div><ArrowRight size={15} className="shrink-0" /></Link>)}
           </div>
         </section>
       </div>

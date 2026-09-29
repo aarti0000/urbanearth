@@ -6,9 +6,12 @@
 .heroImage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.04) 100%); }
 .heroContent { position: relative; width: min(1500px, 89%); margin: auto; padding-block: clamp(60px, 9vh, 110px) 35px; }
 .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; }
-.hero h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(54px, 5.2vw, 88px); line-height: .98; font-weight: 400; text-shadow: 0 3px 24px rgba(0,0,0,.2); letter-spacing: -.025em; margin-top: 20px; }
+.hero .heroTitle { font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 5.6vw, 84px); line-height: 1.12; font-weight: 400; text-transform: uppercase; text-shadow: 0 2px 18px rgba(0,0,0,.24); margin: 0; }
+.heroTitle span { display: block; white-space: nowrap; }
+.heroTitleIntro { font-size: .56em; line-height: 1.4; letter-spacing: .12em; color: rgba(255,255,255,.88); margin-bottom: .3em; }
+.heroTitleMain { letter-spacing: -.025em; }
 .rule { display: block; height: 1px; width: 60px; background: #fff; margin: 26px 0; }
-.heroDescription { font-size: clamp(13px, 1.05vw, 17px); line-height: 1.65; max-width: 610px; margin-top: 26px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+.heroDescription { font-size: clamp(17px, 1.4vw, 22px); line-height: 1.65; color: rgba(255,255,255,.72); max-width: 720px; margin-top: 26px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
 .hero .eyebrow { font-size: 12px; font-weight: 400; letter-spacing: .36em; }
 .hero .button { background: #fff; color: #000; border-color: #fff; font-weight: 700; }
 .hero .button:hover { background: #000; color: #fff; }
@@ -50,7 +53,7 @@
 .home a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 
 @media (max-width: 1000px) { .container, .heroContent { width: 90%; } .categoryGrid { grid-template-columns: repeat(4, 1fr); row-gap: 25px; } .category:nth-child(4) { border: 0; }  .productGrid { gap: 16px; } .productCopy { padding: 16px 12px; } .productCopy h3 { font-size: 12px; } }
-@media (max-width: 700px) { .heroContent { padding-block: 65px; } .heroImage img { object-position: 58% center; } .heroImage::after { background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.30)); } .hero h1 { font-size: clamp(42px, 10vw, 68px); } .heroDescription { font-size: 13px; } .category { padding-inline: 8px; gap: 16px; } .category span { font-size: 9px; } .productGrid { grid-template-columns: repeat(2, 1fr); gap: 18px 12px; } .productCopy h3 { font-size: 11px; } .productCopy span { font-size: 9px; margin-top: 14px; gap: 10px; } .benefitGrid { grid-template-columns: repeat(2, 1fr); gap: 30px 0; } .benefit { padding-inline: 15px; } .benefit:nth-child(2) { border: 0; } .showroomImage { inset: 0; opacity: .3; } .showroomImage::after { background: linear-gradient(90deg, #000, transparent); } .showroom h2 { font-size: 25px; } .showroomContent { padding-block: 40px; } }
+@media (max-width: 700px) { .heroContent { padding-block: 65px; } .heroImage img { object-position: 58% center; } .heroImage::after { background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.30)); } .category { padding-inline: 8px; gap: 16px; } .category span { font-size: 9px; } .productGrid { grid-template-columns: repeat(2, 1fr); gap: 18px 12px; } .productCopy h3 { font-size: 11px; } .productCopy span { font-size: 9px; margin-top: 14px; gap: 10px; } .benefitGrid { grid-template-columns: repeat(2, 1fr); gap: 30px 0; } .benefit { padding-inline: 15px; } .benefit:nth-child(2) { border: 0; } .showroomImage { inset: 0; opacity: .3; } .showroomImage::after { background: linear-gradient(90deg, #000, transparent); } .showroom h2 { font-size: 25px; } .showroomContent { padding-block: 40px; } }
 @media (prefers-reduced-motion: reduce) { .home *, .home *::after { transition: none; } }
 
 .heroLabel { display: flex; align-items: center; gap: 22px; }
@@ -71,7 +74,7 @@
 .collections { scroll-margin-top: 90px; }
 @media (max-width: 700px) {
   .heroContent { padding-block: 55px 30px; }
-  .hero h1 { font-size: clamp(46px, 10vw, 68px); }
+  .hero .heroTitle { font-size: clamp(28px, 7.5vw, 52px); }
   .heroActions { gap: 12px; }
   .heroActions .button { min-width: 0; padding: 15px 18px; font-size: 10px; }
   .heroCategories { grid-template-columns: repeat(4, 1fr); gap: 24px 0; margin-top: 40px; }

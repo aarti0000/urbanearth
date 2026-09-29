@@ -1,0 +1,22 @@
+.carousel { padding: 44px 0 40px; background: #fff; color: #292820; }
+.layout { position: relative; width: min(1240px, 88%); margin-inline: auto; padding-inline: 42px; }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 60px) / 4); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-block: 4px 12px; }
+.track::-webkit-scrollbar { display: none; }
+.card { min-width: 0; border: 1px solid #e4e1db; scroll-snap-align: start; background: #fff; transition: border-color .25s, box-shadow .25s; }
+.image { position: relative; aspect-ratio: 1; overflow: hidden; background: #f5f3ee; }
+.image img { object-fit: cover; transition: transform .6s; }
+.copy { padding: 19px 12px 21px; text-align: center; }
+.number { font-size: 8px; letter-spacing: .17em; color: #827b6c; }
+.copy h3 { margin: 9px 0 13px; font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 400; }
+.explore { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; color: #736c5d; }
+.previous, .next { position: absolute; top: 42%; display: grid; place-items: center; width: 40px; height: 44px; cursor: pointer; color: #67645d; background: transparent; border: 0; }
+.previous { left: -4px; }
+.next { right: -4px; }
+.previous:disabled, .next:disabled { opacity: .25; cursor: default; }
+.viewAll { display: flex; justify-content: center; align-items: center; gap: 16px; width: fit-content; margin: 20px auto 0; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.viewAll::before { content: ""; width: 22px; height: 1px; background: #a49b8a; }
+.carousel :is(a, button, .track):focus-visible { outline: 2px solid #827352; outline-offset: -3px; }
+@media (hover: hover) { .card:hover { border-color: #b6ac98; box-shadow: 0 4px 12px #00000008; } .card:hover img { transform: scale(1.035); } }
+@media (max-width: 1000px) { .track { grid-auto-columns: calc((100% - 20px) / 2); } }
+@media (max-width: 600px) { .carousel { padding-block: 26px 32px; } .layout { width: 100%; padding-inline: 34px; } .track { grid-auto-columns: 88%; gap: 14px; } .previous { left: 0; width: 30px; } .next { right: 0; width: 30px; } }
+@media (prefers-reduced-motion: reduce) { .card, .image img { transition: none; } }

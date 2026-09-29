@@ -286,5 +286,141 @@
     "price": 5950,
     "rating": 5,
     "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 37,
+    "name": "Mattress 01",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat1.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Mattress 02",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat2.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Mattress 03",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat3.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Mattress 04",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat4.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Mattress 05",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat5.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Mattress 06",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat6.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Mattress 07",
+    "category": "Mattresses",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/mat7.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Flooring 01",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f1.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Flooring 02",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f2.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Flooring 03",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f3.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Flooring 04",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f4.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Flooring 05",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f5.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Flooring 06",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f6.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Flooring 07",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f7.jpg"
+  },
+  {
+    "id": 51,
+    "name": "Flooring 08",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f8.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Flooring 09",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f9.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Flooring 10",
+    "category": "Laminate Flooring",
+    "price": 0,
+    "rating": 0,
+    "image": "/images/f10.jpg"
   }
 ]
