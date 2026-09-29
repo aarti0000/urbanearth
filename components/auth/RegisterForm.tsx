@@ -181,8 +181,11 @@ export default function RegisterForm() {
         return;
       }
 
-      setSuccess("Account created successfully!");
-(event.target as HTMLFormElement).reset();
+      setSuccess("Account created successfully! Redirecting to login...");
+
+setTimeout(() => {
+  window.location.href = "/login";
+}, 1500);
     } catch (error) {
       console.error(
         "Registration error:",

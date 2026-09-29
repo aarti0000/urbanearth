@@ -11,14 +11,14 @@ import {
   Menu,
   Search,
   ShoppingCart,
-  UserRound,
   X,
 } from "lucide-react";
 
 import { useEffect, useState } from "react";
 
-import AccountMenu from "@/components/auth/AccountMenu";
+
 import { useCart } from "@/components/cart/CartContext";
+import AccountMenu from "@/components/auth/AccountMenu";
 import products from "@/data/products.json";
 
 const mattressCollections = [
@@ -307,38 +307,7 @@ export default function Header() {
               )}
             </button>
 
-            {/* Desktop / Tablet Account */}
-            <div className="hidden md:block">
-  <AccountMenu />
-</div>
-
-            {/* Mobile Account */}
-            <Link
-              href="/login"
-              className="
-                flex
-                h-9
-                w-9
-                items-center
-                justify-center
-                rounded-full
-                text-[#000000]
-                transition-colors
-
-                hover:bg-[#f7f7f7]
-
-                sm:h-10
-                sm:w-10
-
-                md:hidden
-              "
-              aria-label="Account"
-            >
-              <UserRound
-                className="h-5 w-5 sm:h-[22px] sm:w-[22px]"
-                strokeWidth={1.8}
-              />
-            </Link>
+            <AccountMenu onNavigate={closePanels} />
 
             {/* Cart */}
             <Link

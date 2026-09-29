@@ -1,0 +1,16 @@
+.root { position: relative; }
+.trigger { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: #000; cursor: pointer; }
+.trigger:hover { background: #f7f7f7; }
+.avatar { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #f33232; color: #fff; font-size: 10px; font-weight: 700; }
+.panel { position: absolute; top: calc(100% + 10px); right: 0; z-index: 100; width: min(260px, calc(100vw - 32px)); border: 1px solid #2c2926; background: #0c0b0a; color: #ccc; box-shadow: 0 16px 32px #0003; font-family: Arial, Helvetica, sans-serif; }
+.identity { padding: 20px 16px 14px; border-bottom: 1px solid #2c2926; overflow-wrap: anywhere; }
+.identity p { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.5; }
+.identity span { display: block; margin-top: 3px; color: #999; font-size: 12px; line-height: 1.5; }
+.links { padding: 6px 0; }
+.links a, .signOut { display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 16px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
+.links svg, .signOut { color: #ff4040; }
+.links a:hover, .signOut:hover { background: #201b19; }
+.signOut { border: 0; border-top: 1px solid #2c2926; background: transparent; padding-block: 14px; cursor: pointer; text-align: left; }
+.root :is(a, button):focus-visible { outline: 2px solid #f33232; outline-offset: 2px; }
+@media (min-width: 640px) { .trigger { width: 40px; height: 40px; } }
+@media (min-width: 768px) { .trigger { width: 44px; height: 44px; } }
