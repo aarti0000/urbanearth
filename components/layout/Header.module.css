@@ -7,7 +7,7 @@
 .header { position: sticky; top: 0; z-index: 50; background: #fff; color: #000; border-bottom: 1px solid #e5e5e5; }
 .header > div:first-child { max-width: 1920px; height: 64px; padding-inline: 3%; gap: 28px; }
 .header > div:first-child > a:first-child > div { width: 165px; height: 44px; }
-.header nav[aria-label="Primary navigation"] { gap: 30px; margin-inline: auto; }
+.header nav[aria-label="Primary navigation"] { gap: clamp(14px, 1.6vw, 30px); margin-inline: auto; white-space: nowrap; }
 .header nav[aria-label="Primary navigation"] > a,
 .header nav[aria-label="Primary navigation"] > div > a { color: #000; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; height: 64px; transition: opacity .2s; }
 .header nav[aria-label="Primary navigation"] > a::after,

@@ -1,165 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Ceramic Nordic Vase",
-    "category": "Vases",
-    "price": 5550,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 2,
-    "name": "Minimal Table Lamp",
-    "category": "Lighting",
-    "price": 7820,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 3,
-    "name": "Abstract Wall Art",
-    "category": "Wall Decor",
-    "price": 5000,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 4,
-    "name": "Stoneware Vase",
-    "category": "Vases",
-    "price": 4800,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 5,
-    "name": "Warm Glow Lamp",
-    "category": "Lighting",
-    "price": 7500,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 6,
-    "name": "Modern Canvas Art",
-    "category": "Wall Decor",
-    "price": 6200,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 7,
-    "name": "Matte Beige Vase",
-    "category": "Vases",
-    "price": 4250,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 8,
-    "name": "Nordic Floor Lamp",
-    "category": "Lighting",
-    "price": 9500,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 9,
-    "name": "Minimalist Wall Print",
-    "category": "Wall Decor",
-    "price": 3800,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 10,
-    "name": "Modern Clay Vase",
-    "category": "Vases",
-    "price": 3950,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 11,
-    "name": "Elegant Pendant Light",
-    "category": "Lighting",
-    "price": 8900,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 12,
-    "name": "Neutral Botanical Art",
-    "category": "Wall Decor",
-    "price": 4500,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 13,
-    "name": "Sculptural White Vase",
-    "category": "Vases",
-    "price": 6200,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 14,
-    "name": "Modern Bedside Lamp",
-    "category": "Lighting",
-    "price": 6750,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 15,
-    "name": "Abstract Beige Canvas",
-    "category": "Wall Decor",
-    "price": 5750,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 16,
-    "name": "Decorative Ceramic Bowl",
-    "category": "Decor",
-    "price": 3200,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 17,
-    "name": "Wooden Decorative Tray",
-    "category": "Decor",
-    "price": 3600,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 18,
-    "name": "Minimal Candle Holder",
-    "category": "Decor",
-    "price": 2750,
-    "rating": 4,
-    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 19,
-    "name": "Marble Accent Lamp",
-    "category": "Lighting",
-    "price": 7200,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": 20,
-    "name": "Ceramic Decorative Planter",
-    "category": "Decor",
-    "price": 4350,
-    "rating": 5,
-    "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80"
-  },
-  {
     "id": 21,
     "name": "Natural Oak Laminate",
     "category": "Laminate Flooring",
@@ -289,59 +129,171 @@
   },
   {
     "id": 37,
-    "name": "Mattress 01",
+    "name": "Earth",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Organic",
+    "price": 9520,
     "rating": 0,
-    "image": "/images/mat1.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 595,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 38,
-    "name": "Mattress 02",
+    "name": "Forest",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Organic",
+    "price": 15120,
     "rating": 0,
-    "image": "/images/mat2.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 945,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 39,
-    "name": "Mattress 03",
+    "name": "Forest Suite",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Organic",
+    "price": 24400,
     "rating": 0,
-    "image": "/images/mat3.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1525,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 40,
-    "name": "Mattress 04",
+    "name": "Spine Guard",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Orthopaedic",
+    "price": 20720,
     "rating": 0,
-    "image": "/images/mat4.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1295,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 41,
-    "name": "Mattress 05",
+    "name": "Spine Guard Suite",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Orthopaedic",
+    "price": 26640,
     "rating": 0,
-    "image": "/images/mat5.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1665,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 42,
-    "name": "Mattress 06",
+    "name": "Stone and Silk",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Orthopaedic",
+    "price": 28080,
     "rating": 0,
-    "image": "/images/mat6.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1755,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 43,
-    "name": "Mattress 07",
+    "name": "Residency",
     "category": "Mattresses",
-    "price": 0,
+    "collection": "Luxury",
+    "price": 31920,
     "rating": 0,
-    "image": "/images/mat7.jpg"
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1995,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 54,
+    "name": "Grand Royale Memory",
+    "category": "Mattresses",
+    "collection": "Luxury",
+    "price": 63920,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 3995,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 55,
+    "name": "Grand Royale Memory Suite",
+    "category": "Mattresses",
+    "collection": "Luxury",
+    "price": 79920,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 4995,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 56,
+    "name": "Grand Hotelier",
+    "category": "Mattresses",
+    "collection": "Hospitality",
+    "price": 19120,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1195,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 57,
+    "name": "Grand Hotelier Suite",
+    "category": "Mattresses",
+    "collection": "Hospitality",
+    "price": 23280,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1455,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 58,
+    "name": "Regency",
+    "category": "Mattresses",
+    "collection": "Hospitality",
+    "price": 21520,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1345,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 59,
+    "name": "Regency Suite",
+    "category": "Mattresses",
+    "collection": "Hospitality",
+    "price": 25520,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1595,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
+  },
+  {
+    "id": 60,
+    "name": "The Viceroy",
+    "category": "Mattresses",
+    "collection": "Hospitality",
+    "price": 31920,
+    "rating": 0,
+    "image": "/images/mat7.jpg",
+    "ratePerSquareFoot": 1995,
+    "size": "32 × 72 inches",
+    "priceBasis": "Calculated from catalogue rate per square foot"
   },
   {
     "id": 44,

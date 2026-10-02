@@ -8,7 +8,7 @@ import { ArrowLeft, CircleHelp, Info, LockKeyhole, RotateCcw, ShieldCheck, Shopp
 export default function CartPage() {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart, cartTotal } = useCart();
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-  const estimatedTax = Math.round(cartTotal * 0.105);
+  const estimatedTax = Math.round(cart.reduce((total, item) => total + (item.taxIncluded ? 0 : item.price * item.quantity), 0) * 0.105);
   const orderTotal = cartTotal + estimatedTax;
 
   if (cart.length === 0) {

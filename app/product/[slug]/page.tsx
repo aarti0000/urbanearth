@@ -24,6 +24,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useCart } from "@/components/cart/CartContext";
+import MattressDetail from "@/components/products/MattressDetail";
 import products from "@/data/products.json";
 
 const benefits = [
@@ -59,6 +60,8 @@ export default function ProductSlugPage() {
       </main>
     );
   }
+
+  if (product.category === "Mattresses") return <MattressDetail key={product.id} product={product} />;
 
   const gallery = [product.image, product.image, product.image, product.image];
   const urbanEarthProducts = products.filter((item) => item.id >= 21);
@@ -113,21 +116,21 @@ export default function ProductSlugPage() {
             </div>
             }
             <div className="mt-6"><strong className="text-3xl">{product.price > 0 ? `Rs. ${product.price.toLocaleString()}` : "Contact for price"}</strong>{product.price > 0 && <span className="ml-2 text-lg">/ piece</span>}</div>
-            <p className="mt-1 text-sm text-[#000000]">Premium quality, carefully selected</p>
+            <p className="mt-1 text-sm text-[#000000]">{product.size ? `Price for ${product.size}` : "Premium quality, carefully selected"}</p>
             <p className="mt-4 flex items-center gap-2 text-sm font-medium text-black"><span className="h-2.5 w-2.5 rounded-full bg-[#000000]" /> {product.price > 0 ? "In Stock" : "Enquire for availability"}</p>
             <p className="mt-5 border-t border-[#e5e5e5] pt-5 text-sm leading-6 text-[#000000]">{product.name} brings warmth, character and timeless style to your space. Designed for everyday use with a durable finish and premium quality.</p>
             {product.price > 0 && <><div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-4 border-y border-[#e5e5e5] py-5 sm:grid-cols-2">
               {benefits.map(({ icon: Icon, text }) => <div key={text} className="flex items-center gap-3 text-xs"><Icon size={17} strokeWidth={1.7} />{text}</div>)}
             </div>
             <dl className="mt-5 grid grid-cols-[105px_1fr] gap-y-2 text-xs sm:text-sm">
-              <dt className="font-semibold">Material:</dt><dd>Premium grade</dd><dt className="font-semibold">Finish:</dt><dd>Durable protective finish</dd><dt className="font-semibold">Size:</dt><dd>Standard size</dd><dt className="font-semibold">Warranty:</dt><dd>Manufacturer warranty included</dd>
+              <dt className="font-semibold">Material:</dt><dd>Premium grade</dd><dt className="font-semibold">Finish:</dt><dd>Durable protective finish</dd><dt className="font-semibold">Size:</dt><dd>{product.size || "Standard size"}</dd><dt className="font-semibold">Warranty:</dt><dd>Manufacturer warranty included</dd>
             </dl></>}
           </section>
 
           <aside className={styles.purchasePanel}>
             {product.price <= 0 ? <><h2 className="text-2xl font-semibold">Contact for price</h2><p className="mt-3 text-sm">Contact us for pricing, sizes and availability of {product.name}.</p><Link href="/contact" className="mt-6 flex h-12 items-center justify-center rounded-md bg-black text-white">Enquire about this product</Link></> : <>
             <div><strong className="text-3xl">{product.price > 0 ? `Rs. ${product.price.toLocaleString()}` : "Contact for price"}</strong><span className="ml-1">/ piece</span></div>
-            <p className="mt-1 text-sm text-[#000000]">Taxes included</p>
+            <p className="mt-1 text-sm text-[#000000]">Taxes included{product.size ? ` · ${product.size}` : ""}</p>
             <p className="mt-6 text-sm font-semibold">Quantity</p>
             <div className="mt-3 flex items-center gap-4">
               <div className="flex h-11 items-center overflow-hidden rounded-md border border-[#e5e5e5]"><button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="h-full w-11 text-lg hover:bg-[#f7f7f7]">−</button><span className="flex h-full w-16 items-center justify-center border-x border-[#e5e5e5] font-semibold">{quantity}</span><button onClick={() => setQuantity(quantity + 1)} className="h-full w-11 text-lg hover:bg-[#f7f7f7]">+</button></div>

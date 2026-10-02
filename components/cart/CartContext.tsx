@@ -15,6 +15,9 @@ type Product = {
   rating: number;
   image: string;
   description?: string;
+  productId?: number;
+  size?: string;
+  taxIncluded?: boolean;
 };
 
 type CartItem = Product & {

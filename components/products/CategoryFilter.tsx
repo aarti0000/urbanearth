@@ -1,12 +1,8 @@
 "use client";
 
-const categories = [
-  "All",
-  "Vases",
-  "Lighting",
-  "Wall Decor",
-  "Decor",
-];
+import products from "@/data/products.json";
+
+const categories = ["All", ...new Set(products.map((product) => product.category))];
 
 type CategoryFilterProps = {
   selectedCategory: string;

@@ -29,15 +29,17 @@ const mattressCollections = [
 ];
 const navigation = [
   { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   { label: "Shop", href: "/products" },
   { label: "Mattresses", href: "/products?category=Mattresses" },
   { label: "Flooring", href: "/products?category=Laminate%20Flooring" },
-  { label: "About Us", href: "/about" },
+  { label: "Carpets & Rugs", href: "/products?category=Carpets%20%26%20Rugs" },
+  { label: "Furniture", href: "/products?category=Furniture" },
 ];
 function MattressCollections({ close }: { close: () => void }) {
   return <>
     <div className={styles.menuHeading}><span aria-hidden="true" /><h2>Mattresses</h2><p>Considered comfort for deeper rest.<br />Discover your perfect mattress.</p></div>
-    <div className={styles.collectionGrid}>{mattressCollections.map((name) => <Link key={name} href={`/products?category=Mattresses&q=${encodeURIComponent(name)}`} onClick={close}>{name}</Link>)}</div>
+    <div className={styles.collectionGrid}>{mattressCollections.map((name) => <Link key={name} href={`/products?category=Mattresses&collection=${encodeURIComponent(name)}`} onClick={close}>{name}</Link>)}</div>
     <Link className={styles.menuFooter} href="/products?category=Mattresses" onClick={close}>Shop all mattresses <span aria-hidden="true">→</span></Link>
   </>;
 }
@@ -231,7 +233,7 @@ export default function Header() {
               items-center
               gap-5
 
-              lg:flex
+              xl:flex
               xl:gap-9
               2xl:gap-10
             "
@@ -403,7 +405,7 @@ export default function Header() {
                 md:h-11
                 md:w-11
 
-                lg:hidden
+                xl:hidden
               "
             >
               {menuOpen ? (
@@ -695,7 +697,7 @@ export default function Header() {
             bg-white
             shadow-xl
 
-            lg:hidden
+            xl:hidden
           "
         >
           <nav

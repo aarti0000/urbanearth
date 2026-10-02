@@ -1,0 +1,74 @@
+.catalog { --brand-accent: #102342; background: #fff; color: #102342; }
+.hero { position: relative; isolation: isolate; min-height: 210px; display: grid; place-items: center; text-align: center; background: #102342; }
+.heroImage { object-fit: cover; object-position: center 55%; z-index: -2; }
+.hero::before { content: ""; position: absolute; inset: 0; background: rgba(6, 22, 46, .7); z-index: -1; }
+.hero::after { content: ""; position: absolute; inset: 14px 18px; border: 1px solid #ffffff26; pointer-events: none; }
+.heroContent { padding: 45px 24px; }
+.catalog .hero h1 { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: clamp(27px, 3vw, 36px); font-weight: 700; text-transform: uppercase; letter-spacing: -.035em; color: #fff; }
+.hero p { margin-top: 18px; font-size: 13px; color: #dddfe5; }
+.body { width: min(1080px, calc(100% - 48px)); margin: auto; padding: 54px 0 72px; }
+.filters { border: 1px solid #e3e1df; }
+.filterHeading { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #fcfcfc; border-bottom: 1px solid #f0efee; }
+.catalog .filterHeading h2 { font: 600 10px Arial, sans-serif; letter-spacing: .17em; text-transform: uppercase; color: #77716d; }
+.filterHeading h2 span { color: var(--brand-accent); margin-right: 6px; }
+.filterHeading > span { color: var(--brand-accent); font-size: 9px; text-transform: uppercase; letter-spacing: .13em; }
+.filterContent { display: flex; align-items: center; gap: 18px; padding: 17px 15px; }
+.priceFilter { flex: 0 0 220px; padding-right: 18px; border-right: 1px solid #e6e3e0; }
+.priceFilter > div { display: flex; justify-content: space-between; gap: 8px; }
+.priceFilter label, .collections h3 { font: 400 9px Arial, sans-serif; text-transform: uppercase; letter-spacing: .17em; color: #756f69; }
+.priceFilter output { font-size: 9px; color: #756f69; }
+.priceFilter input { width: 100%; height: 14px; accent-color: #222; margin-top: 8px; cursor: pointer; }
+.priceFilter small { display: block; font-size: 9px; color: #807a74; margin-top: 3px; }
+.collections { flex: 1; }
+.collections h3 { margin-bottom: 7px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chips button { border: 1px solid #e1dedb; padding: 5px 8px; background: white; font-size: 10px; color: #68615c; cursor: pointer; }
+.chips button:hover { border-color: var(--brand-accent); color: var(--brand-accent); }
+.chips button[aria-pressed="true"] { border-color: var(--brand-accent); background: var(--brand-accent); color: white; }
+.clear { display: flex; align-items: center; gap: 3px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #77716d; }
+.clear:disabled { opacity: .4; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 17px 0 14px; border-bottom: 1px solid #e3e1df; margin-bottom: 20px; }
+.toolbar > p { display: flex; align-items: center; gap: 10px; color: #807971; font-size: 12px; text-transform: uppercase; }
+.toolbar b { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding-inline: 5px; border-radius: 50%; background: var(--brand-accent); color: white; font-size: 11px; }
+.sort { display: flex; gap: 8px; align-items: center; border: 1px solid #e3e1df; padding: 10px 12px; }
+.sort svg { color: var(--brand-accent); }
+.catalog .sort select { background: white; color: #514c48; font-size: 12px; font-weight: 600; cursor: pointer; max-width: 180px; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.card { overflow: hidden; border: 1px solid #e8e6e4; border-radius: 2px; background: white; }
+.card:hover { border-color: #b9bdc4; }
+.image { display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #f8f7f5; }
+.image img { object-fit: cover; transition: transform .3s; }
+.card:hover .image img { transform: scale(1.035); }
+.cardCopy { padding: 14px 12px 12px; text-align: center; }
+.category { color: #89817a; font-size: 8px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 7px; }
+.catalog .card h2 { font: 500 12px/1.5 Arial, sans-serif; color: #102342; text-transform: uppercase; letter-spacing: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 36px; overflow-wrap: normal; }
+.price { font-size: 13px; font-weight: 700; margin-top: 7px; }
+.size { margin-top: 5px; font-size: 10px; color: #756f69; }
+.cart { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 10px; color: #746e68; margin-top: 12px; padding: 5px 8px; }
+.cart:hover { color: #102342; background: #f3f3f3; }
+.search { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 12px; margin-top: 16px; }
+.search button { display: flex; gap: 4px; align-items: center; text-decoration: underline; }
+.mattressCollections { margin-top: 28px; padding: 30px 28px 0; background: #f8f7f5; border: 1px solid #eeece8; }
+.mattressIntro { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.mattressEyebrow { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #77716d; margin-bottom: 10px; }
+.catalog .mattressIntro h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(23px, 2.5vw, 30px); font-weight: 400; letter-spacing: -.035em; color: #102342; }
+.allMattresses { display: inline-flex; gap: 15px; align-items: center; padding: 8px 0; font-size: 11px; color: #6e6a65; border-bottom: 1px solid transparent; white-space: nowrap; }
+.allMattresses[aria-pressed="true"], .allMattresses:hover { color: #102342; border-color: #102342; }
+.mattressOptions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 28px; gap: 20px; }
+.mattressOptions button { position: relative; display: flex; align-items: center; gap: 10px; padding: 21px 0; border-bottom: 2px solid transparent; color: #6e6a65; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; transition: color .2s, border-color .2s; }
+.collectionNumber { font-size: 9px; font-weight: 400; letter-spacing: .02em; color: #8c8780; }
+.collectionArrow { margin-left: auto; font-size: 17px; font-weight: 400; opacity: .4; }
+.mattressOptions button[aria-pressed="true"], .mattressOptions button:hover { color: #102342; border-bottom-color: #102342; }
+.mattressOptions button[aria-pressed="true"] .collectionArrow { opacity: 1; }
+@media(max-width: 700px) { .mattressCollections { padding: 24px 18px 0; } .mattressIntro { align-items: flex-start; flex-direction: column; gap: 12px; } .mattressOptions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; margin-top: 16px; } .mattressOptions button { font-size: 10px; padding: 19px 0; letter-spacing: .08em; } }
+.empty { padding: 60px 20px; text-align: center; border: 1px dashed #ddd; }
+.catalog .empty h2 { font: 500 20px Arial, sans-serif; }
+.empty p { font-size: 13px; margin: 12px 0; color: #777; }
+.empty button, .empty a { display: inline-block; margin: 10px; font-size: 12px; text-decoration: underline; }
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 32px; }
+.pagination button { display: grid; place-items: center; border: 1px solid #ddd; width: 34px; height: 34px; font-size: 12px; }
+.pagination button[aria-current="page"] { background: #102342; color: white; border-color: #102342; }
+.catalog :is(button, a, input, select):focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 3px; }
+@media(max-width: 900px) { .filterContent { flex-wrap: wrap; } .priceFilter { flex-basis: 100%; border-right: 0; padding-right: 0; max-width: 280px; } .collections { flex-basis: calc(100% - 80px); } .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+@media(max-width: 600px) { .body { width: calc(100% - 28px); padding-top: 28px; } .hero { min-height: 175px; } .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .toolbar { gap: 8px; } .toolbar > p { font-size: 10px; gap: 6px; } .sort { padding: 10px 8px; gap: 4px; } .catalog .sort select { font-size: 10px; max-width: 140px; } .cardCopy { padding: 12px 8px; } .catalog .card h2 { font-size: 11px; min-height: 33px; } .chips button { padding: 7px 8px; } .hero p { font-size: 12px; } }
+@media(prefers-reduced-motion: reduce) { .image img { transition: none; } .card:hover .image img { transform: none; } }

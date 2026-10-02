@@ -1,0 +1,898 @@
+{
+  "37": {
+    "height": "4 inches",
+    "guarantee": 2,
+    "constructionImage": "/images/cearth.png",
+    "description": "Naturally firm, breathable, and supportive, crafted for cooler sleep and everyday comfort.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 10710,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 14280,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 17850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 11602,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 13536,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 15470,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 19338,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 23205,
+        "readyStock": true
+      }
+    ]
+  },
+  "38": {
+    "height": "4 inches",
+    "guarantee": 5,
+    "constructionImage": "/images/cforest.png",
+    "description": "Crafted with 100% natural coir for firm support, enhanced airflow and lasting durability.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 17010,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 22680,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 28350,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 18428,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 21499,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 24570,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 30712,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 36855,
+        "readyStock": true
+      }
+    ]
+  },
+  "39": {
+    "height": "4 + 1 inches",
+    "guarantee": 5,
+    "constructionImage": "/images/cforestsuite.png",
+    "description": "Natural support, breathable comfort, and plush refinement for a deeply restful sleep.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 27450,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 36600,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 45750,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 29738,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 34694,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 39650,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 49562,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 59475,
+        "readyStock": true
+      }
+    ]
+  },
+  "40": {
+    "height": "6 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cspineguard.png",
+    "description": "Designed with strict technical and anatomical accuracy for orthopedic care.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 23310,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 31080,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 38850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 25252,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 29461,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 33670,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 42088,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 50505,
+        "readyStock": true
+      }
+    ]
+  },
+  "41": {
+    "height": "6 inches + pillow top",
+    "guarantee": 10,
+    "constructionImage": "/images/cspineguardsuite.png",
+    "description": "Elevating therapeutic back care to the heights of luxury hospitality.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 29970,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 39960,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 49950,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 32468,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 37879,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 43290,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 54112,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 64935,
+        "readyStock": true
+      }
+    ]
+  },
+  "42": {
+    "height": "8 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cstonesilk.png",
+    "description": "Two sides. One perfect sleep. Designed for every body and every need.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 31590,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 42120,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 52650,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 34222,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 39926,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 45630,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 57038,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 68445,
+        "readyStock": true
+      }
+    ]
+  },
+  "43": {
+    "height": "8 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cresidency.png",
+    "description": "Quiet opulence with a majestic high-resiliency core. Luxury that feels like home.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 35910,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 47880,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 59850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 38902,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 45386,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 51870,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 64838,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 77805,
+        "readyStock": true
+      }
+    ]
+  },
+  "54": {
+    "height": "8 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cgrandroyalememory.png",
+    "description": "Thermosensitive memory foam layers embrace your body?s unique silhouette.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 71910,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 95880,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 119850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 77902,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 90886,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 103870,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 129838,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 155805,
+        "readyStock": true
+      }
+    ]
+  },
+  "55": {
+    "height": "10 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cgrandroyalememorysuite.png",
+    "description": "High-density memory foam contours to your body for weightless support.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 89910,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 119880,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 149850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 97402,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 113636,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 129870,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 162338,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 194805,
+        "readyStock": true
+      }
+    ]
+  },
+  "56": {
+    "height": "7 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cgrandhotelier.png",
+    "description": "Engineered to satisfy the meticulous luxury standards of world-class French hoteliers.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 21510,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 28680,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 35850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 23303,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 27186,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 31070,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 38838,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 46605,
+        "readyStock": true
+      }
+    ]
+  },
+  "57": {
+    "height": "7 inches + 1 inch pillow top",
+    "guarantee": 10,
+    "constructionImage": "/images/cgrandhoteliersuite.png",
+    "description": "Cloud-like comfort with durable support for high-end boutique properties.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 26190,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 34920,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 43650,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 28373,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 33101,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 37830,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 47288,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 56745,
+        "readyStock": true
+      }
+    ]
+  },
+  "58": {
+    "height": "9 inches",
+    "guarantee": 10,
+    "constructionImage": "/images/cregency.png",
+    "description": "Inspired by the refined symmetry and regal aesthetics of the French Regency era.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 24210,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 32280,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 40350,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 26228,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 30599,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 34970,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 43713,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 52455,
+        "readyStock": true
+      }
+    ]
+  },
+  "59": {
+    "height": "9 inches + 1 inch pillow top",
+    "guarantee": 10,
+    "constructionImage": "/images/cregencysuite.png",
+    "description": "The marriage of robust support and luxurious indulgence.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 28710,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 38280,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 47850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 31103,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 36286,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 41470,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 51838,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 62205,
+        "readyStock": true
+      }
+    ]
+  },
+  "60": {
+    "height": "8 inches + 2 inch Euro top",
+    "guarantee": 10,
+    "constructionImage": null,
+    "description": "Tempered core components with a Euro top for durability and a tailored exterior.",
+    "sizes": [
+      {
+        "width": 36,
+        "length": 72,
+        "area": 18,
+        "price": 35910,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 72,
+        "area": 24,
+        "price": 47880,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 72,
+        "area": 30,
+        "price": 59850,
+        "readyStock": false
+      },
+      {
+        "width": 36,
+        "length": 78,
+        "area": 19.5,
+        "price": 38903,
+        "readyStock": false
+      },
+      {
+        "width": 42,
+        "length": 78,
+        "area": 22.75,
+        "price": 45386,
+        "readyStock": false
+      },
+      {
+        "width": 48,
+        "length": 78,
+        "area": 26,
+        "price": 51870,
+        "readyStock": false
+      },
+      {
+        "width": 60,
+        "length": 78,
+        "area": 32.5,
+        "price": 64838,
+        "readyStock": true
+      },
+      {
+        "width": 72,
+        "length": 78,
+        "area": 39,
+        "price": 77805,
+        "readyStock": true
+      }
+    ]
+  }
+}
