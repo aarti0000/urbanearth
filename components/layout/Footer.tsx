@@ -9,19 +9,14 @@ const groups = [
   { title: "Customer care", links: [["My account", "/login"], ["Orders", "/orders"], ["Delivery & returns", "/contact"], ["Installation", "/contact"]] },
   { title: "Company", links: [["About us", "/about"], ["Our showroom", "/contact"], ["Contact", "/contact"]] },
 ];
-const categories = ["Mattresses", "Laminate Flooring", "Parquet", "SPC Flooring", "Carpets", "Rugs", "Artificial Grass"];
-
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.ribbon}>
-        <span className={styles.ribbonLabel}>Thoughtfully selected</span>
-        <div className={styles.ribbonItems}>
-          <div className={styles.ribbonTrack}>
-            {[0, 1].map((copy) => <div key={copy} className={styles.ribbonGroup} aria-hidden={copy === 1 ? true : undefined}>
-              {categories.map((name) => <Link key={name} href={`/products?category=${encodeURIComponent(name)}`} tabIndex={copy === 1 ? -1 : undefined}>{name}<span aria-hidden="true">?</span></Link>)}
-            </div>)}
-          </div>
+      <div className={styles.ribbon} aria-label="Urban Earth services">
+        <div className={styles.ribbonTrack}>
+          {[0, 1].map((copy) => <div key={copy} className={styles.ribbonGroup} aria-hidden={copy === 1 ? true : undefined}>
+            {["Premium flooring & home essentials", "Expert installation", "Visit our showroom", "Delivery across Nepal"].map((text) => <span key={text}><i aria-hidden="true" />{text}</span>)}
+          </div>)}
         </div>
       </div>
       <div className={styles.main}>
