@@ -108,7 +108,7 @@ export default function ProductSlugPage() {
 
           <section className={styles.detailCopy}>
             <span className="inline-flex rounded-full bg-[#f7f7f7] px-3 py-1 text-xs font-semibold text-[#000000]">{product.price > 0 ? "Best Seller" : "Home collection"}</span>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight lg:text-[34px]">{product.name}</h1>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight lg:text-[2.125rem]">{product.name}</h1>
             <p className="mt-1.5 text-sm text-[#000000]">{product.category}</p>
             {product.price > 0 && <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
               <span className="flex text-[#000000]">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={16} fill={i < product.rating ? "currentColor" : "none"} />)}</span>

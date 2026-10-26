@@ -12,6 +12,8 @@ import {
   Search,
   ShoppingCart,
   X,
+  Leaf,
+  ArrowRight,
 } from "lucide-react";
 
 import { useEffect, useState } from "react";
@@ -43,18 +45,86 @@ function MattressCollections({ close }: { close: () => void }) {
     <Link className={styles.menuFooter} href="/products?category=Mattresses" onClick={close}>Shop all mattresses <span aria-hidden="true">→</span></Link>
   </>;
 }
+
 function FlooringCollections({ close }: { close: () => void }) {
   const options = [
-    { name: "Everclick Laminate", href: "/products?category=Laminate%20Flooring" },
-    { name: "Urban AquaSafe", href: "/products?category=Laminate%20Flooring" },
-    { name: "Urban SPC", href: "/products?category=SPC%20Flooring" },
+    {
+      name: "Everclick Laminate",
+      href: "/products?category=Laminate%20Flooring",
+    },
+    {
+      name: "Urban AquaSafe",
+      href: "/products?category=Laminate%20Flooring",
+    },
+    {
+      name: "Urban SPC",
+      href: "/products?category=SPC%20Flooring",
+    },
   ];
-  return <>
-    <div className={styles.menuHeading}><span aria-hidden="true" /><h2>Flooring</h2><p>Beautiful foundations for everyday living.<br />Explore our flooring collections.</p></div>
-    <div className={styles.collectionGrid}>{options.map(({ name, href }) => <Link key={name} href={href} onClick={close}>{name}</Link>)}</div>
-    <Link className={styles.menuFooter} href="/products" onClick={close}>Shop all products <span aria-hidden="true">→</span></Link>
-  </>;
+
+  return (
+    <>
+      <div className={styles.menuHeading}>
+        <span aria-hidden="true" />
+        <h2>Flooring</h2>
+        <p>
+          Beautiful foundations for everyday living.
+          <br />
+          Explore our flooring collections.
+        </p>
+      </div>
+
+      <div className={styles.collectionGrid}>
+        {options.map(({ name, href }) => (
+          <Link key={name} href={href} onClick={close}>
+            {name}
+          </Link>
+        ))}
+      </div>
+
+      {/* Highlighted Artificial Grass item */}
+      <Link
+        href="/products?category=Artificial%20Grass"
+        onClick={close}
+        className="group mx-[10px] my-2 flex items-center gap-3
+          border border-[#dce3d6] border-l-[3px] border-l-[#55734f]
+          bg-[#f1f3ed] p-3 transition-colors duration-300
+          hover:bg-[#e7ecdf]"
+      >
+        <div className="flex h-[48px] w-[58px] shrink-0
+          items-center justify-center bg-[#dce5d5]">
+          <Leaf size={25} strokeWidth={1.5} className="text-[#385b34]" />
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <span className="block text-[12px] font-bold tracking-wide
+            text-[#263c25]">
+            Artificial Grass
+          </span>
+          <span className="mt-1 block text-[10px] leading-4 text-[#666b61]">
+            Green. Natural. All year round.
+          </span>
+        </div>
+
+        <ArrowRight
+          size={17}
+          className="shrink-0 text-[#385b34]
+            transition-transform duration-300
+            group-hover:translate-x-1"
+        />
+      </Link>
+
+      <Link
+        className={styles.menuFooter}
+        href="/products"
+        onClick={close}
+      >
+        Shop all products <span aria-hidden="true">→</span>
+      </Link>
+    </>
+  );
 }
+
 export default function Header() {
   const pathname = usePathname();
 
@@ -363,13 +433,13 @@ export default function Header() {
                     rounded-full
                     bg-[#000000]
                     px-1
-                    text-[9px]
+                    text-[0.5625rem]
                     font-bold
                     text-white
 
                     sm:h-[18px]
                     sm:min-w-[18px]
-                    sm:text-[10px]
+                    sm:text-[0.625rem]
                   "
                 >
                   {cartCount > 99 ? "99+" : cartCount}
@@ -597,7 +667,7 @@ export default function Header() {
                             <p
                               className="
                                 truncate
-                                text-[13px]
+                                text-[0.8125rem]
                                 font-semibold
                                 text-[#222]
 
@@ -614,7 +684,7 @@ export default function Header() {
                             <p
                               className="
                                 mt-1
-                                text-[13px]
+                                text-[0.8125rem]
                                 font-bold
                                 text-[#000000]
 
@@ -644,7 +714,7 @@ export default function Header() {
                         border-[#000000]
                         px-4
                         py-2.5
-                        text-[13px]
+                        text-[0.8125rem]
                         font-semibold
                         text-[#000000]
                         transition
@@ -733,7 +803,7 @@ export default function Header() {
             >
               <p
                 className="
-                  text-[13px]
+                  text-[0.8125rem]
                   font-bold
                   text-[#000000]
 
@@ -768,7 +838,7 @@ export default function Header() {
                   bg-[#000000]
                   px-4
                   py-2.5
-                  text-[13px]
+                  text-[0.8125rem]
                   font-bold
                   text-white
                   transition

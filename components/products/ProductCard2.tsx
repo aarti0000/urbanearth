@@ -26,19 +26,19 @@ export default function ProductCard2({ product }: ProductCardProps) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-          <span className="absolute left-2 top-2 rounded bg-white/95 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.14em] text-[#000000] shadow-sm backdrop-blur-sm sm:left-3 sm:top-3">
+          <span className="absolute left-2 top-2 rounded bg-white/95 px-2 py-1 text-[0.5rem] font-bold uppercase tracking-[0.14em] text-[#000000] shadow-sm backdrop-blur-sm sm:left-3 sm:top-3">
             {product.category}
           </span>
         </div>
 
         <div className="p-3 sm:p-4">
-          <div className="mb-1.5 flex items-center gap-1 text-[10px] text-[#000000] sm:text-[11px]">
+          <div className="mb-1.5 flex items-center gap-1 text-[0.625rem] text-[#000000] sm:text-[0.6875rem]">
             <Star size={11} className="fill-[#000000] text-[#000000]" />
             <span className="font-semibold text-[#000000]">{product.rating}.0</span>
             <span>rating</span>
           </div>
 
-          <h2 className="line-clamp-1 text-sm font-semibold tracking-[-0.015em] text-[#202020] transition-colors duration-300 group-hover:text-[#000000] sm:text-[15px]">
+          <h2 className="line-clamp-1 text-sm font-semibold tracking-[-0.015em] text-[#202020] transition-colors duration-300 group-hover:text-[#000000] sm:text-[0.9375rem]">
             {product.name}
           </h2>
 

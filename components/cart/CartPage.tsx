@@ -27,14 +27,14 @@ export default function CartPage() {
   return (
     <main className="bg-[#f7f7f7] px-4 py-7 text-[#000000] sm:px-6 lg:py-9">
       <div className="mx-auto max-w-[1320px]">
-        <h1 className="text-[26px] font-bold tracking-tight sm:text-[30px]">Your Cart ({itemCount})</h1>
+        <h1 className="text-[1.625rem] font-bold tracking-tight sm:text-[1.875rem]">Your Cart ({itemCount})</h1>
         <nav className="mt-1.5 flex items-center gap-3 text-sm" aria-label="Breadcrumb">
           <Link href="/" className="text-[#000000] hover:text-[#000000]">Home</Link><span className="text-[#a3a3a3]">›</span><span className="text-[#000000]">Cart</span>
         </nav>
 
         <div className="mt-5 grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_380px]">
           <section className="overflow-hidden rounded-lg border border-[#e5e5e5] bg-white" aria-label="Cart items">
-            <div className="hidden grid-cols-[44px_2fr_1fr_1fr_1fr] items-center border-b border-[#e5e5e5] px-5 py-3 text-center text-[11px] font-semibold uppercase text-[#000000] md:grid">
+            <div className="hidden grid-cols-[44px_2fr_1fr_1fr_1fr] items-center border-b border-[#e5e5e5] px-5 py-3 text-center text-[0.6875rem] font-semibold uppercase text-[#000000] md:grid">
               <span /><span className="text-left">Product</span><span>Price</span><span>Quantity</span><span>Total</span>
             </div>
             {cart.map((item) => (
@@ -42,7 +42,7 @@ export default function CartPage() {
                 <button onClick={() => removeFromCart(item.id)} aria-label={`Remove ${item.name}`} className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center text-[#000000] transition hover:text-[#000000] md:static"><X size={20} strokeWidth={1.6} /></button>
                 <div className="flex min-w-0 items-center gap-4 pr-9 md:pr-0">
                   <Image src={item.image} alt={item.name} width={108} height={80} className="h-20 w-[108px] shrink-0 rounded-md object-cover" />
-                  <div className="min-w-0"><h2 className="truncate text-[15px] font-semibold">{item.name}</h2><p className="mt-1 text-xs text-[#000000]">{item.category}</p><p className="mt-1.5 text-xs font-medium text-[#000000]">In Stock</p></div>
+                  <div className="min-w-0"><h2 className="truncate text-[0.9375rem] font-semibold">{item.name}</h2><p className="mt-1 text-xs text-[#000000]">{item.category}</p><p className="mt-1.5 text-xs font-medium text-[#000000]">In Stock</p></div>
                 </div>
                 <div className="flex items-center justify-between text-sm md:block md:text-center"><span className="text-xs font-semibold uppercase text-[#000000] md:hidden">Price</span><span>Rs. {item.price.toLocaleString()} / piece</span></div>
                 <div className="flex items-center justify-between md:justify-center">

@@ -322,13 +322,13 @@ setTimeout(() => {
                 className="
                   mt-5
                   max-w-[520px]
-                  text-[38px]
+                  text-[2.375rem]
                   font-bold
                   leading-[1.08]
                   tracking-[-0.03em]
                   text-[#171717]
-                  sm:text-[48px]
-                  lg:text-[54px]
+                  sm:text-[3rem]
+                  lg:text-[3.375rem]
                 "
               >
                 Join{" "}
@@ -356,7 +356,7 @@ setTimeout(() => {
                   text-sm
                   leading-7
                   text-[#494949]
-                  sm:text-[15px]
+                  sm:text-[0.9375rem]
                 "
               >
                 Create an account to get started.
@@ -456,7 +456,7 @@ setTimeout(() => {
                     font-bold
                     tracking-[-0.02em]
                     text-[#171717]
-                    sm:text-[28px]
+                    sm:text-[1.75rem]
                   "
                 >
                   Create Account
@@ -926,7 +926,7 @@ setTimeout(() => {
                     text-xs
                     leading-5
                     text-[#555]
-                    sm:text-[13px]
+                    sm:text-[0.8125rem]
                   "
                 >
                   <input
@@ -1310,7 +1310,7 @@ function StoreBenefit({
       <div>
         <p
           className="
-            text-[11px]
+            text-[0.6875rem]
             font-bold
             text-[#222]
             sm:text-xs
@@ -1322,7 +1322,7 @@ function StoreBenefit({
         <p
           className="
             mt-0.5
-            text-[11px]
+            text-[0.6875rem]
             text-[#555]
             sm:text-xs
           "
@@ -1384,7 +1384,7 @@ function FacebookIcon() {
         justify-center
         rounded-full
         bg-[#000000]
-        text-[14px]
+        text-[0.875rem]
         font-bold
         text-white
       "

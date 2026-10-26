@@ -22,7 +22,7 @@ export default function AboutValues() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#000000]">What we offer</p>
           <h2 className="mt-4 max-w-[520px] text-4xl font-semibold leading-[1.12] tracking-[-0.03em] text-[#171717]">Complete Flooring &amp;<br />Interior <span className="text-[#000000]">Solutions</span></h2>
-          <p className="mt-6 max-w-[540px] text-[15px] leading-7 text-[#555]">From elegant wooden floors to modern SPC, carpets, rugs, and more—we have everything you need to create spaces that are stylish, functional, and truly yours.</p>
+          <p className="mt-6 max-w-[540px] text-[0.9375rem] leading-7 text-[#555]">From elegant wooden floors to modern SPC, carpets, rugs, and more—we have everything you need to create spaces that are stylish, functional, and truly yours.</p>
           <ul className="mt-6 space-y-4">
             {benefits.map((benefit) => <li key={benefit} className="flex items-center gap-3 text-sm font-medium text-[#242424]"><CircleCheck size={20} className="shrink-0 fill-[#000000] text-white" />{benefit}</li>)}
           </ul>

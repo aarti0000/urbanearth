@@ -6,14 +6,14 @@
 .image { position: relative; aspect-ratio: 1; overflow: hidden; background: #f5f3ee; }
 .image img { object-fit: cover; transition: transform .6s; }
 .copy { padding: 19px 12px 21px; text-align: center; }
-.number { font-size: 8px; letter-spacing: .17em; color: #827b6c; }
-.copy h3 { margin: 9px 0 13px; font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 400; }
-.explore { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; color: #736c5d; }
+.number { font-size: 0.5rem; letter-spacing: .17em; color: #827b6c; }
+.copy h3 { margin: 9px 0 13px; font-family: Georgia, "Times New Roman", serif; font-size: 1.1875rem; font-weight: 400; }
+.explore { display: inline-flex; align-items: center; gap: 9px; font-size: 0.625rem; color: #736c5d; }
 .previous, .next { position: absolute; top: 42%; display: grid; place-items: center; width: 40px; height: 44px; cursor: pointer; color: #67645d; background: transparent; border: 0; }
 .previous { left: -4px; }
 .next { right: -4px; }
 .previous:disabled, .next:disabled { opacity: .25; cursor: default; }
-.viewAll { display: flex; justify-content: center; align-items: center; gap: 16px; width: fit-content; margin: 20px auto 0; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.viewAll { display: flex; justify-content: center; align-items: center; gap: 16px; width: fit-content; margin: 20px auto 0; font-size: 0.625rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
 .viewAll::before { content: ""; width: 22px; height: 1px; background: #a49b8a; }
 .carousel :is(a, button, .track):focus-visible { outline: 2px solid #827352; outline-offset: -3px; }
 @media (hover: hover) { .card:hover { border-color: #b6ac98; box-shadow: 0 4px 12px #00000008; } .card:hover img { transform: scale(1.035); } }

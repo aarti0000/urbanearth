@@ -64,11 +64,11 @@ export default function BenefitsSection() {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-[12px] font-bold uppercase leading-5 tracking-[0.04em] text-[#063f82] sm:text-sm">
+                  <h3 className="text-[0.75rem] font-bold uppercase leading-5 tracking-[0.04em] text-[#063f82] sm:text-sm">
                     {benefit.title}
                   </h3>
 
-                  <p className="mt-1 text-[11px] leading-5 text-[#777] sm:text-xs">
+                  <p className="mt-1 text-[0.6875rem] leading-5 text-[#777] sm:text-xs">
                     {benefit.description}
                   </p>
                 </div>

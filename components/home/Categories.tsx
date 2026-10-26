@@ -17,8 +17,8 @@ export default function Categories() {
           {categories.map(([name, href, Icon]) => (
             <Link key={name} href={href} className="group flex min-h-[132px] flex-col items-center justify-center rounded-lg border border-[#e3e8ee] px-2 py-4 text-center transition hover:-translate-y-0.5 hover:border-[#ff6600] hover:shadow-[0_10px_25px_rgba(6,63,130,.08)]">
               <Icon size={40} strokeWidth={1.45} className="text-[#063f82] transition group-hover:text-[#ff6600]" />
-              <span className="mt-3 min-h-8 text-[11px] font-extrabold uppercase leading-4 text-[#062f64]">{name}</span>
-              <span className="mt-1 text-[9px] font-medium text-[#7c8794]">Explore collection <b className="text-[#ff6600]">→</b></span>
+              <span className="mt-3 min-h-8 text-[0.6875rem] font-extrabold uppercase leading-4 text-[#062f64]">{name}</span>
+              <span className="mt-1 text-[0.5625rem] font-medium text-[#7c8794]">Explore collection <b className="text-[#ff6600]">→</b></span>
             </Link>
           ))}
         </div>

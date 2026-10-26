@@ -39,7 +39,7 @@ export default function OrdersPage() {
 
           <span className="mx-auto mt-5 block h-[2px] w-16 bg-[#000000]" />
 
-          <p className="mx-auto mt-5 max-w-[620px] text-[15px] leading-7 text-[#575757]">
+          <p className="mx-auto mt-5 max-w-[620px] text-[0.9375rem] leading-7 text-[#575757]">
             View your recent purchases, track your orders, and manage your
             Urban Earth shopping experience.
           </p>
@@ -97,11 +97,11 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
       <div className="flex flex-col gap-4 border-b border-[#e5e5e5] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
 
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#777]">
+          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#777]">
             Order #{order.id}
           </p>
 
-          <p className="mt-1 text-[13px] text-[#666]">
+          <p className="mt-1 text-[0.8125rem] text-[#666]">
             Placed on {order.date}
           </p>
         </div>
@@ -137,15 +137,15 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
             {/* Product Info */}
             <div className="min-w-0 flex-1">
 
-              <h3 className="text-sm font-semibold text-[#171717] sm:text-[15px]">
+              <h3 className="text-sm font-semibold text-[#171717] sm:text-[0.9375rem]">
                 {item.name}
               </h3>
 
-              <p className="mt-1 text-[13px] text-[#666]">
+              <p className="mt-1 text-[0.8125rem] text-[#666]">
                 {item.size}
               </p>
 
-              <p className="mt-1 text-[13px] text-[#666]">
+              <p className="mt-1 text-[0.8125rem] text-[#666]">
                 Quantity: {item.quantity}
               </p>
 
@@ -169,7 +169,7 @@ function OrderCard({ order }: { order: (typeof orders)[number] }) {
       <div className="flex flex-col gap-5 border-t border-[#dedede] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
 
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#777]">
+          <p className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#777]">
             Order Total
           </p>
 
@@ -210,7 +210,7 @@ function StatusBadge({ status }: { status: string }) {
 
   return (
     <span
-      className={`w-fit px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.06em] ${style}`}
+      className={`w-fit px-3 py-1.5 text-[0.625rem] font-semibold uppercase tracking-[0.06em] ${style}`}
     >
       {status}
     </span>

@@ -15,7 +15,7 @@ export default function AboutCTA() {
         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-white">Our promise</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-[-0.025em] sm:text-4xl">Better Floors. Better Spaces. Better Life.</h2>
         <span className="mx-auto mt-5 block h-[2px] w-16 bg-white" />
-        <p className="mx-auto mt-5 max-w-[680px] text-[15px] leading-7 text-white/85">We don&apos;t just sell products—we help you build spaces that inspire.<br className="hidden sm:block" /> With Urban Earth, you get quality, style, and lasting value.</p>
+        <p className="mx-auto mt-5 max-w-[680px] text-[0.9375rem] leading-7 text-white/85">We don&apos;t just sell products—we help you build spaces that inspire.<br className="hidden sm:block" /> With Urban Earth, you get quality, style, and lasting value.</p>
         <div className="mt-11 grid gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map(({ icon: Icon, value, label }, index) => (
             <div key={label} className={"flex items-center justify-center gap-4 px-6 text-left " + (index ? "lg:border-l lg:border-white/35" : "")}>

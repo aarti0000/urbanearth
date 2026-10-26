@@ -228,13 +228,13 @@ export default function LoginForm() {
                 className="
                   mt-5
                   max-w-[520px]
-                  text-[38px]
+                  text-[2.375rem]
                   font-bold
                   leading-[1.08]
                   tracking-[-0.03em]
                   text-[#171717]
-                  sm:text-[48px]
-                  lg:text-[54px]
+                  sm:text-[3rem]
+                  lg:text-[3.375rem]
                 "
               >
                 Login to Your{" "}
@@ -253,7 +253,7 @@ export default function LoginForm() {
                   text-sm
                   leading-7
                   text-[#494949]
-                  sm:text-[15px]
+                  sm:text-[0.9375rem]
                 "
               >
                 Login to access your profile, track orders,
@@ -348,7 +348,7 @@ export default function LoginForm() {
                     font-bold
                     tracking-[-0.02em]
                     text-[#171717]
-                    sm:text-[28px]
+                    sm:text-[1.75rem]
                   "
                 >
                   Login
@@ -463,7 +463,7 @@ export default function LoginForm() {
                         text-[#000000]
                         transition-colors
                         hover:text-[#000000]
-                        sm:text-[13px]
+                        sm:text-[0.8125rem]
                       "
                     >
                       Forgot Password?
@@ -721,7 +721,7 @@ export default function LoginForm() {
                 className="
                   mt-7
                   text-center
-                  text-[11px]
+                  text-[0.6875rem]
                   leading-5
                   text-[#777]
                   sm:text-xs
@@ -917,7 +917,7 @@ function StoreBenefit({
       <div>
         <p
           className="
-            text-[11px]
+            text-[0.6875rem]
             font-bold
             text-[#222]
             sm:text-xs
@@ -929,7 +929,7 @@ function StoreBenefit({
         <p
           className="
             mt-0.5
-            text-[11px]
+            text-[0.6875rem]
             text-[#555]
             sm:text-xs
           "
@@ -991,7 +991,7 @@ function FacebookIcon() {
         justify-center
         rounded-full
         bg-[#000000]
-        text-[14px]
+        text-[0.875rem]
         font-bold
         text-white
       "

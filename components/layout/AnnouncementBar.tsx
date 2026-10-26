@@ -27,7 +27,7 @@ export default function AnnouncementBar() {
           {/* First set */}
           {messages.map((message, index) => (
             <div key={`first-${index}`} className="flex items-center">
-              <span className="mx-5 text-[11px] font-medium uppercase tracking-[0.18em] sm:text-xs">
+              <span className="mx-5 text-[0.6875rem] font-medium uppercase tracking-[0.18em] sm:text-xs">
                 {message}
               </span>
 
@@ -38,7 +38,7 @@ export default function AnnouncementBar() {
           {/* Duplicate set for seamless loop */}
           {messages.map((message, index) => (
             <div key={`second-${index}`} className="flex items-center">
-              <span className="mx-5 text-[11px] font-medium uppercase tracking-[0.18em] sm:text-xs">
+              <span className="mx-5 text-[0.6875rem] font-medium uppercase tracking-[0.18em] sm:text-xs">
                 {message}
               </span>
 

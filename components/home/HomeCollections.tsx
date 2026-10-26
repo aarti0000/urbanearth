@@ -46,14 +46,14 @@ export default function HomeCollections() {
       </div>
     </section>
 
-    <section className={styles.feature} aria-labelledby="mattress-heading">
-      <Link href={href("Mattresses")} className={styles.featureImage} aria-label="Shop mattresses"><Image src="/images/mattresses.jpg" alt="Detailed mattress upholstery and cushioning" fill sizes="(max-width: 700px) 100vw, 65vw" /></Link>
+    <section className={`${styles.feature} ${styles.mattressFeature}`} aria-labelledby="mattress-heading">
+      <Link href={href("Mattresses")} className={`${styles.featureImage} ${styles.mattressVideo}`} aria-label="Shop mattresses"><video src="/videos/mat.mp4" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" /></Link>
       <div className={styles.featureCopy}><p className={styles.eyebrow}>Mattresses</p><h2 id="mattress-heading" className={styles.mattressHeading}><Link href={href("Mattresses")}>RESTFUL SLEEP<br />FOR A BETTER TOMORROW</Link></h2><p className={styles.description}>Discover thoughtfully selected mattresses that bring lasting comfort and support to your nightly routine.</p><TextLink to={href("Mattresses")}>View all mattresses</TextLink></div>
     </section>
     <MattressCarousel />
 
     <section className={`${styles.feature} ${styles.reverse}`} aria-labelledby="flooring-heading">
-      <Link href={href("Laminate Flooring")} className={styles.featureImage} aria-label="Shop laminate flooring"><Image src="/images/urban-earth-hero-generated.png" alt="Natural wood flooring in a contemporary living room" fill sizes="(max-width: 700px) 100vw, 65vw" /></Link>
+      <Link href={href("Laminate Flooring")} className={`${styles.featureImage} ${styles.featureVideo}`} aria-label="Shop laminate flooring"><video src="/videos/flooring.mp4" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" /></Link>
       <div className={styles.featureCopy}><p className={styles.eyebrow}>Flooring</p><h2 id="flooring-heading"><Link href={href("Laminate Flooring")}>ELEGANT SURFACES<br />FOR MODERN SPACES</Link></h2><p className={styles.description}>Explore Everclick Laminate, Urban AquaSafe and Urban SPC. Find a finish that brings your space together.</p><TextLink to={href("Laminate Flooring")}>View flooring</TextLink></div>
     </section>
 
@@ -78,7 +78,7 @@ export default function HomeCollections() {
     </section>
     <div className={styles.paired}>
       <section className={`${styles.feature} ${styles.smallFeature}`} aria-labelledby="rugs-heading"><div className={styles.featureImage}><Image src="/images/timeless-style.jpg" alt="Textured rug in a light-filled living room" fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div className={styles.featureCopy}><p className={styles.eyebrow}>Carpets &amp; rugs</p><h2 id="rugs-heading">ADD WARMTH<br />AND CHARACTER</h2><p className={styles.description}>Beautiful textures and considered designs to complete your interiors.</p><TextLink to={href("Rugs")}>View carpets &amp; rugs</TextLink></div></section>
-      <section className={`${styles.feature} ${styles.smallFeature}`} aria-labelledby="grass-heading"><div className={styles.featureImage}><Image src="/images/artificial-grass1.jpg" alt="Close-up of soft artificial grass" fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div className={styles.featureCopy}><p className={styles.eyebrow}>Artificial grass</p><h2 id="grass-heading">GREEN SPACES<br />ALL YEAR ROUND</h2><p className={styles.description}>Low-maintenance, natural-looking grass for your indoor and outdoor spaces.</p><TextLink to={href("Artificial Grass")}>View artificial grass</TextLink></div></section>
+      <section className={`${styles.feature} ${styles.smallFeature}`} aria-labelledby="furniture-heading"><div className={styles.featureImage}><Image src="/images/furniture.jpg" alt="Warm wood furniture in a bright living and dining room" fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div className={styles.featureCopy}><p className={styles.eyebrow}>Furniture</p><h2 id="furniture-heading">CRAFTED COMFORT<br />FOR EVERY SPACE</h2><p className={styles.description}>Thoughtfully designed furniture that brings warmth, function and lasting style to your home.</p><TextLink to={href("Furniture")}>Explore furniture</TextLink></div></section>
     </div>
 
     <section className={styles.updates} aria-labelledby="updates-heading"><div className={styles.container}><div><p className={styles.eyebrow}>Stay updated</p><h2 id="updates-heading">Design Ideas, New Arrivals<br />and Special Offers</h2></div><UpdatesSignup /></div></section>

@@ -15,14 +15,14 @@ export default function ContactHero() {
       <div className="relative mx-auto flex min-h-[620px] max-w-[1440px] items-center px-6 py-16 sm:px-10 lg:px-16">
         <div className="w-full max-w-[620px]">
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-white">Contact us</p>
-          <h1 className="mt-5 text-[42px] font-semibold leading-[1.12] tracking-[-0.035em] text-white sm:text-[54px]">We&apos;re Here to Help<br />You Build <span className="text-white">Better Spaces</span></h1>
-          <p className="mt-6 max-w-[520px] text-[15px] leading-7 text-white">Have a question, need expert advice, or want a quote for your project? Our team is ready to assist you.</p>
+          <h1 className="mt-5 text-[2.625rem] font-semibold leading-[1.12] tracking-[-0.035em] text-white sm:text-[3.375rem]">We&apos;re Here to Help<br />You Build <span className="text-white">Better Spaces</span></h1>
+          <p className="mt-6 max-w-[520px] text-[0.9375rem] leading-7 text-white">Have a question, need expert advice, or want a quote for your project? Our team is ready to assist you.</p>
           <div className="mt-9 grid max-w-[570px] grid-cols-3 gap-3">
             {promises.map(({ icon: Icon, title, text }) => (
               <div key={title} className="text-center sm:text-left">
                 <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white sm:mx-0"><Icon size={23} strokeWidth={1.5} /></span>
                 <p className="mt-3 text-xs font-semibold text-white">{title}</p>
-                <p className="mt-1 hidden max-w-[130px] text-[11px] leading-5 text-white sm:block">{text}</p>
+                <p className="mt-1 hidden max-w-[130px] text-[0.6875rem] leading-5 text-white sm:block">{text}</p>
               </div>
             ))}
           </div>
